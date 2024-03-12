@@ -32,7 +32,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         public int opGetCapacity()
         {
             return attCapacity;
-        } 
+        }
         #endregion
     }
 }

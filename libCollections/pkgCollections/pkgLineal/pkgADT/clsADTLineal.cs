@@ -63,7 +63,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
 
         public bool opRetrieve(int prmIdx, ref T prmItem)
-        {
+    {
             throw new NotImplementedException();
         }
 
