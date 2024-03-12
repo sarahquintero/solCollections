@@ -1,6 +1,4 @@
-﻿
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace uTestCollections
@@ -50,6 +48,6 @@ namespace uTestCollections
             #region Test & Assert
 
             #endregion
-        }
- 
+    }
+    }
 }
