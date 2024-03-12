@@ -16,7 +16,7 @@ namespace uTestCollections
 
             #endregion
             #region Test & Assert
-
+            testMyStack = new clsVectorStack<int>();
             #endregion
         }
         [TestMethod]
