@@ -17,6 +17,11 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             testMyStack = new clsVectorStack<int>();
+            Assert.AreEqual(0, testMyStack.opLenght());
+            Assert.IsFalse(testMyStack.opItsOrderedAscending());
+            Assert.IsFalse(testMyStack.opItsOrderedDescending());
+            Assert.AreEqual(100, testMyStack.opGetCapacity());
+            CollectionAssert
             #endregion
         }
         [TestMethod]
