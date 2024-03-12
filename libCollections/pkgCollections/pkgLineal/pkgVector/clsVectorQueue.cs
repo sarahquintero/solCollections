@@ -9,7 +9,8 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 {
     public class clsVectorQueue<T> : iQueue<T> where T : IComparable<T>
     {
-        public bool opPeek(ref T prmItem)
+        #region CRUDs
+		public bool opPeek(ref T prmItem)
         {
             throw new NotImplementedException();
         }
@@ -22,6 +23,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public bool opPush(T prmItem)
         {
             throw new NotImplementedException();
-        }
+        } 
+	#endregion
     }
 }
