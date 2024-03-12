@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 {
-    public class clsVectorStack<T> : iStack<T> where T : IComparable<T>
+    public class clsVectorStack<T> : clsADTVector<T>, iStack<T> where T : IComparable<T>
     {
-        public bool opPeek(ref T prmItem)
+        #region CRUDs
+		public bool opPeek(ref T prmItem)
         {
             throw new NotImplementedException();
         }
@@ -22,9 +23,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public bool opPush(T prmItem)
         {
             throw new NotImplementedException();
-        }
+        } 
+	#endregion
 
-        public clsVectorStack(int prmCapacity)
+        #region Builders
+		public clsVectorStack(int prmCapacity)
         {
             throw new NotImplementedException();
         }
@@ -32,6 +35,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public clsVectorStack()
         {
             throw new NotImplementedException();+
-        }
+        } 
+	#endregion
     }
 }

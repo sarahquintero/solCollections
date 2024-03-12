@@ -8,8 +8,10 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
 {
     interface iList<T> where T : IComparable<T>
     {
-        bool Add(ref T prmItem);
-        bool Insert(ref int ldx, T prmItem);
-        bool Remove(ref int ldx, T prmItem);
+        #region CRUDs
+		bool opAdd(ref T prmItem);
+        bool opInsert(ref int ldx, T prmItem);
+        bool opRemove(ref int ldx, T prmItem); 
+	#endregion
     }
 }
