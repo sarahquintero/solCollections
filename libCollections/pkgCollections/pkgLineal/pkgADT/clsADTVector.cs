@@ -13,7 +13,22 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         #region Builders
         protected clsADTVector()
         {
-
+            try
+            {
+                attCapacity = prmCapacity;
+                attItems = new T(prmCapacity);
+            }
+            catch
+            {
+                attLenght = 0;
+                attItsOrderedAscending = false;
+                attItsOrderedDescending = false;
+                attCapacity = 100;
+                attItems = new T[100];
+                attItsFlexible = false;
+                attGrowingFactor = 100;
+            }
+            
         }
         protected clsADTVector(int prmCapacity)
         {
