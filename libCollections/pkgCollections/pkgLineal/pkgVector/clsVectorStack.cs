@@ -25,7 +25,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
             throw new NotImplementedException();
         } 
 	#endregion
-
         #region Builders
 		public clsVectorStack(int prmCapacity)
         {
