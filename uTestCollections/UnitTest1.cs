@@ -21,7 +21,7 @@ namespace uTestCollections
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetCapacity());
-            CollectionAssert
+            CollectionAssert.
             #endregion
         }
         [TestMethod]
