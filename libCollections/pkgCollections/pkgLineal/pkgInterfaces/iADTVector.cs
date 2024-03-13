@@ -19,6 +19,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
         #endregion
         #region Query
         bool opItsFull();
+        bool opItsFlexible();
         #endregion
     }
 }
