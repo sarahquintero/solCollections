@@ -38,17 +38,35 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region CRUDs
         public bool opModify(int prmIdx, T prmItem)
         {
-            throw new NotImplementedException();
+            if (prmIdx >= 0 && prmIdx < items.Count)
+            {
+                attItems[prmIdx] = prmItem;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool opRetrieve(int prmIdx, ref T prmItem)
-    {
-            throw new NotImplementedException();
+        {
+            if (prmIdx >= 0 && prmIdx < items.Count)
+            {
+                prmItem = attItems[prmIdx];
+                return true;
+            }
+            else
+            {
+                prmItem = default(T);
+                return false;
+            }
         }
 
         public bool opReverse()
         {
-            throw new NotImplementedException();
+            attItems.Reverse();
+            return true;
         }
         #endregion
     }
