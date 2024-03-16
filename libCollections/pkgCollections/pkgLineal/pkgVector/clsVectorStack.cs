@@ -23,12 +23,12 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public bool opPush(T prmItem)
         {
             throw new NotImplementedException();
-        } 
-	#endregion
+        }
+        #endregion
         #region Builders
-		public clsVectorStack(int prmCapacity)
+        public clsVectorStack(int prmCapacity): base(prmCapacity)
         {
-            throw new NotImplementedException();
+
         }
 
         public clsVectorStack()

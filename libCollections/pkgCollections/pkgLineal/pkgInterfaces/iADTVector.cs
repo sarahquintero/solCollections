@@ -10,8 +10,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
     {
         #region Getters
         int opGetTotalCapacity();
-        int opGetAvailableCapacity();
         int opGetGrowingFactor();
+        int opGetAvailableCapacity();
+        int opGetMaxCapacity();
         #endregion
         #region Setters
         bool opSetGrowingFactor(int prmValue);

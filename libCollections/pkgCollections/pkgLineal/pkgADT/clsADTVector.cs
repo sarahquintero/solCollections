@@ -10,12 +10,23 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
 {
     public class clsADTVector<T>: clsADTLineal<T>, iADTVector<T> where T: IComparable<T>
     {
+        #region Attributes
+        protected int attTotalCapacity = 100;
+        protected int attMaxCapacity = int.MaxValue/16;
+        protected T[] attItems = new T[100];
+        protected bool attItsFlexible = false;
+        protected int attGrowingFactor = 100;
+        #endregion
         #region Builders
         protected clsADTVector()
         {
+
+        }
+        protected clsADTVector(int prmCapacity)
+        {
             try
             {
-                if(prmCapacity == attMaxCapacity) attGrowingFactor = 0;
+                if (prmCapacity == attMaxCapacity) attGrowingFactor = 0;
                 attTotalCapacity = prmCapacity;
                 attItems = new T(prmCapacity);
             }
@@ -29,20 +40,10 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
                 attItsFlexible = false;
                 attGrowingFactor = 100;
             }
-            
-        }
-        protected clsADTVector(int prmCapacity)
-        {
-            throw new NotImplementedException();
+
         }
         #endregion
-        #region Attributes
-        protected int attTotalCapacity = 100;
-        protected int attMaxCapacity = int.MaxValue/16;
-        protected T[] attItems = new T[100];
-        protected bool attItsFlexible = false;
-        protected int attGrowingFactor = 100;
-        #endregion
+        #region Operations
         #region Getters
         public int opGetTotalCapacity()
         {
@@ -58,7 +59,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public int opGetMaxCapacity()
         {
-            return attMaxCapacity;
+            return attMaxCapacity - attLenght;
         }
         #endregion
         #region Setters
@@ -91,8 +92,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
             attTotalCapacity = prmArray.Length;
             attLength = prmItemsCount;
             return true;
-        } 
+        }
         #endregion
+        #endregion 
         #endregion
     }
 }
