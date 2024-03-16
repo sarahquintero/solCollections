@@ -10,7 +10,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
     public class clsVectorStack<T> : clsADTVector<T>, iStack<T> where T : IComparable<T>
     {
         #region CRUDs
-		public bool opPeek(ref T prmItem)
+        public bool opPeek(ref T prmItem)
         {
             throw new NotImplementedException();
         }

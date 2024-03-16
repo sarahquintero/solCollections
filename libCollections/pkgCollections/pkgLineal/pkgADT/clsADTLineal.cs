@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
 {
-    class clsADTLineal<T>: pkgServicies.pkgCollections.pkgLineal.pkgInterfaces.iADTLineal<T> where T : IComparable<T>
+    class clsADTLineal<T>: iADTLineal<T> where T : IComparable<T>
     {
         #region Attributes
         protected int attLenght = 0;
