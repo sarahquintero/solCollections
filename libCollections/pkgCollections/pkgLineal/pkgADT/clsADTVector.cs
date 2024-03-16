@@ -15,10 +15,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         {
             try
             {
+                if(prmCapacity == attMaxCapacity) attGrowingFactor = 0;
                 attCapacity = prmCapacity;
                 attItems = new T(prmCapacity);
             }
-            catch
+            catch (Exception e)
             {
                 attLenght = 0;
                 attItsOrderedAscending = false;
