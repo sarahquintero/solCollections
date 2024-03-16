@@ -9,7 +9,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
     interface iADTLineal<T> where T : IComparable<T>
     {
         #region Getters
-		int opGetLength(T prmItem); 
+        int opGetLength(T prmItem);
 	#endregion
         #region Query
 		int opFind(T prmItem);

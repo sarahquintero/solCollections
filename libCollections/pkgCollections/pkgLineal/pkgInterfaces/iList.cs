@@ -11,7 +11,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
         #region CRUDs
 		bool opAdd(ref T prmItem);
         bool opInsert(ref int ldx, T prmItem);
-        bool opRemove(ref int ldx, T prmItem); 
-	#endregion
+        bool opRemove(ref int ldx, T prmItem);
+        #endregion
     }
 }

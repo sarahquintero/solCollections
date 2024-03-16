@@ -11,7 +11,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
         #region CRUDs
 		bool opPush(T prmItem);
         bool opPop(ref T prmItem);
-        bool opPeek(ref T prmItem); 
-	#endregion
+        bool opPeek(ref T prmItem);
+        #endregion
     }
 }

@@ -10,7 +10,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
     public class clsVectorQueue<T> : iQueue<T> where T : IComparable<T>
     {
         #region CRUDs
-		public bool opPeek(ref T prmItem)
+        public bool opPeek(ref T prmItem)
         {
             if (attItems.Count == 0)
             {
