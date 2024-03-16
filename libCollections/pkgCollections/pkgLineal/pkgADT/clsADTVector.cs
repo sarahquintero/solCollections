@@ -38,6 +38,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         #endregion
         #region Attributes
         protected int attCapacity = 100;
+        protected int attMaxCapacity = int.MaxValue/16;
         protected T[] attItems = new T[100];
         protected bool attItsFlexible = false;
         protected int attGrowingFactor = 100;
@@ -47,6 +48,36 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         {
             return attCapacity;
         }
+        public int opGetGrowingFactor()
+        {
+            return attGrowingFactor;
+        }
+        public int opGetAvailableCapacity()
+        {
+            throw new NotImplementedException;
+        }
+        public int opGetMaxCapacity()
+        {
+            return attMaxCapacity;
+        }
+        #endregion
+        #region Setters
+        public void opSetCapacity(int prmItem)
+        {
+            attCapacity = prmItem;
+        }
+        public void opSetMaxCapacity(int prmItem)
+        {
+            attMaxCapacity = prmItem;
+        }
+        public void opSetItems(int attIdx, int prmItem)
+        {
+            if (attIdx >= 0 && attIdx < )
+            {
+
+            }
+        }
+
         #endregion
     }
 }
