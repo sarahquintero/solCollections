@@ -81,9 +81,13 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
                 Console.WriteLine("Index out of  range");
             }
         }
-        public void opSetItsFlexible()
+        public void opSetItsFlexible(bool value)
         {
-            attItsFlexible = true;
+            attItsFlexible = value;
+        }
+        public void opSetGrowingFactor(int prmItem)
+        {
+            attGrowingFactor = prmItem;
         }
         #endregion
     }
