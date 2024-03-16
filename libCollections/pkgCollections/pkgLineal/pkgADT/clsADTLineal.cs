@@ -16,28 +16,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         #region Getters
         public int opGetLenght()
         {
-            throw new NotImplementedException();
-        }
-        #endregion
-        #region Query
-        public bool opItsEmpty()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int opFind(T prmItem)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int opExists(T prmItem)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool opIsValid()
-        {
-            throw new NotImplementedException();
+            return attLenght;
         }
         #endregion
         #region Serialize/DesSerialize

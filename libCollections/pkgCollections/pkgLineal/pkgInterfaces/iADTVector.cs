@@ -9,7 +9,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
     public interface iADTVector<T> where T : IComparable<T>
     {
         #region Getters
-        int opGetCapacity();
+        int opGetTotalCapacity();
         int opGetAvailableCapacity();
         int opGetGrowingFactor();
         #endregion

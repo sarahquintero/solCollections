@@ -16,7 +16,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
             try
             {
                 if(prmCapacity == attMaxCapacity) attGrowingFactor = 0;
-                attCapacity = prmCapacity;
+                attTotalCapacity = prmCapacity;
                 attItems = new T(prmCapacity);
             }
             catch (Exception e)
@@ -24,7 +24,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
                 attLenght = 0;
                 attItsOrderedAscending = false;
                 attItsOrderedDescending = false;
-                attCapacity = 100;
+                attTotalCapacity = 100;
                 attItems = new T[100];
                 attItsFlexible = false;
                 attGrowingFactor = 100;
@@ -37,16 +37,16 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         #endregion
         #region Attributes
-        protected int attCapacity = 100;
+        protected int attTotalCapacity = 100;
         protected int attMaxCapacity = int.MaxValue/16;
         protected T[] attItems = new T[100];
         protected bool attItsFlexible = false;
         protected int attGrowingFactor = 100;
         #endregion
         #region Getters
-        public int opGetCapacity()
+        public int opGetTotalCapacity()
         {
-            return attCapacity;
+            return attTotalCapacity;
         }
         public int opGetGrowingFactor()
         {
@@ -62,54 +62,37 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         #endregion
         #region Setters
-        public void opSetCapacity(int prmItem)
+        public bool opSetCapacity(int prmValue)
         {
-            attCapacity = prmItem;
+            attTotalCapacity = prmValue;
         }
-        public void opSetMaxCapacity(int prmItem)
+        public bool opSetGrowingFactor(int prmValue)
         {
-            attMaxCapacity = prmItem;
-        }
-        public void opSetItems(int attIdx, int prmItem)
-        {
-            if (attIdx >= 0 && attIdx < attItems.Length)
-            {
-                attItems[attIdx] = prmItem;
-            }
-            else
-            {
-                Console.WriteLine("Index out of  range");
-            }
-        }
-        public void opSetItsFlexible(bool value)
-        {
-            attItsFlexible = value;
-        }
-        public void opSetGrowingFactor(int prmItem)
-        {
-            attGrowingFactor = prmItem;
+            attGrowingFactor = prmValue;
         }
         #endregion
         #region Query
-        public bool opItsEmpty()
+        public bool opItsFull()
         {
             throw new NotImplementedException();
         }
+        public bool opItsFlexible(T prmItem)
+        {
+            throw new NotImplementedException();
+        }
+        #region Serialize/Deserialize
+        public override T[] opToArray()
+        {
 
-        public int opFind(T prmItem)
-        {
-            throw new NotImplementedException();
         }
-
-        public int opExists(T prmItem)
+        public override bool opToItems(T[] prmArray, int prmItemsCount)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool opIsValid()
-        {
-            throw new NotImplementedException();
-        }
+            attItems = prmArray;
+            attTotalCapacity = prmArray.Length;
+            attLength = prmItemsCount;
+            return true;
+        } 
+        #endregion
         #endregion
     }
 }

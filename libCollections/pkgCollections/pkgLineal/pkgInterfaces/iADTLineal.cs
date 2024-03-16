@@ -29,7 +29,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
         #region CRUDs
 		bool opModify(int prmIdx, T prmItem);
         bool opRetrieve(int prmIdx, ref T prmItem); 
-	#endregion
-        
+	#endregion 
     }
 }
