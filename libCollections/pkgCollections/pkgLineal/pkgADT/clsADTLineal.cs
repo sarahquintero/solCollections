@@ -19,7 +19,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             return attLenght;
         }
         #endregion
-        #region Serialize/DesSerialize
+        #region Serialize/Deserialize
         public T[] opToArray()
         {
             throw new NotImplementedException();
