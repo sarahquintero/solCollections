@@ -72,12 +72,19 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public void opSetItems(int attIdx, int prmItem)
         {
-            if (attIdx >= 0 && attIdx < )
+            if (attIdx >= 0 && attIdx < attItems.Length)
             {
-
+                attItems[attIdx] = prmItem;
+            }
+            else
+            {
+                Console.WriteLine("Index out of  range");
             }
         }
-
+        public void opSetItsFlexible()
+        {
+            attItsFlexible = true;
+        }
         #endregion
     }
 }
