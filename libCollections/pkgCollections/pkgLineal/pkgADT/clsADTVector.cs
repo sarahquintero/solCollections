@@ -90,5 +90,26 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
             attGrowingFactor = prmItem;
         }
         #endregion
+        #region Query
+        public bool opItsEmpty()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int opFind(T prmItem)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int opExists(T prmItem)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool opIsValid()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }
