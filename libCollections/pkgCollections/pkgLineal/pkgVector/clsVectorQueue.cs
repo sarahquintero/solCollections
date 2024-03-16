@@ -12,17 +12,30 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         #region CRUDs
 		public bool opPeek(ref T prmItem)
         {
-            throw new NotImplementedException();
-        }
+            if (attItems.Count == 0)
+            {
+                prmItem = default(T);
+                return false;
+            }
+            prmItem = attItems[attItems.Count - 1];
 
+            return true;
+        }
         public bool opPop(ref T prmItem)
         {
-            throw new NotImplementedException();
+            if (attItems.Count == 0)
+            {
+                prmItem = default(T);
+                return false;
+            }
+            prmItem = attItems[attItems.Count - 1];
+            attItems.RemoveAt(attItems.Count - 1);
+            return true;
         }
-
         public bool opPush(T prmItem)
         {
-            throw new NotImplementedException();
+            attItems.Add(prmItem);
+            return true;
         } 
 	#endregion
     }
