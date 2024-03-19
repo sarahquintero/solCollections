@@ -84,7 +84,21 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         #region Serialize/Deserialize
         public override T[] opToArray()
         {
-
+            return attItems;
+        }
+        public override bool opToItems(T[] prmArray)
+        {
+            try
+            {
+                attItems = prmItems;
+                attLength = attItems.Length;
+                attTotalCapacity = attItems.Length;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
         public override bool opToItems(T[] prmArray, int prmItemsCount)
         {
