@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
 {
-    interface iADTLineal<T> where T : IComparable<T>
+    public interface iADTLineal<T> where T : IComparable<T>
     {
         #region Getters
         int opGetLength(T prmItem);
@@ -15,20 +15,20 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
 		int opFind(T prmItem);
         bool opExists(T prmItem);
         bool opItsEmpty();
-        bool opIsValid();
+        bool opItsValid();
         bool opItsOrderedAscending();
         bool opItsOrderedDescending(); 
 	#endregion
-        #region Serialize
+        #region Serialize/Deserialize
 		T[] opToArray();
-        string opToString(); 
-	#endregion
-        #region Deserialize
-		bool opToItems(T[] Array); 
-	#endregion
+        string opToString();
+        bool opToItems(T[] prmArray);
+        bool opToItems(T[] prmArray, int prmItemsCount);
+        #endregion
         #region CRUDs
 		bool opModify(int prmIdx, T prmItem);
-        bool opRetrieve(int prmIdx, ref T prmItem); 
-	#endregion 
+        bool opRetrieve(int prmIdx, ref T prmItem);
+        bool opSetCapacity(int prmValue);
+        #endregion
     }
 }

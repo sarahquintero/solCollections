@@ -7,8 +7,18 @@ using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 {
-    public class clsVectorStack<T> : clsADTVector<T>, iStack<T> where T : IComparable<T>
+    public class clsVectorStack<T> : pkgADT.clsADTVector<T>, iStack<T> where T : IComparable<T>
     {
+        #region Builders
+        public clsVectorStack(int prmCapacity) : base(prmCapacity)
+        {
+
+        }
+        public clsVectorStack()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
@@ -25,16 +35,5 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
             throw new NotImplementedException();
         }
         #endregion
-        #region Builders
-        public clsVectorStack(int prmCapacity): base(prmCapacity)
-        {
-
-        }
-
-        public clsVectorStack()
-        {
-            throw new NotImplementedException();+
-        } 
-	#endregion
     }
 }

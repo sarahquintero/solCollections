@@ -9,6 +9,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 {
     public class clsVectorQueue<T> : iQueue<T> where T : IComparable<T>
     {
+        protected T[] attItems = new T[100];
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
@@ -18,7 +19,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
                 return false;
             }
             prmItem = attItems[attItems.Count - 1];
-
             return true;
         }
         public bool opPop(ref T prmItem)

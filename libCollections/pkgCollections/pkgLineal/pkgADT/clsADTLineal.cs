@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
 {
-    class clsADTLineal<T>: iADTLineal<T> where T : IComparable<T>
+    public class clsADTLineal<T>: iADTLineal<T> where T : IComparable<T>
     {
         #region Attributes
         protected int attLenght = 0;
         protected bool attItsOrderedAscending = false;
         protected bool attItsOrderedDescending = false;
+        private int prmItemsCount;
+        private T[] prmArray;
         #endregion
         #region Getters
         public int opGetLenght()
@@ -20,7 +23,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         #endregion
         #region Serialize/Deserialize
-        public T[] opToArray()
+        public virtual T[] opToArray()
         {
             throw new NotImplementedException();
         }
@@ -30,17 +33,21 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             throw new NotImplementedException();
         }
 
-        public bool opToItems(T[] prmArray)
+        public virtual bool opToItems(T[] prmArray)
+        {
+            throw new NotImplementedException();
+        }
+        public virtual bool opToItems(T[] prmArray, int prmItemsCount)
         {
             throw new NotImplementedException();
         }
         #endregion
         #region CRUDs
-        public bool opModify(int prmIdx, T prmItem)
+        public bool opModify(int prmIndex, T prmItem)
         {
-            if (prmIdx >= 0 && prmIdx < items.Count)
+            if (prmIndex >= 0 && prmIndex < prmItemsCount)
             {
-                attItems[prmIdx] = prmItem;
+                prmArray[prmIndex] = prmItem;
                 return true;
             }
             else
@@ -48,7 +55,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
                 return false;
             }
         }
-
         public bool opRetrieve(int prmIdx, ref T prmItem)
         {
             if (prmIdx >= 0 && prmIdx < items.Count)
@@ -62,11 +68,52 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
                 return false;
             }
         }
-
         public bool opReverse()
         {
             attItems.Reverse();
             return true;
+        }
+        public int opGetLength(T prmItem)
+        {
+            throw new NotImplementedException();
+        }
+        public int opFind(T prmItem)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opExists(T prmItem)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool opItsEmpty()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool opItsValid(int prmIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool opItsOrderedAscending()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool opItsOrderedDescending()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool opItsValid()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool opSetCapacity(int prmValue)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

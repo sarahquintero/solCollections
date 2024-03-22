@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
 {
-    public class clsADTVector<T>: clsADTLineal<T>, iADTVector<T> where T: IComparable<T>
+    public class clsADTVector<T> : pkgLineal.pkgADT.clsADTLineal<T>, iADTVector<T> where T : IComparable<T>
     {
         #region Attributes
         protected int attTotalCapacity = 100;
+        private int attLength;
         protected int attMaxCapacity = int.MaxValue/16;
         protected T[] attItems = new T[100];
         protected bool attItsFlexible = false;
@@ -28,7 +29,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
             {
                 if (prmCapacity == attMaxCapacity) attGrowingFactor = 0;
                 attTotalCapacity = prmCapacity;
-                attItems = new T(prmCapacity);
+                attItems = new T[prmCapacity];
             }
             catch (Exception e)
             {
@@ -49,27 +50,33 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         {
             return attTotalCapacity;
         }
+        public int opGetAvailableCapacity()
+        {
+            throw new NotImplementedException();
+        }
         public int opGetGrowingFactor()
         {
             return attGrowingFactor;
         }
-        public int opGetAvailableCapacity()
-        {
-            throw new NotImplementedException;
-        }
-        public int opGetMaxCapacity()
-        {
-            return attMaxCapacity - attLenght;
-        }
         #endregion
         #region Setters
-        public bool opSetCapacity(int prmValue)
-        {
-            attTotalCapacity = prmValue;
-        }
         public bool opSetGrowingFactor(int prmValue)
         {
             attGrowingFactor = prmValue;
+            return true;
+        }
+        public bool opSetCapacity(int prmValue)
+        {
+            attTotalCapacity = prmValue;
+            return true;
+        }
+        public bool opSetFlexible()
+        {
+            throw new NotImplementedException();
+        }
+        public bool opSetInflexible()
+        {
+            throw new NotImplementedException();
         }
         #endregion
         #region Query
@@ -77,10 +84,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         {
             throw new NotImplementedException();
         }
-        public bool opItsFlexible(T prmItem)
+        public bool opItsFlexible()
         {
             throw new NotImplementedException();
         }
+        #endregion
         #region Serialize/Deserialize
         public override T[] opToArray()
         {
@@ -90,12 +98,12 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         {
             try
             {
-                attItems = prmItems;
-                attLength = attItems.Length;
-                attTotalCapacity = attItems.Length;
+                attItems = prmArray;
+                attTotalCapacity = prmArray.Length;
+                attLenght = attItems.Length;
                 return true;
             }
-            catch
+            catch (Exception e)
             {
                 return false;
             }
@@ -108,7 +116,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
             return true;
         }
         #endregion
-        #endregion 
         #endregion
     }
 }

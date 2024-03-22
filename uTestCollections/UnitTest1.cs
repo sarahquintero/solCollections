@@ -9,7 +9,6 @@ namespace uTestCollections
     {
         [TestMethod]
         private clsVectorStack<int> testMyStack;
-
         [TestMethod]
         public void testDefaultConstructor()
         {
@@ -172,6 +171,28 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.isTrue(testMyStack.opPush(456));
+            Assert.AreEqual(2, testMyStack.opGetLenght());
+            Assert.IsFalse(testMyStack.opItsOrderedAscending());
+            Assert.IsFalse(testMyStack.opItsOrderedDescending());
+            Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
+            CollectionAssert.AreEqual(testExpectedItems, testMyStack.opToArray());
+            Assert.IsFalse(testMyStack.opItsFlexible());
+            Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
+            Assert.AreEqual(98, testMyStack.opGetAvailableCapacity());
+            #endregion
+        }
+        [TestMethod]
+        public void testPushNextItemWithHugeFullFlexibleCollection()
+        {
+            #region Setup
+            testMyStack = new clsVectorStack<int>();
+            testMyStack.opToItems(new int[clsVectorStack<int>.opGetMaxCapacity() - 1]);
+            testMyStack.opSetFlexible();
+            testExpectedItems = new int[clsVectorStack<int>.opGetMaxCapacity()];
+            testExpectedItems[0] = 777;
+            #endregion
+            #region Test & Assert
+            Assert.isTrue(testMyStack.opPush(777));
             Assert.AreEqual(2, testMyStack.opGetLenght());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
 {
-    interface iList<T> where T : IComparable<T>
+    public interface iList<T> where T : IComparable<T>
     {
         #region CRUDs
 		bool opAdd(ref T prmItem);
