@@ -196,14 +196,14 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.isTrue(testMyStack.opPush(777));
-            Assert.AreEqual(clsVectorStack<int>.opGetMaxCapacity(), testMyStack.opGetLenght());
+            Assert.AreEqual(5, testMyStack.opGetLenght());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
-            Assert.AreEqual(clsVectorStack<int>.opGetMaxCapacity(), testMyStack.opGetTotalCapacity());
+            Assert.AreEqual(104, testMyStack.opGetTotalCapacity());
             CollectionAssert.AreEqual(testExpectedItems, testMyStack.opToArray());
-            Assert.IsFalse(testMyStack.opItsFlexible();
-            Assert.AreEqual(0, testMyStack.opGetGrowingFactor());
-            Assert.AreEqual(0, testMyStack.opGetAvailableCapacity());
+            Assert.IsTrue(testMyStack.opItsFlexible());
+            Assert.AreEqual(100, testMyStack.opGetGowingFactor());
+            Assert.AreEqual(99, testMyStack.opGetAvailableCapacity());
             #endregion
         }
         [TestMethod]
