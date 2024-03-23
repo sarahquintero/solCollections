@@ -141,7 +141,9 @@ namespace uTestCollections
         public void testPushFirstItem()
         {
             #region Setup
-
+            testMyStack = new clsVectorStack<int>();
+            testExpectedItems = new int[100];
+            testExpectedItems[0] = 123;
             #endregion
             #region Test & Assert
             Assert.isTrue(testMyStack.opPush(123));
