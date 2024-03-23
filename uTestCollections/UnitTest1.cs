@@ -10,6 +10,7 @@ namespace uTestCollections
         [TestMethod]
         private clsVectorStack<int> testMyStack;
         private int[] testExpectedItems;
+        #region BuilderTest
         [TestMethod]
         public void testDefaultConstructor()
         {
@@ -111,7 +112,7 @@ namespace uTestCollections
 
             #endregion
             #region Test & Assert
-            testMyStack = new clsVectorStack<int>(int.MaxValue / 16+1);
+            testMyStack = new clsVectorStack<int>(int.MaxValue / 16 + 1);
             Assert.AreEqual(1, testMyStack.opGetLenght());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
@@ -138,6 +139,8 @@ namespace uTestCollections
             Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
             #endregion
         }
+        #endregion
+        #region PushTests
         [TestMethod]
         public void testPushFirstItem()
         {
@@ -187,7 +190,7 @@ namespace uTestCollections
         {
             #region Setup
             testMyStack = new clsVectorStack<int>();
-            testMyStack.opToItems(new int[4] { 123, 0, 0, 0 },1);
+            testMyStack.opToItems(new int[4] { 123, 0, 0, 0 }, 1);
             testExpectedItems = new int[4] { 456, 123, 0, 0 });
             #endregion
             #region Test & Assert
@@ -207,7 +210,7 @@ namespace uTestCollections
         {
             #region Setup
             testMyStack = new clsVectorStack<int>();
-            testMyStack.opToItems(new int[4] { 987,789,456,123});
+            testMyStack.opToItems(new int[4] { 987, 789, 456, 123 });
             testExpectedItems = new int[4] { 987, 789, 456, 123 });
             #endregion
             #region Test & Assert
@@ -227,7 +230,7 @@ namespace uTestCollections
         {
             #region Setup
             testMyStack = new clsVectorStack<int>();
-            testMyStack.opToItems(new int[4] {987,789,456,123});
+            testMyStack.opToItems(new int[4] { 987, 789, 456, 123 });
             testMyStack.opSetFlexible();
             testExpectedItems = new int[104];
             testExpectedItems[0] = 777;
@@ -263,12 +266,13 @@ namespace uTestCollections
             Assert.AreEqual(clsVectorStack<int>.opGetMaxCapacity(), testMyStack.opGetLenght());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
-            Assert.AreEqual(clsVectorStack<int>.opGetMaxCapacity(),testMyStack.opGetTotalCapacity());
+            Assert.AreEqual(clsVectorStack<int>.opGetMaxCapacity(), testMyStack.opGetTotalCapacity());
             CollectionAssert.AreEqual(testExpectedItems, testMyStack.opToArray());
             Assert.IsFalse(testMyStack.opItsFlexible();
             Assert.AreEqual(0, testMyStack.opGetGrowingFactor());
             Assert.AreEqual(0, testMyStack.opGetAvailableCapacity());
             #endregion
-        }
+        } 
+        #endregion
     }
 }
