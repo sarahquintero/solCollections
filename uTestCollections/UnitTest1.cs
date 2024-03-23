@@ -141,7 +141,9 @@ namespace uTestCollections
         public void testPushFirstItem()
         {
             #region Setup
-
+            testMyStack = new clsVectorStack<int>();
+            testExpectedItems = new int[100];
+            testExpectedItems[0] = 123;
             #endregion
             #region Test & Assert
             Assert.isTrue(testMyStack.opPush(123));
@@ -152,7 +154,6 @@ namespace uTestCollections
             CollectionAssert.AreEqual(new int[100], testMyStack.opToArray);
             Assert.IsFalse(testMyStack.opItsFlexible());
             Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
-            Assert.AreEqual(123, testMyStack.opToArray()[0]);
             Assert.AreEqual(99, testMyStack.opGetAvailableCapacity());
             #endregion
         }
