@@ -9,6 +9,7 @@ namespace uTestCollections
     {
         [TestMethod]
         private clsVectorStack<int> testMyStack;
+        private int[] testExpectedItems;
         [TestMethod]
         public void testDefaultConstructor()
         {
@@ -104,14 +105,14 @@ namespace uTestCollections
             #endregion
         }
         [TestMethod]
-        public void testBehindMaxCapacityConstructor()
+        public void testBeyondCapacityConstructor()
         {
             #region Setup
 
             #endregion
             #region Test & Assert
-            testMyStack = new clsVectorStack<int>(int.MaxValue / 16-1);
-            Assert.AreEqual(0, testMyStack.opGetLenght());
+            testMyStack = new clsVectorStack<int>(int.MaxValue / 16+1);
+            Assert.AreEqual(1, testMyStack.opGetLenght());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
@@ -121,14 +122,14 @@ namespace uTestCollections
             #endregion
         }
         [TestMethod]
-        public void testBeyondCapacityConstructor()
+        public void testBehindMaxCapacityConstructor()
         {
             #region Setup
 
             #endregion
             #region Test & Assert
-            testMyStack = new clsVectorStack<int>(int.MaxValue / 16+1);
-            Assert.AreEqual(1, testMyStack.opGetLenght());
+            testMyStack = new clsVectorStack<int>(int.MaxValue / 16 - 1);
+            Assert.AreEqual(0, testMyStack.opGetLenght());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
