@@ -181,6 +181,26 @@ namespace uTestCollections
             #endregion
         }
         [TestMethod]
+        public void testPushNextItemWithFullNoFlexibleCollection()
+        {
+            #region Setup
+            testMyStack = new clsVectorStack<int>();
+            testMyStack.opToItems(new int[4] { 987,789,456,123});
+            testExpectedItems = new int[4] { 987, 789, 456, 123 });
+            #endregion
+            #region Test & Assert
+            Assert.isTrue(testMyStack.opPush(666));
+            Assert.AreEqual(4, testMyStack.opGetLenght());
+            Assert.IsFalse(testMyStack.opItsOrderedAscending());
+            Assert.IsFalse(testMyStack.opItsOrderedDescending());
+            Assert.AreEqual(4, testMyStack.opGetTotalCapacity());
+            CollectionAssert.AreEqual(testExpectedItems, testMyStack.opToArray());
+            Assert.IsTrue(testMyStack.opItsFlexible());
+            Assert.AreEqual(100, testMyStack.opGetGowingFactor());
+            Assert.AreEqual(0, testMyStack.opGetAvailableCapacity());
+            #endregion
+        }
+        [TestMethod]
         public void testPushNextItemWithFullFlexibleCollection()
         {
             #region Setup
