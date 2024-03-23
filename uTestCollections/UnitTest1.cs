@@ -15,11 +15,10 @@ namespace uTestCollections
         public void testDefaultConstructor()
         {
             #region Setup
-
             #endregion
             #region Test & Assert
             testMyStack = new clsVectorStack<int>();
-            Assert.AreEqual(0, testMyStack.opGetLenght());
+            Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
@@ -46,7 +45,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             testMyStack = new clsVectorStack<int>(-1);
-            Assert.AreEqual(0, testMyStack.opGetLenght());
+            Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
@@ -63,7 +62,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             testMyStack = new clsVectorStack<int>(int.MaxValue);
-            Assert.AreEqual(0, testMyStack.opGetLenght());
+            Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
@@ -80,7 +79,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             testMyStack = new clsVectorStack<int>(0);
-            Assert.AreEqual(0, testMyStack.opGetLenght());
+            Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
@@ -96,7 +95,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             testMyStack = new clsVectorStack<int>(clsVectorStack<int>.opGetMaxCapacity());
-            Assert.AreEqual(0, testMyStack.opGetLenght());
+            Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(clsVectorStack<int>.opGetMaxCapacity(), testMyStack.opGetTotalCapacity());
@@ -113,7 +112,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             testMyStack = new clsVectorStack<int>(int.MaxValue / 16 + 1);
-            Assert.AreEqual(1, testMyStack.opGetLenght());
+            Assert.AreEqual(1, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
@@ -130,7 +129,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             testMyStack = new clsVectorStack<int>(int.MaxValue / 16 - 1);
-            Assert.AreEqual(0, testMyStack.opGetLenght());
+            Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
@@ -151,7 +150,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPush(123));
-            Assert.AreEqual(1, testMyStack.opGetLenght());
+            Assert.AreEqual(1, testMyStack.opGetLength  ());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
@@ -175,7 +174,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPush(456));
-            Assert.AreEqual(2, testMyStack.opGetLenght());
+            Assert.AreEqual(2, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
@@ -195,7 +194,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPush(456));
-            Assert.AreEqual(2, testMyStack.opGetLenght());
+            Assert.AreEqual(2, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(4, testMyStack.opGetTotalCapacity());
@@ -215,7 +214,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPush(666));
-            Assert.AreEqual(4, testMyStack.opGetLenght());
+            Assert.AreEqual(4, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(4, testMyStack.opGetTotalCapacity());
@@ -241,7 +240,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPush(777));
-            Assert.AreEqual(5, testMyStack.opGetLenght());
+            Assert.AreEqual(5, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(104, testMyStack.opGetTotalCapacity());
@@ -263,7 +262,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPush(777));
-            Assert.AreEqual(clsVectorStack<int>.opGetMaxCapacity(), testMyStack.opGetLenght());
+            Assert.AreEqual(clsVectorStack<int>.opGetMaxCapacity(), testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(clsVectorStack<int>.opGetMaxCapacity(), testMyStack.opGetTotalCapacity());

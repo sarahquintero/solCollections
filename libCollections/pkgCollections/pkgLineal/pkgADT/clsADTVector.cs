@@ -12,7 +12,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
     {
         #region Attributes
         protected int attTotalCapacity = 100;
-        private int attLength;
+        //private int attLength;
         protected static int attMaxCapacity = int.MaxValue/16;
         protected T[] attItems = new T[100];
         protected bool attItsFlexible = false;
@@ -34,7 +34,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
             }
             catch (Exception e)
             {
-                attLenght = 0;
+                base.attLength = 0;
                 attItsOrderedAscending = false;
                 attItsOrderedDescending = false;
                 attTotalCapacity = 100;
@@ -76,11 +76,13 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public bool opSetFlexible()
         {
-            throw new NotImplementedException();
+            attItsFlexible = true;
+            return true;
         }
         public bool opSetInflexible()
         {
-            throw new NotImplementedException();
+            attItsFlexible = false;
+            return false;
         }
         #endregion
         #region Query
@@ -104,7 +106,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
             {
                 attItems = prmArray;
                 attTotalCapacity = prmArray.Length;
-                attLenght = attItems.Length;
+                base.attLength = attItems.Length;
                 return true;
             }
             catch (Exception e)

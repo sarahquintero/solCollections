@@ -33,7 +33,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public bool opPush(T prmItem)
         {
             attItems[0] = prmItem;
-            attLenght++;
+            attLength++;
             return true;
         }
         #endregion

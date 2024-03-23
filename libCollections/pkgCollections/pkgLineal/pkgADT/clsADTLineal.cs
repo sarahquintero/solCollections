@@ -10,16 +10,16 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
     public class clsADTLineal<T>: iADTLineal<T> where T : IComparable<T>
     {
         #region Attributes
-        protected int attLenght = 0;
+        protected int attLength = 0;
         protected bool attItsOrderedAscending = false;
         protected bool attItsOrderedDescending = false;
         private int prmItemsCount;
         private T[] prmArray;
         #endregion
         #region Getters
-        public int opGetLenght()
+        public int opGetLength()
         {
-            return attLenght;
+            return attLength;
         }
         #endregion
         #region Serialize/Deserialize
