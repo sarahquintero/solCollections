@@ -55,11 +55,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
                 return false;
             }
         }
-        public bool opRetrieve(int prmIdx, ref T prmItem)
+        public bool opRetrieve(int prmIndex, ref T prmItem)
         {
-            if (prmIdx >= 0 && prmIdx < items.Count)
+            if (prmIndex >= 0 && prmIndex < prmItemsCount)
             {
-                prmItem = attItems[prmIdx];
+                prmItem = prmArray[prmIndex];
                 return true;
             }
             else
@@ -70,7 +70,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         public bool opReverse()
         {
-            attItems.Reverse();
+            prmArray.Reverse();
             return true;
         }
         public int opGetLength(T prmItem)

@@ -32,7 +32,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 
         public bool opPush(T prmItem)
         {
-            throw new NotImplementedException();
+            attItems[0] = prmItem;
+            attLenght++;
+            return true;
         }
         #endregion
     }
