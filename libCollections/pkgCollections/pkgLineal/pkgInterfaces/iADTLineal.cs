@@ -28,7 +28,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
 		bool opModify(int prmIdx, T prmItem);
         bool opRetrieve(int prmIdx, ref T prmItem);
         bool opSetCapacity(int prmValue);
-        bool opSetCapacity(int prmValue);
         #endregion
     }
 }
