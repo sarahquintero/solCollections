@@ -7,10 +7,10 @@ namespace uTestCollections
     [TestClass]
     public class uTestVectorStack
     {
-        //[TestMethod]
+        [TestMethod]
         private clsVectorStack<int> testMyStack;
         private int[] testExpectedItems;
-        #region BuilderTest
+        #region BuilderTests
         [TestMethod]
         public void testDefaultConstructor()
         {
