@@ -197,6 +197,10 @@ namespace uTestCollections
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(clsVectorStack<int>.opGetMaxCapacity(),testMyStack.opGetTotalCapacity());
+            CollectionAssert.AreEqual(testExpectedItems, testMyStack.opToArray());
+            Assert.IsFalse(testMyStack.opItsFlexible();
+            Assert.AreEqual(0, testMyStack.opGetGrowingFactor());
+            Assert.AreEqual(0, testMyStack.opGetAvailableCapacity());
             #endregion
         }
     }
