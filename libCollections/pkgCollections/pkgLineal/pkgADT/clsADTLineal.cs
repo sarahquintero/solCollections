@@ -27,12 +27,10 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
-
         public String opToString()
         {
             throw new NotImplementedException();
         }
-
         public virtual bool opToItems(T[] prmArray)
         {
             throw new NotImplementedException();
@@ -85,32 +83,26 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
-
         public bool opItsEmpty()
         {
             throw new NotImplementedException();
         }
-
         public bool opItsValid(int prmIndex)
         {
             throw new NotImplementedException();
         }
-
         public bool opItsOrderedAscending()
         {
             throw new NotImplementedException();
         }
-
         public bool opItsOrderedDescending()
         {
             throw new NotImplementedException();
         }
-
         public bool opItsValid()
         {
             throw new NotImplementedException();
         }
-
         public bool opSetCapacity(int prmValue)
         {
             throw new NotImplementedException();
