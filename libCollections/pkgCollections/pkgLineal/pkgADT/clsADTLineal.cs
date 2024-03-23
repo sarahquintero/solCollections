@@ -93,11 +93,25 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         public bool opItsOrderedAscending()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < prmArray.Length - 1; i++)
+            {
+                if (prmArray[i].CompareTo(prmArray[i + 1]) > 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         public bool opItsOrderedDescending()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < prmArray.Length - 1; i++)
+            {
+                if (prmArray[i].CompareTo(prmArray[i + 1]) < 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         public bool opItsValid()
         {
