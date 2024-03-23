@@ -9,7 +9,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 {
     public class clsVectorQueue<T> : iQueue<T> where T : IComparable<T>
     {
-        protected T[] attItems = new T[100];
+        #region Attributes
+        protected T[] attItems = new T[100]; 
+        #endregion
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
