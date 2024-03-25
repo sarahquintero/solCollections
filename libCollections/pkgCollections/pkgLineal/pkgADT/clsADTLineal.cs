@@ -14,7 +14,19 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         protected bool attItsOrderedAscending = false;
         protected bool attItsOrderedDescending = false;
         private int prmItemsCount = 0;
-        private T[] prmArray;
+        protected T[] prmArray;
+        protected clsADTLineal()
+        {
+            
+        }
+        protected clsADTLineal(int attLength)
+        {
+            prmArray = new T[attLength];
+            attLength = 0;
+            attItsOrderedAscending = false;
+            attItsOrderedDescending = false;
+            prmItemsCount = 0;
+        }
         #endregion
         #region Getters
         public int opGetLength()
@@ -93,25 +105,31 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         public bool opItsOrderedAscending()
         {
+            attLength = prmArray.Length;
             for (int i = 0; i < (attLength - 1); i++)
             {
                 if (prmArray[i].CompareTo(prmArray[i + 1]) > 0)
                 {
-                    return false;
+                    attItsOrderedAscending = false;
+                    return attItsOrderedAscending;
                 }
             }
-            return true;
+            attItsOrderedAscending = true;
+            return attItsOrderedAscending;
         }
         public bool opItsOrderedDescending()
         {
-            for (int i = 0; i < prmArray.Length - 1; i++)
+            attLength = prmArray.Length;
+            for (int i = 0; i < (attLength - 1); i++)
             {
                 if (prmArray[i].CompareTo(prmArray[i + 1]) < 0)
                 {
-                    return false;
+                    attItsOrderedDescending = false;
+                    return attItsOrderedDescending;
                 }
             }
-            return true;
+            attItsOrderedDescending = true;
+            return attItsOrderedDescending;
         }
         public bool opItsValid()
         {

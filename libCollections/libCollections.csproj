@@ -49,6 +49,7 @@
     <Compile Include="pkgCollections\pkgLineal\pkgInterfaces\iQueue.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgInterfaces\iStack.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgADT\clsADTVector.cs" />
+    <Compile Include="pkgCollections\pkgLineal\pkgVector\clsVectorList.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgVector\clsVectorQueue.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgVector\clsVectorStack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
