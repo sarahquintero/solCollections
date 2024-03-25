@@ -7,7 +7,6 @@ namespace uTestCollections
     [TestClass]
     public class uTestVectorStack
     {
-        [TestMethod]
         private clsVectorStack<int> testMyStack;
         private int[] testExpectedItems;
         #region BuilderTests

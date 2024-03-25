@@ -13,7 +13,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         protected int attLength = 0;
         protected bool attItsOrderedAscending = false;
         protected bool attItsOrderedDescending = false;
-        private int prmItemsCount;
+        private int prmItemsCount = 0;
         private T[] prmArray;
         #endregion
         #region Getters
@@ -93,7 +93,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         public bool opItsOrderedAscending()
         {
-            for (int i = 0; i < prmArray.Length - 1; i++)
+            for (int i = 0; i < (attLength - 1); i++)
             {
                 if (prmArray[i].CompareTo(prmArray[i + 1]) > 0)
                 {
@@ -117,10 +117,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
-        public bool opSetCapacity(int prmValue)
-        {
-            throw new NotImplementedException();
-        }
+        //public bool opSetCapacity(int prmValue)
+        //{
+        //    attTotalCapacity = prmValue;
+        //   return true;
+        //}
         #endregion
     }
 }
