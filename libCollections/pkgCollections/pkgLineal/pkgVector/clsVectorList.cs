@@ -1,4 +1,5 @@
 ﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,22 @@ using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 {
-    public class clsVectorList<T> : iList<T> where T : IComparable<T>
+    public class clsVectorList<T> : clsADTVector<T> , iList<T> where T : IComparable<T>
     {
+        #region Attributes
+        //protected T[] attItems = new T[100]; 
+        #endregion
+        #region Builders
         protected clsVectorList()
         {
 
         }
-
+        protected clsVectorList(int prmCapacity)
+        {
+            attItems = new T[prmCapacity];
+        } 
+        #endregion
+        #region CRUDs
         public bool opAdd(ref T prmItem)
         {
             throw new NotImplementedException();
@@ -32,8 +42,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public bool opInsert(ref int Idx, T prmItem)
         {
             throw new NotImplementedException();
-        }
-
+        } 
+        #endregion
+        #region Query
         public bool opModify(ref int Idx, T prmItem)
         {
             throw new NotImplementedException();
@@ -42,6 +53,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public bool opRemove(ref int Idx, T prmItem)
         {
             throw new NotImplementedException();
-        }
+        } 
+        #endregion
     }
 }
