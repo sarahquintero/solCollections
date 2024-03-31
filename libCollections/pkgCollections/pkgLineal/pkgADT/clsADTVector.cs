@@ -92,7 +92,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public bool opItsFlexible()
         {
-            throw new NotImplementedException();
+            return attItsFlexible;
         }
         #endregion
         #region Serialize/Deserialize

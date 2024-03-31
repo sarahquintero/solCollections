@@ -14,12 +14,12 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         protected bool attItsOrderedAscending = false;
         protected bool attItsOrderedDescending = false;
         private int prmItemsCount = 0;
-        protected T[] prmArray;
-        protected clsADTLineal()
+        protected T[] prmArray = new T[100];
+        public clsADTLineal()
         {
             
         }
-        protected clsADTLineal(int attLength)
+        public clsADTLineal(int attLength)
         {
             prmArray = new T[attLength];
             attLength = 0;
@@ -53,11 +53,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         #endregion
         #region CRUDs
-        public bool opModify(int prmIndex, T prmItem)
+        public bool opModify(int prmIdx, T prmItem)
         {
-            if (prmIndex >= 0 && prmIndex < prmItemsCount)
+            if (prmIdx >= 0 && prmIdx < prmItemsCount)
             {
-                prmArray[prmIndex] = prmItem;
+                prmArray[prmIdx] = prmItem;
                 return true;
             }
             else
@@ -65,11 +65,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
                 return false;
             }
         }
-        public bool opRetrieve(int prmIndex, ref T prmItem)
+        public bool opRetrieve(int prmIdx, ref T prmItem)
         {
-            if (prmIndex >= 0 && prmIndex < prmItemsCount)
+            if (prmIdx >= 0 && prmIdx < prmItemsCount)
             {
-                prmItem = prmArray[prmIndex];
+                prmItem = prmArray[prmIdx];
                 return true;
             }
             else
@@ -106,23 +106,23 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         public bool opItsOrderedAscending()
         {
             attLength = prmArray.Length;
-            for (int i = 0; i < (attLength - 1); i++)
+            for (int i = 1; i < attLength; i++)
             {
-                if (prmArray[i].CompareTo(prmArray[i + 1]) > 0)
+                if (prmArray[i].CompareTo(prmArray[i - 1]) <= 0)
                 {
-                    attItsOrderedAscending = false;
-                    return attItsOrderedAscending;
+                    attItsOrderedDescending = false;
+                    return attItsOrderedDescending;
                 }
             }
-            attItsOrderedAscending = true;
-            return attItsOrderedAscending;
+            attItsOrderedDescending = true;
+            return attItsOrderedDescending;
         }
         public bool opItsOrderedDescending()
         {
             attLength = prmArray.Length;
-            for (int i = 0; i < (attLength - 1); i++)
+            for (int i = 1; i < attLength; i++)
             {
-                if (prmArray[i].CompareTo(prmArray[i + 1]) < 0)
+                if (prmArray[i].CompareTo(prmArray[i - 1]) >= 0)
                 {
                     attItsOrderedDescending = false;
                     return attItsOrderedDescending;
