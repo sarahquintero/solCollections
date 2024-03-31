@@ -12,11 +12,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
     {
         #region Attributes
         protected int attTotalCapacity = 100;
-        //private int attLength;
         protected static int attMaxCapacity = int.MaxValue/16;
         protected T[] attItems = new T[100];
         protected bool attItsFlexible = false;
         protected int attGrowingFactor = 100;
+        //private int attLength;
         #endregion
         #region Operations
         #region Builders
@@ -52,7 +52,14 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public int opGetGrowingFactor()
         {
-            return attGrowingFactor;
+            if (attItsFlexible)
+            {
+                return attMaxCapacity / attTotalCapacity;
+            }
+            else
+            {
+                return attGrowingFactor;
+            }
         }
         public int opGetAvailableCapacity()
         {
@@ -92,7 +99,14 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public bool opItsFlexible()
         {
-            return attItsFlexible;
+            if (typeof(T).GetInterface(nameof(ICollection<T>)) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         #endregion
         #region Serialize/Deserialize

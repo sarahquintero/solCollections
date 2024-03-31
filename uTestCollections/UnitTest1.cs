@@ -127,14 +127,14 @@ namespace uTestCollections
 
             #endregion
             #region Test & Assert
-            testMyStack = new clsVectorStack<int>(int.MaxValue / 16 - 1);
+            testMyStack = new clsVectorStack<int>(clsVectorStack<int>.opGetMaxCapacity() - 1);
             Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
-            Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
-            CollectionAssert.AreEqual(new int[100], testMyStack.opToArray());
+            Assert.AreEqual(clsVectorStack<int>.opGetMaxCapacity() - 1, testMyStack.opGetTotalCapacity());
+            CollectionAssert.AreEqual(new int[clsVectorStack<int>.opGetMaxCapacity() - 1], testMyStack.opToArray());
             Assert.IsFalse(testMyStack.opItsFlexible());
-            Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
+            Assert.AreEqual(1, testMyStack.opGetGrowingFactor());
             #endregion
         }
         #endregion
