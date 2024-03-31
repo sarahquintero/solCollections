@@ -18,7 +18,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
         bool opItsValid(int prmIdx);
         bool opItsOrderedAscending();
         bool opItsOrderedDescending(); 
-	#endregion
+        #endregion
         #region Serialize/Deserialize
 		T[] opToArray();
         string opToString();

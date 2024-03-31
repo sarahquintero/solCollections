@@ -14,11 +14,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         //protected T[] attItems = new T[100]; 
         #endregion
         #region Builders
-        protected clsVectorList()
+        public clsVectorList()
         {
 
         }
-        protected clsVectorList(int prmCapacity)
+        public clsVectorList(int prmCapacity)
         {
             attItems = new T[prmCapacity];
         } 

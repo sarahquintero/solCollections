@@ -13,11 +13,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         #region Attributes
         //protected T[] attItems = new T[100];
         #region Builders
-        protected clsVectorQueue()
+        public clsVectorQueue()
         {
 
         }
-        protected clsVectorQueue(int prmCapacity)
+        public clsVectorQueue(int prmCapacity)
         {
             attItems = new T[prmCapacity];
         }
