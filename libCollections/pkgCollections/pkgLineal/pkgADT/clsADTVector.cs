@@ -63,7 +63,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public int opGetAvailableCapacity()
         {
-            throw new NotImplementedException();
+            return attTotalCapacity - attItems.Length;
         }
         public static int opGetMaxCapacity()
         {
