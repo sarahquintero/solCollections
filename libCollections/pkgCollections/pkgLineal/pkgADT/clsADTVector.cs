@@ -12,7 +12,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
     {
         #region Attributes
         protected int attTotalCapacity = 100;
-        protected static int attMaxCapacity = int.MaxValue/16;
+        protected static int attMaxCapacity = int.MaxValue / 16;
         protected T[] attItems = new T[100];
         protected bool attItsFlexible = false;
         protected int attGrowingFactor = 100;
