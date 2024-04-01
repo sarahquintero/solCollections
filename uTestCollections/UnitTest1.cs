@@ -160,9 +160,10 @@ namespace uTestCollections
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
-            CollectionAssert.AreEqual(new int[100], testMyStack.opToArray());
+            CollectionAssert.AreEqual(testExpectedItems, testMyStack.opToArray());
             Assert.IsFalse(testMyStack.opItsFlexible());
             Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
+            Assert.AreEqual(123, testMyStack.opToArray()[0]);
             Assert.AreEqual(99, testMyStack.opGetAvailableCapacity());
             #endregion
         }
