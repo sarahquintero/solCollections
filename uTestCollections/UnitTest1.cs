@@ -110,8 +110,8 @@ namespace uTestCollections
 
             #endregion
             #region Test & Assert
-            testMyStack = new clsVectorStack<int>(int.MaxValue / 16 + 1);
-            Assert.AreEqual(1, testMyStack.opGetLength());
+            testMyStack = new clsVectorStack<int>(clsVectorStack<int>.opGetMaxCapacity()+1);
+            Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
