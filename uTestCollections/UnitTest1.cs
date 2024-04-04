@@ -281,7 +281,7 @@ namespace uTestCollections
             #endregion
         }
         #endregion
-        #region Peek Tests
+        #region Pop Tests
         [TestMethod]
         public void testPopWithFullCollection()
         {
@@ -349,6 +349,7 @@ namespace uTestCollections
             #endregion
         }
         #endregion
+        #region Peek Tests
         [TestMethod]
         public void testPeekWithFullCollection()
         {
@@ -413,6 +414,7 @@ namespace uTestCollections
             Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
             Assert.AreEqual(1, testMyStack.opGetAvailableCapacity());
             #endregion
-        }
+        } 
+        #endregion
     }
 }
