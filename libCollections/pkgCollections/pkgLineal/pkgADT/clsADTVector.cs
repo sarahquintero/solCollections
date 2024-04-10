@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
 {
-    public class clsADTVector<T> : pkgLineal.pkgADT.clsADTLineal<T>, iADTVector<T> where T : IComparable<T>
+    public class clsADTVector<T> : pkgLineal.pkgADT.clsADTLinked<T>, iADTVector<T> where T : IComparable<T>
     {
         #region Attributes
         protected int attTotalCapacity = 100;

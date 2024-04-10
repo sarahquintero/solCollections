@@ -42,16 +42,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="pkgCollections\pkgLineal\pkgADT\clsADTDoubleLinked.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgADT\clsADTLineal.cs" />
+    <Compile Include="pkgCollections\pkgLineal\pkgADT\clsADTLinked.cs" />
+    <Compile Include="pkgCollections\pkgLineal\pkgDoubleLinked\clsDoubleLinkedList.cs" />
+    <Compile Include="pkgCollections\pkgLineal\pkgDoubleLinked\clsDoubleLinkedQueue.cs" />
+    <Compile Include="pkgCollections\pkgLineal\pkgDoubleLinked\clsDoubleLinkedStack.cs" />
+    <Compile Include="pkgCollections\pkgLineal\pkgInterfaces\iADTDoubleLinked.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgInterfaces\iADTLineal.cs" />
+    <Compile Include="pkgCollections\pkgLineal\pkgInterfaces\iADTLinked.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgInterfaces\iADTVector.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgInterfaces\iList.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgInterfaces\iQueue.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgInterfaces\iStack.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgADT\clsADTVector.cs" />
+    <Compile Include="pkgCollections\pkgLineal\pkgLinked\clsLinkedList.cs" />
+    <Compile Include="pkgCollections\pkgLineal\pkgLinked\clsLinkedQueue.cs" />
+    <Compile Include="pkgCollections\pkgLineal\pkgLinked\clsLinkedStack.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgVector\clsVectorList.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgVector\clsVectorQueue.cs" />
     <Compile Include="pkgCollections\pkgLineal\pkgVector\clsVectorStack.cs" />
+    <Compile Include="pkgCollections\pkgNodes\clsDoubleLinkedNode.cs" />
+    <Compile Include="pkgCollections\pkgNodes\clsLinkedNode.cs" />
+    <Compile Include="pkgCollections\pkgNodes\clsNode.cs" />
+    <Compile Include="pkgCollections\pkgNodes\pkgInterfaces\iDoubleLinkedNode.cs" />
+    <Compile Include="pkgCollections\pkgNodes\pkgInterfaces\iLinkedNode.cs" />
+    <Compile Include="pkgCollections\pkgNodes\pkgInterfaces\iNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
