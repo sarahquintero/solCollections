@@ -1,10 +1,6 @@
 ﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
 using pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 {

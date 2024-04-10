@@ -1,9 +1,6 @@
 ﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
 {
@@ -28,6 +25,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
             prmItemsCount = 0;
         }
         #endregion
+        #region Operations
         #region Getters
         public int opGetLength()
         {
@@ -140,6 +138,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         //    attTotalCapacity = prmValue;
         //   return true;
         //}
+        #endregion 
         #endregion
     }
 }

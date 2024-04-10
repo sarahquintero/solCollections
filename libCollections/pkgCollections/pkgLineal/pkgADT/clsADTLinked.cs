@@ -11,8 +11,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         protected pkgServicies.pkgCollections.pkgNodes.clsLinkedNode<T> attMiddle = null;
         protected pkgServicies.pkgCollections.pkgNodes.clsLinkedNode<T> attLast = null;
         #endregion
+        #region Operations
         #region Builders
-        protected clsADTLinked() { } 
+        protected clsADTLinked() { }
         #endregion
         #region Getters
         public clsLinkedNode<T> opGetFirst()
@@ -40,7 +41,8 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         public bool opSetMiddle(clsLinkedNode<T> prmNode)
         {
             throw new NotImplementedException();
-        } 
+        }
+        #endregion 
         #endregion
     }
 }

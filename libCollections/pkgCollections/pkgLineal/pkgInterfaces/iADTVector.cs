@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
 {
     public interface iADTVector<T> where T : IComparable<T>
     {
+        #region Operations
         #region Getters
         int opGetTotalCapacity();
         int opGetAvailableCapacity();
@@ -22,6 +19,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
         #region Query
         bool opItsFull();
         bool opItsFlexible();
+        #endregion 
         #endregion
     }
 }
