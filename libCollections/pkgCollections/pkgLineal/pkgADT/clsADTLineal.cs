@@ -15,11 +15,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         protected bool attItsOrderedDescending = false;
         private int prmItemsCount = 0;
         protected T[] prmArray = new T[100];
-        public clsADTLineal()
+        public clsADTLinked()
         {
             
         }
-        public clsADTLineal(int attLength)
+        public clsADTLinked(int attLength)
         {
             prmArray = new T[attLength];
             attLength = 0;
