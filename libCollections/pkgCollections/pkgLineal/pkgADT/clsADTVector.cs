@@ -1,10 +1,11 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+﻿using pkgServicies.pkgCollections.pkgLineal.pkgADT;
+using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
 using System.Collections.Generic;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
 {
-    public class clsADTVector<T> : pkgLineal.pkgADT.clsADTLinked<T>, iADTVector<T> where T : IComparable<T>
+    public class clsADTVector<T> : clsADTLinked<T>, iADTVector<T> where T : IComparable<T>
     {
         #region Attributes
         protected int attTotalCapacity = 100;

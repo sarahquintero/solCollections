@@ -15,7 +15,25 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         }
         public clsVectorQueue(int prmCapacity)
         {
-            attItems = new T[prmCapacity];
+            try
+            {
+                if (prmCapacity < 0)//|| prmCapacity > 100
+                {
+                    prmCapacity = 0;
+                }
+                else
+                {
+                    attItems = new T[prmCapacity];
+                }
+            }
+            catch
+            {
+                attTotalCapacity = 100;
+                attMaxCapacity = int.MaxValue / 16;
+                attItems = new T[100];
+                attItsFlexible = false;
+                attGrowingFactor = 100;
+            }
         }
         #endregion
         #endregion
