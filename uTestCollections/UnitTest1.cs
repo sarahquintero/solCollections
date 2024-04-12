@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using pkgServicies.pkgCollections.pkgLineal.pkgVector;
 
 namespace uTestCollections
