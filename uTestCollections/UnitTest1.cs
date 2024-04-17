@@ -94,9 +94,9 @@ namespace uTestCollections
         public void testMaxCapacityConstructor()
         {
             #region Setup
+            testMyStack = new clsVectorStack<int>(clsVectorStack<int>.opGetMaxCapacity());
             #endregion
             #region Test & Assert
-            testMyStack = new clsVectorStack<int>(clsVectorStack<int>.opGetMaxCapacity());
             Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
@@ -110,10 +110,9 @@ namespace uTestCollections
         public void testBeyondMaxCapacityConstructor()
         {
             #region Setup
-
+            testMyStack = new clsVectorStack<int>(clsVectorStack<int>.opGetMaxCapacity() + 1);
             #endregion
             #region Test & Assert
-            testMyStack = new clsVectorStack<int>(clsVectorStack<int>.opGetMaxCapacity() + 1);
             Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
