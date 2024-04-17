@@ -12,9 +12,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         protected bool attItsOrderedDescending = false;
         private int prmItemsCount = 0;
         protected T[] prmArray = new T[100];
+        #endregion
+        #region Builders
         public clsADTLineal()
         {
-            
+
         }
         public clsADTLineal(int attLength)
         {
