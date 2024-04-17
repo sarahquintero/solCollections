@@ -4,7 +4,7 @@ using pkgServicies.pkgCollections.pkgLineal.pkgVector;
 namespace uTestCollections
 {
     [TestClass]
-    public class UTestVectorQueue
+    public class uTestVectorQueue
     {
         private clsVectorQueue<int> testMyQueue;
         private int[] testExpectedItems;

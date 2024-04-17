@@ -8,6 +8,8 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
     {
         #region Attributes
         //protected T[] attItems = new T[100];
+        #endregion
+        #region Operations
         #region Builders
         public clsVectorQueue()
         {
@@ -36,7 +38,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
             }
         }
         #endregion
-        #endregion
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
@@ -49,7 +50,8 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public bool opPush(T prmItem)
         {
             return true;
-        } 
+        }
+        #endregion 
         #endregion
     }
 }
