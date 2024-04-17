@@ -8,7 +8,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         #region Builders
         public clsVectorStack(int prmCapacity) : base(prmCapacity)
         {
-            
             try
             {
                 if (attLength < 0) attLength = 0;

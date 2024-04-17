@@ -91,6 +91,7 @@ namespace uTestCollections
             Assert.AreEqual(100, testMyQueue.opGetGrowingFactor());
             #endregion
         }
+
         #endregion
     }
 }
