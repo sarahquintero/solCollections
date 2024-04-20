@@ -10,7 +10,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         protected int attLength = 0;
         protected bool attItsOrderedAscending = false;
         protected bool attItsOrderedDescending = false;
-        private int prmItemsCount = 0;
+        protected int prmItemsCount = 0;
         protected T[] prmArray = new T[100];
         #endregion
         #region Builders

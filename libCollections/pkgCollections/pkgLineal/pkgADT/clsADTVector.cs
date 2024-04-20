@@ -13,7 +13,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         protected T[] attItems = new T[100];
         protected bool attItsFlexible = false;
         protected int attGrowingFactor = 100;
-        //private int attLenght;
         #endregion
         #region Operations
         #region Builders
