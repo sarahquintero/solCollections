@@ -31,19 +31,38 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
-            throw new NotImplementedException();
+            if (prmItemsCount == 0)
+            {
+                return false;
+            }
+            prmItem = attItems[prmItemsCount - 1];
+            return true;
         }
 
         public bool opPop(ref T prmItem)
         {
-            throw new NotImplementedException();
+            if (prmItemsCount == 0)
+            {
+                return false;
+            }
+            prmItem = attItems[prmItemsCount - 1];
+            prmItemsCount--;
+
+            return true;
         }
 
         public bool opPush(T prmItem)
         {
-            attItems[0] = prmItem;
-            attLength++;
+            if (prmItemsCount == attTotalCapacity)
+            {
+                return false;
+            }
+            attItems[prmItemsCount] = prmItem;
+            prmItemsCount++;
             return true;
+            //attItems[0] = prmItem;
+            //attLength++;
+            //return true;
         }
         #endregion
     }

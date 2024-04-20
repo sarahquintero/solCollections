@@ -52,10 +52,23 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         }
         public bool opPop(ref T prmItem)
         {
+            if (prmItemsCount == 0)
+            {
+                return false;
+            }
+            prmItem = attItems[0];
+            Array.Copy(attItems, 1, attItems, 0, prmItemsCount - 1);
+            prmItemsCount--;
             return true;
         }
         public bool opPush(T prmItem)
         {
+            if (prmItemsCount == attTotalCapacity)
+            {
+                return false;
+            }
+            attItems[prmItemsCount] = prmItem;
+            prmItemsCount++;
             return true;
         }
         #endregion 
