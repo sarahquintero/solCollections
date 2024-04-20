@@ -53,13 +53,21 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 
         public bool opPush(T prmItem)
         {
-            if (prmItemsCount == attTotalCapacity)
+            try
+            {
+                if (prmItemsCount == attTotalCapacity)
+                {
+                    return false;
+                }
+                attItems[prmItemsCount] = prmItem;
+                prmItemsCount++;
+                attLength++;
+                return true;
+            }
+            catch
             {
                 return false;
             }
-            attItems[prmItemsCount] = prmItem;
-            prmItemsCount++;
-            return true;
             //attItems[0] = prmItem;
             //attLength++;
             //return true;
