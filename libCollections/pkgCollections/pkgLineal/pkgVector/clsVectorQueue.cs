@@ -43,6 +43,11 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
+            if (prmItemsCount == 0)
+            {
+                return false;
+            }
+            prmItem = attItems[0];
             return true;
         }
         public bool opPop(ref T prmItem)
