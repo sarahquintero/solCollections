@@ -39,7 +39,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
                 attItsFlexible = false;
                 attGrowingFactor = 100;
             }
-
         }
         #endregion
         #region Getters

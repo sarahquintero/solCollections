@@ -84,8 +84,8 @@ namespace uTestCollections
             Assert.AreEqual(0, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
-            Assert.AreEqual(100, testMyStack.opGetTotalCapacity());
-            CollectionAssert.AreEqual(new int[100], testMyStack.opToArray());
+            Assert.AreEqual(0, testMyStack.opGetTotalCapacity());
+            CollectionAssert.AreEqual(new int[0], testMyStack.opToArray());
             Assert.IsFalse(testMyStack.opItsFlexible());
             Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
             #endregion

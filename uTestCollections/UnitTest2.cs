@@ -76,6 +76,54 @@ namespace uTestCollections
             #endregion
         }
         [TestMethod]
+        public void testZeroCapacityConstructor()
+        {
+            #region Setup
+            testMyQueue = new clsVectorQueue<int>(0);
+            #endregion
+            #region Test & Assert
+            Assert.AreEqual(0, testMyQueue.opGetLength());
+            Assert.IsFalse(testMyQueue.opItsOrderedAscending());
+            Assert.IsFalse(testMyQueue.opItsOrderedDescending());
+            Assert.AreEqual(0, testMyQueue.opGetTotalCapacity());
+            CollectionAssert.AreEqual(new int[0], testMyQueue.opToArray());
+            Assert.IsFalse(testMyQueue.opItsFlexible());
+            Assert.AreEqual(100, testMyQueue.opGetGrowingFactor());
+            #endregion
+        }
+        [TestMethod]
+        public void testMaxCapacityConstructor()
+        {
+            #region Setup
+            testMyQueue = new clsVectorQueue<int>(clsVectorQueue<int>.opGetMaxCapacity());
+            #endregion
+            #region Test & Assert
+            Assert.AreEqual(0, testMyQueue.opGetLength());
+            Assert.IsFalse(testMyQueue.opItsOrderedAscending());
+            Assert.IsFalse(testMyQueue.opItsOrderedDescending());
+            Assert.AreEqual(clsVectorQueue<int>.opGetMaxCapacity(), testMyQueue.opGetTotalCapacity());
+            CollectionAssert.AreEqual(new int[clsVectorQueue<int>.opGetMaxCapacity()], testMyQueue.opToArray());
+            Assert.IsFalse(testMyQueue.opItsFlexible());
+            Assert.AreEqual(0, testMyQueue.opGetGrowingFactor());
+            #endregion
+        }
+        [TestMethod]
+        public void testBeyondMaxCapacityConstructor()
+        {
+            #region Setup
+            testMyQueue = new clsVectorQueue<int>(clsVectorQueue<int>.opGetMaxCapacity() + 1);
+            #endregion
+            #region Test & Assert
+            Assert.AreEqual(0, testMyQueue.opGetLength());
+            Assert.IsFalse(testMyQueue.opItsOrderedAscending());
+            Assert.IsFalse(testMyQueue.opItsOrderedDescending());
+            Assert.AreEqual(clsVectorQueue<int>.opGetMaxCapacity() + 1, testMyQueue.opGetTotalCapacity());
+            CollectionAssert.AreEqual(new int[clsVectorQueue<int>.opGetMaxCapacity() + 1], testMyQueue.opToArray());
+            Assert.IsFalse(testMyQueue.opItsFlexible());
+            Assert.AreEqual(100, testMyQueue.opGetGrowingFactor());
+            #endregion
+        }
+        [TestMethod]
         public void testBehindMaxCapacityConstructor()
         {
             #region Setup
@@ -91,7 +139,6 @@ namespace uTestCollections
             Assert.AreEqual(100, testMyQueue.opGetGrowingFactor());
             #endregion
         }
-
         #endregion
     }
 }

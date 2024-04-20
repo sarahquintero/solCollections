@@ -1,11 +1,16 @@
 ﻿using System;
 using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 {
-    public class clsVectorStack<T> : pkgADT.clsADTVector<T>, iStack<T> where T : IComparable<T>
+    public class clsVectorStack<T> : clsADTVector<T>, iStack<T> where T : IComparable<T>
     {
         #region Builders
+        public clsVectorStack()
+        {
+
+        }
         public clsVectorStack(int prmCapacity) : base(prmCapacity)
         {
             try
@@ -21,10 +26,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
                 attItsFlexible = false;
                 attGrowingFactor = 100;
             }
-        }
-        public clsVectorStack()
-        {
-            
         }
         #endregion
         #region CRUDs
