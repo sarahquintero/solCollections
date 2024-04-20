@@ -19,13 +19,15 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         {
             try
             {
-                if (prmCapacity < 0)//|| prmCapacity > 100
+                if (prmCapacity == attMaxCapacity) attGrowingFactor = 0;
+                if (prmCapacity < 0)
                 {
                     prmCapacity = 0;
                 }
                 else
                 {
                     attItems = new T[prmCapacity];
+                    attTotalCapacity = prmCapacity;
                 }
             }
             catch

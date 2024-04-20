@@ -133,7 +133,7 @@ namespace uTestCollections
             Assert.AreEqual(0, testMyQueue.opGetLength());
             Assert.IsFalse(testMyQueue.opItsOrderedAscending());
             Assert.IsFalse(testMyQueue.opItsOrderedDescending());
-            Assert.AreEqual(100, testMyQueue.opGetTotalCapacity());
+            Assert.AreEqual(clsVectorQueue<int>.opGetMaxCapacity() - 1, testMyQueue.opGetTotalCapacity());
             CollectionAssert.AreEqual(new int[clsVectorQueue<int>.opGetMaxCapacity() - 1], testMyQueue.opToArray());
             Assert.IsFalse(testMyQueue.opItsFlexible());
             Assert.AreEqual(100, testMyQueue.opGetGrowingFactor());
