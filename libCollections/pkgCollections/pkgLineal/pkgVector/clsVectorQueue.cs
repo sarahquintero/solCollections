@@ -43,6 +43,13 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
+            if (prmItemsCount == 0)
+            {
+                // La cola está vacía, no hay elementos para consultar
+                return false;
+            }
+
+            prmItem = attItems[0];  // Obtiene el primer elemento de la cola
             return true;
         }
         public bool opPop(ref T prmItem)
