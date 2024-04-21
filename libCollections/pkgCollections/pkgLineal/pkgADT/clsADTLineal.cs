@@ -1,10 +1,11 @@
 ﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServicies.pkgCollections.pkgLineal.pkgIterators;
 using System;
 using System.Linq;
 
 namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
 {
-    public class clsADTLineal<T>: iADTLineal<T> where T : IComparable<T>
+    public class clsADTLineal<T>: clsIterator<T>, iADTLineal<T> where T : IComparable<T>
     {
         #region Attributes
         protected int attLength = 0;
@@ -37,6 +38,48 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         #endregion
         #region Operations
+        #region Query
+        public bool opItsEmpty()
+        {
+            throw new NotImplementedException();
+        }
+        public int opFind(T prmItem)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opExists(T prmItem)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opItsOrderedAscending()
+        {
+            attLength = prmArray.Length;
+            for (int i = 1; i < attLength; i++)
+            {
+                if (prmArray[i].CompareTo(prmArray[i - 1]) <= 0)
+                {
+                    attItsOrderedDescending = false;
+                    return attItsOrderedDescending;
+                }
+            }
+            attItsOrderedDescending = true;
+            return attItsOrderedDescending;
+        }
+        public bool opItsOrderedDescending()
+        {
+            attLength = prmArray.Length;
+            for (int i = 1; i < attLength; i++)
+            {
+                if (prmArray[i].CompareTo(prmArray[i - 1]) >= 0)
+                {
+                    attItsOrderedDescending = false;
+                    return attItsOrderedDescending;
+                }
+            }
+            attItsOrderedDescending = true;
+            return attItsOrderedDescending;
+        }
+        #endregion
         #region Getters
         public int opGetLength()
         {
@@ -96,59 +139,14 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
-        public int opFind(T prmItem)
-        {
-            throw new NotImplementedException();
-        }
-        public bool opExists(T prmItem)
-        {
-            throw new NotImplementedException();
-        }
-        public bool opItsEmpty()
-        {
-            throw new NotImplementedException();
-        }
         public bool opItsValid(int prmIndex)
         {
             throw new NotImplementedException();
-        }
-        public bool opItsOrderedAscending()
-        {
-            attLength = prmArray.Length;
-            for (int i = 1; i < attLength; i++)
-            {
-                if (prmArray[i].CompareTo(prmArray[i - 1]) <= 0)
-                {
-                    attItsOrderedDescending = false;
-                    return attItsOrderedDescending;
-                }
-            }
-            attItsOrderedDescending = true;
-            return attItsOrderedDescending;
-        }
-        public bool opItsOrderedDescending()
-        {
-            attLength = prmArray.Length;
-            for (int i = 1; i < attLength; i++)
-            {
-                if (prmArray[i].CompareTo(prmArray[i - 1]) >= 0)
-                {
-                    attItsOrderedDescending = false;
-                    return attItsOrderedDescending;
-                }
-            }
-            attItsOrderedDescending = true;
-            return attItsOrderedDescending;
         }
         public bool opItsValid()
         {
             throw new NotImplementedException();
         }
-        //public bool opSetCapacity(int prmValue)
-        //{
-        //    attTotalCapacity = prmValue;
-        //   return true;
-        //}
         #endregion 
         #endregion
     }
