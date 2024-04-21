@@ -110,7 +110,13 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         #region Serialize/Deserialize
         public override T[] opToArray()
         {
-            return attItems;
+            T[] result = new T[attLength];
+            for (int i = 0; i < attLength; i++)
+            {
+                result[i] = attItems[i];
+            }
+            return result;
+            //return attItems;
         }
         public override bool opToItems(T[] prmArray)
         {
