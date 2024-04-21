@@ -61,17 +61,14 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
                 }
                 else
                 {
-                    if (prmItemsCount < attTotalCapacity)
+                    for (int i = prmItemsCount; i > 0; i--)
                     {
-                        attItems[prmItemsCount] = prmItem;
-                        prmItemsCount++;
-                        attLength++;
-                        return true;
+                        attItems[i] = attItems[i - 1];
                     }
-                    else
-                    {
-                        return false;
-                    }
+                    attItems[0] = prmItem;
+                    prmItemsCount++;
+                    attLength++;
+                    return true;
                 }
             }
             catch
