@@ -1,8 +1,8 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgADT;
-using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+﻿using pkgServices.pkgCollections.pkgLineal.pkgADT;
+using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgLinked
+namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
 {
     public class clsLinkedStack<T> : clsADTLinked<T>, iStack<T> where T : IComparable<T>
     {

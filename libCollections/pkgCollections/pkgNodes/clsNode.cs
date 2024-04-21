@@ -1,7 +1,7 @@
 ﻿using System;
-using pkgServicies.pkgCollections.pkgNodes.pkgInterfaces;
+using pkgServices.pkgCollections.pkgNodes.pkgInterfaces;
 
-namespace pkgServicies.pkgCollections.pkgNodes
+namespace pkgServices.pkgCollections.pkgNodes
 {
     public class clsNode<T> : iNode<T> where T : IComparable<T>
     {

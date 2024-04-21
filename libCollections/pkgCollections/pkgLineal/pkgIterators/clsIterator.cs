@@ -1,7 +1,7 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgIterators
+namespace pkgServices.pkgCollections.pkgLineal.pkgIterators
 {
     public class clsIterator<T> : iIterator<T> where T : IComparable<T>
     {

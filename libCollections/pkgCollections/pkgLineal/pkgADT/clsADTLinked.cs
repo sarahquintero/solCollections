@@ -1,15 +1,15 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
-using pkgServicies.pkgCollections.pkgNodes;
+﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServices.pkgCollections.pkgNodes;
 using System;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
+namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
     public class clsADTLinked<T> : clsADTLineal<T>, iADTLinked<T> where T : IComparable<T>
     {
         #region Attributes
-        protected pkgServicies.pkgCollections.pkgNodes.clsLinkedNode<T> attFirst = null;
-        protected pkgServicies.pkgCollections.pkgNodes.clsLinkedNode<T> attMiddle = null;
-        protected pkgServicies.pkgCollections.pkgNodes.clsLinkedNode<T> attLast = null;
+        protected pkgServices.pkgCollections.pkgNodes.clsLinkedNode<T> attFirst = null;
+        protected pkgServices.pkgCollections.pkgNodes.clsLinkedNode<T> attMiddle = null;
+        protected pkgServices.pkgCollections.pkgNodes.clsLinkedNode<T> attLast = null;
         #endregion
         #region Operations
         #region Builders

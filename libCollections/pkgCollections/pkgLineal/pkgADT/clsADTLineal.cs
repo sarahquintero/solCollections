@@ -1,9 +1,9 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
-using pkgServicies.pkgCollections.pkgLineal.pkgIterators;
+﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServices.pkgCollections.pkgLineal.pkgIterators;
 using System;
 using System.Linq;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
+namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
     public class clsADTLineal<T>: clsIterator<T>, iADTLineal<T> where T : IComparable<T>
     {

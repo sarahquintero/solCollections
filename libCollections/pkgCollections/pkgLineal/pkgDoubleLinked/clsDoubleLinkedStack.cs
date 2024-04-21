@@ -1,8 +1,8 @@
 ﻿using System;
-using pkgServicies.pkgCollections.pkgLineal.pkgADT;
-using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServices.pkgCollections.pkgLineal.pkgADT;
+using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgDoubleLinked
+namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
 {
     public class clsDoubleLinkedStack<T> : clsADTDoubleLinked<T>, iStack<T> where T : IComparable<T>
     {
@@ -18,7 +18,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgDoubleLinked
         public bool opPush(T prmItem)
         {
             throw new NotImplementedException();
-        } 
+        }
         #endregion
     }
 }

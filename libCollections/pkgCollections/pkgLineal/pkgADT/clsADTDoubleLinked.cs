@@ -1,8 +1,8 @@
-﻿using pkgServicies.pkgCollections.pkgNodes;
+﻿using pkgServices .pkgCollections.pkgNodes;
 using System;
-using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
+namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
     public class clsADTDoubleLinked<T> : clsADTLineal<T>, iADTDoubleLinked<T> where T : IComparable<T>
     {

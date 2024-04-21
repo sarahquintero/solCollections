@@ -1,7 +1,7 @@
-﻿using pkgServicies.pkgCollections.pkgNodes.pkgInterfaces;
+﻿using pkgServices.pkgCollections.pkgNodes.pkgInterfaces;
 using System;
 
-namespace pkgServicies.pkgCollections.pkgNodes
+namespace pkgServices.pkgCollections.pkgNodes
 {
     public class clsLinkedNode<T> : clsNode<T>, iLinkedNode<T> where T : IComparable<T>
     {

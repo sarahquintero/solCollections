@@ -1,10 +1,10 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
-using pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT;
+﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT;
 using System;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
+namespace pkgServices.pkgCollections.pkgLineal.pkgVector
 {
-    public class clsVectorList<T> : clsADTVector<T> , iList<T> where T : IComparable<T>
+    public class clsVectorList<T> : clsADTVector<T>, iList<T> where T : IComparable<T>
     {
         #region Attributes
         //protected T[] attItems = new T[100]; 
@@ -17,39 +17,34 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public clsVectorList(int prmCapacity)
         {
             attItems = new T[prmCapacity];
-        } 
+        }
         #endregion
         #region CRUDs
-        public bool opAdd(ref T prmItem)
+        public bool opAdd(T prmItem)
         {
             throw new NotImplementedException();
         }
 
-        public bool opExists(T Item)
+        public bool opInsert(int Idx, T prmItem)
         {
             throw new NotImplementedException();
         }
 
-        public int opFind(T Item)
+        public bool opRemove(int Idx, ref T prmItem)
         {
             throw new NotImplementedException();
         }
-
-        public bool opInsert(ref int Idx, T prmItem)
-        {
-            throw new NotImplementedException();
-        } 
         #endregion
         #region Query
         public bool opModify(ref int Idx, T prmItem)
         {
             throw new NotImplementedException();
         }
-
         public bool opRemove(ref int Idx, T prmItem)
         {
             throw new NotImplementedException();
-        } 
+        }
+
         #endregion
     }
 }

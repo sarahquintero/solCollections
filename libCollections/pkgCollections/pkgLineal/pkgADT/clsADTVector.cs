@@ -1,9 +1,9 @@
-﻿using pkgServicies.pkgCollections.pkgLineal.pkgADT;
-using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
+﻿using pkgServices.pkgCollections.pkgLineal.pkgADT;
+using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
 using System.Collections.Generic;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
+namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
 {
     public class clsADTVector<T> : clsADTLinked<T>, iADTVector<T> where T : IComparable<T>
     {

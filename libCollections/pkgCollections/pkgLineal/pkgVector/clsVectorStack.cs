@@ -1,8 +1,8 @@
 ﻿using System;
-using pkgServicies.pkgCollections.pkgLineal.pkgInterfaces;
-using pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT;
+using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT;
 
-namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
+namespace pkgServices.pkgCollections.pkgLineal.pkgVector
 {
     public class clsVectorStack<T> : clsADTVector<T>, iStack<T> where T : IComparable<T>
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace pkgServicies.pkgCollections.pkgNodes.pkgInterfaces
+namespace pkgServices.pkgCollections.pkgNodes.pkgInterfaces
 {
     public interface iLinkedNode<T> where T : IComparable<T>
     {
