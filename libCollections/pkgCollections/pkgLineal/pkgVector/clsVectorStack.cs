@@ -70,8 +70,8 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         public bool opPush(T prmItem)
         {
             try
-            {
-                if (prmItemsCount >= attTotalCapacity)
+            {   
+                if (prmItemsCount == attTotalCapacity)
                 {
                     return false;
                 }
@@ -79,7 +79,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
                 {
                     for (int i = prmItemsCount; i > 0; i--)
                     {
-                        attItems[i] = attItems[i - 1];
+                         attItems[i] = attItems[i + 1];
                     }
                     attItems[0] = prmItem;
                     prmItemsCount++;
