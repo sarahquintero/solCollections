@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using pkgServicies.pkgCollections.pkgLineal.pkgVector;
-using System;
 
 namespace uTestCollections
 {
@@ -8,6 +7,7 @@ namespace uTestCollections
     public class uTestVectorList
     {
         private clsVectorList<int> testMyList;
+        #region BuildersTests
         [TestMethod]
         public void testDefaultConstructor()
         {
@@ -23,6 +23,7 @@ namespace uTestCollections
             Assert.IsFalse(testMyList.opItsFlexible());
             Assert.AreEqual(100, testMyList.opGetGrowingFactor());
             #endregion
-        }
+        } 
+        #endregion
     }
 }
