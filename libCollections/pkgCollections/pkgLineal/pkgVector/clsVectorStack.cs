@@ -57,21 +57,20 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
             {
                 if (prmItemsCount >= attTotalCapacity)
                 {
-                    return false; // No se puede agregar más elementos, la pila está llena
+                    return false;
                 }
                 else
                 {
-                    // Verificar si hay espacio disponible después de los elementos iniciales
                     if (prmItemsCount < attTotalCapacity)
                     {
                         attItems[prmItemsCount] = prmItem;
                         prmItemsCount++;
-                        attLength++; // Incrementar la longitud de la pila
+                        attLength++;
                         return true;
                     }
                     else
                     {
-                        return false; // No hay espacio disponible después de los elementos iniciales
+                        return false;
                     }
                 }
             }
