@@ -191,7 +191,7 @@ namespace uTestCollections
             testMyStack.opToItems(testExpectedItems, 1);
             testExpectedItems = new int[100];
             testExpectedItems[0] = 456;
-            testExpectedItems[1] = 123;//123
+            testExpectedItems[1] = 123;
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPush(456));

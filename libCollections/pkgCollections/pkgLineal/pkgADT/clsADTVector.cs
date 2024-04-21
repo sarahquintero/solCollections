@@ -134,10 +134,18 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public override bool opToItems(T[] prmArray, int prmItemsCount)
         {
-            attItems = prmArray;
+            attItems = new T[prmArray.Length];
+            for (int i = 0; i < prmArray.Length; i++)
+            {
+                attItems[i] = prmArray[i];
+            }
             attTotalCapacity = prmArray.Length;
             attLength = prmItemsCount;
             return true;
+            //attItems = prmArray;
+            //attTotalCapacity = prmArray.Length;
+            //attLength = prmItemsCount;
+            //return true;
         }
         #endregion
         #endregion
