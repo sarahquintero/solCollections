@@ -20,7 +20,7 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         } 
         #endregion
         #region CRUDs
-        public bool opAdd(ref T prmItem)
+        public bool opAdd(T prmItem)
         {
             throw new NotImplementedException();
         }
@@ -35,21 +35,22 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
             throw new NotImplementedException();
         }
 
-        public bool opInsert(ref int Idx, T prmItem)
+        public bool opInsert(int Idx, T prmItem)
         {
             throw new NotImplementedException();
         } 
+
         #endregion
         #region Query
-        public bool opModify(ref int Idx, T prmItem)
+        public bool opModify(int Idx, T prmItem)
         {
             throw new NotImplementedException();
         }
 
-        public bool opRemove(ref int Idx, T prmItem)
+        public bool opRemove(int Idx, ref T prmItem)
         {
             throw new NotImplementedException();
-        } 
+        }
         #endregion
     }
 }

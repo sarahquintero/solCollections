@@ -6,10 +6,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgInterfaces
     {
         #region Operations
         #region CRUDs
-        bool opAdd(ref T prmItem);
-        bool opInsert(ref int Idx, T prmItem);
-        bool opRemove(ref int Idx, T prmItem);
-        //bool opModify(ref int Idx, T prmItem);
+        bool opAdd(T prmItem);
+        bool opInsert(int Idx, T prmItem);
+        bool opRemove(int Idx, ref T prmItem);
         #endregion
         #region Query
         int opFind(T Item);

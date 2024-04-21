@@ -53,8 +53,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector.pkgADT
             }
             else
             {
-                return attGrowingFactor;
+                return attMaxCapacity - attTotalCapacity;
             }
+            return attGrowingFactor;
         }
         public int opGetAvailableCapacity()
         {

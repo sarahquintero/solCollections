@@ -13,7 +13,10 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         #region Builders
         public clsVectorQueue()
         {
-
+            attItsFlexible = false;
+            attItems = new T[100];
+            attLength = 0;
+            attTotalCapacity = 100;
         }
         public clsVectorQueue(int prmCapacity)
         {

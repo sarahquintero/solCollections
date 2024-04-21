@@ -71,9 +71,9 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         {
             try
             {   
-                if (prmItemsCount == attTotalCapacity)
+                if (prmItemsCount == attTotalCapacity)// si es flexible se agrega y esta llena se agrega
                 {
-                    return false;
+                    return false;// no flexible y llena
                 }
                 else
                 {
