@@ -31,14 +31,31 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
-            if (prmItemsCount == 0)
+            try
             {
+                if (attLength == 0)
+                {
+                    prmItem = default(T);
+                    return false;
+                }
+                else
+                {
+                    prmItem = attItems[attLength - 1];
+                    return true;
+                }
+            }
+            catch
+            {
+                prmItem = default(T);
                 return false;
             }
-            prmItem = attItems[prmItemsCount - 1];
-            return true;
+            //if (prmItemsCount == 0)
+            //{
+            //return false;
+            //}
+            //prmItem = attItems[prmItemsCount - 1];
+            //return true;
         }
-
         public bool opPop(ref T prmItem)
         {
             if (prmItemsCount == 0)
@@ -50,7 +67,6 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgVector
 
             return true;
         }
-
         public bool opPush(T prmItem)
         {
             try
