@@ -20,11 +20,20 @@ namespace pkgServicies.pkgCollections.pkgLineal.pkgADT
         }
         public clsADTLineal(int attLength)
         {
-            prmArray = new T[attLength];
-            attLength = 0;
-            attItsOrderedAscending = false;
-            attItsOrderedDescending = false;
-            prmItemsCount = 0;
+            
+            try
+            {
+                if (attLength < 0) attLength = 0;
+                prmArray = new T[attLength];
+            }
+            catch (Exception e)
+            {
+                prmArray = new T[attLength];
+                attLength = 0;
+                attItsOrderedAscending = false;
+                attItsOrderedDescending = false;
+                prmItemsCount = 0;
+            }
         }
         #endregion
         #region Operations
