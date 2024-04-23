@@ -2,6 +2,7 @@
 using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
 {
@@ -43,16 +44,23 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         #region Getters
         public int opGetTotalCapacity()
         {
+            if(attTotalCapacity > int.MaxValue / 16) 
+            { 
+                attTotalCapacity = 100;
+                return attTotalCapacity;
+            }
             return attTotalCapacity;
         }
         public int opGetGrowingFactor()
         {
             if (attItsFlexible)
             {
-                return attMaxCapacity / attTotalCapacity;
+                attGrowingFactor = attMaxCapacity / attTotalCapacity;
+                return attGrowingFactor;
             }
             else
             {
+                attGrowingFactor = attTotalCapacity - attLength;
                 return attGrowingFactor;
             }
         }
@@ -110,6 +118,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         #region Serialize/Deserialize
         public override T[] opToArray()
         {
+            
             T[] result = new T[attTotalCapacity];
             for (int i = 0; i < attTotalCapacity; i++)
             {

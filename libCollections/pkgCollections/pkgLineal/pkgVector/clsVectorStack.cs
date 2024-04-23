@@ -9,12 +9,22 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         #region Builders
         public clsVectorStack()
         {
-
+            attTotalCapacity = 100;
+            attMaxCapacity = int.MaxValue / 16;
+            attItems = new T[100];
+            attItsFlexible = false;
+            attGrowingFactor = 100;
+            base.attLength = 0;
         }
         public clsVectorStack(int prmCapacity) : base(prmCapacity)
         {
             try
             {
+                if (prmCapacity < 0)
+                {
+                    prmCapacity = 0;
+                    attTotalCapacity = 0;
+                }
                 if (attLength < 0) attLength = 0;
                 attItems = new T[prmCapacity];
             }

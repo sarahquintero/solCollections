@@ -30,7 +30,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             catch (Exception e)
             {
                 prmArray = new T[attLength];
-                attLength = 0;
+                base.attLength = 0;
                 attItsOrderedAscending = false;
                 attItsOrderedDescending = false;
                 prmItemsCount = 0;
@@ -53,8 +53,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public bool opItsOrderedAscending()
         {
-            attLength = prmArray.Length;
-            for (int i = 1; i < attLength; i++)
+
+            int prmLenght = prmArray.Length;
+            for (int i = 1; i < prmLenght; i++)
             {
                 if (prmArray[i].CompareTo(prmArray[i - 1]) <= 0)
                 {
@@ -67,8 +68,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public bool opItsOrderedDescending()
         {
-            attLength = prmArray.Length;
-            for (int i = 1; i < attLength; i++)
+            int prmLenght = prmArray.Length;
+            for (int i = 1; i < prmLenght; i++)
             {
                 if (prmArray[i].CompareTo(prmArray[i - 1]) >= 0)
                 {
