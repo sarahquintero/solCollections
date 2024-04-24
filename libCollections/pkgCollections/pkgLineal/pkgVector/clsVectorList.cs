@@ -16,7 +16,37 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         }
         public clsVectorList(int prmCapacity)
         {
-            attItems = new T[prmCapacity];
+            try
+            {
+                if (prmCapacity < 0)
+                {
+                    prmCapacity = 100;
+                    attTotalCapacity = 100;
+                }
+                if (prmCapacity == 0)
+                {
+                    prmCapacity = 100;
+                    attTotalCapacity = 100;
+                    attGrowingFactor = 100;
+                }
+                if (prmCapacity == attMaxCapacity)
+                {
+                    prmCapacity = attMaxCapacity;
+                    attTotalCapacity = attMaxCapacity;
+                    attGrowingFactor = 0;
+                }
+
+                if (attLength < 0) attLength = 0;
+                attItems = new T[prmCapacity];
+            }
+            catch
+            {
+                attTotalCapacity = 100;
+                attMaxCapacity = int.MaxValue / 16;
+                attItems = new T[100];
+                attItsFlexible = false;
+                attGrowingFactor = 100;
+            }
         }
         #endregion
         #region CRUDs

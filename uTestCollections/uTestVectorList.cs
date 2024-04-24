@@ -97,6 +97,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             testMyList = new clsVectorList<int>(clsVectorList<int>.opGetMaxCapacity());
+            Assert.AreEqual(clsVectorList<int>.opGetMaxCapacity(), testMyList.opGetTotalCapacity());
             Assert.AreEqual(0, testMyList.opGetLength());
             Assert.IsFalse(testMyList.opItsOrderedAscending());
             Assert.IsFalse(testMyList.opItsOrderedDescending());

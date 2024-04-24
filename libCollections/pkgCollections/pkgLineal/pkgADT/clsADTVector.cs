@@ -54,6 +54,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
                 attTotalCapacity = 100;
                 return attTotalCapacity;
             }
+            if (attTotalCapacity == attMaxCapacity)
+            {
+                attTotalCapacity = attMaxCapacity;
+                return attTotalCapacity;
+            }
             return attTotalCapacity;
         }
         public int opGetGrowingFactor()
