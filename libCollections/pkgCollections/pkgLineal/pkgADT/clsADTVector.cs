@@ -65,9 +65,20 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
             }
             else
             {
+                if (attMaxCapacity == attTotalCapacity)
+                {
+                    attGrowingFactor = 0;
+                    return attGrowingFactor;
+                }
+                if ((attMaxCapacity - 1) == attTotalCapacity)
+                {
+                    attGrowingFactor = 1;
+                    return attGrowingFactor;
+                }
                 attGrowingFactor = attTotalCapacity - attLength;
                 return attGrowingFactor;
             }
+            
         }
         public int opGetAvailableCapacity()
         {
@@ -123,7 +134,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         #region Serialize/Deserialize
         public override T[] opToArray()
         {
-            
             T[] result = new T[attTotalCapacity];
             for (int i = 0; i < attTotalCapacity; i++)
             {
