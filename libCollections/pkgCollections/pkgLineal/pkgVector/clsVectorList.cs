@@ -35,9 +35,15 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                     attTotalCapacity = attMaxCapacity;
                     attGrowingFactor = 0;
                 }
+                if (prmCapacity == (attMaxCapacity - 1))
+                {
+                    attGrowingFactor = 1;
+                    attTotalCapacity = (attMaxCapacity - 1);
+                }
 
                 if (attLength < 0) attLength = 0;
                 attItems = new T[prmCapacity];
+                attTotalCapacity = prmCapacity;
             }
             catch
             {
