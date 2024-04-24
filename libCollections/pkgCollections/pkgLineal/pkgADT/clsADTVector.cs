@@ -95,8 +95,20 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         {
             int attLength = attItems.Length;
             int attItemsCount = 0;
-            if (attItems[0] != null) attItemsCount++;
+
+            for (int i = 0; i < attLength; i++)
+            {
+                if (attItems[i] == null)
+                {
+                    attItemsCount++;
+                }
+            }
+
             return attLength - attItemsCount;
+            //int attLength = attItems.Length;
+            //int attItemsCount = 0;
+            //if (attItems[0] != null) attItemsCount++;
+            //return attLength - attItemsCount;
         }
         public static int opGetMaxCapacity()
         {

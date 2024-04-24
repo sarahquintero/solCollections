@@ -48,24 +48,17 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
-            try
+            if (attLength == 0)
             {
-                if (attLength == 0)
-                {
-                    prmItem = default(T);
-                    return false;
-                }
-                else
-                {
-                    prmItem = attItems[attLength - 1];
-                    return true;
-                }
-            }
-            catch
-            {
-                prmItem = default(T);
+                prmItem = default;
                 return false;
             }
+            else
+            {
+                prmItem = attItems[attLength - 1];
+                return true;
+            }
+
             //if (prmItemsCount == 0)
             //{
             //return false;
