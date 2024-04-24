@@ -75,6 +75,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
                     attGrowingFactor = 1;
                     return attGrowingFactor;
                 }
+                if (attTotalCapacity > 0)
+                {
+                    attGrowingFactor = 100;
+                    return attGrowingFactor;
+                }
                 attGrowingFactor = attTotalCapacity - attLength;
                 return attGrowingFactor;
             }

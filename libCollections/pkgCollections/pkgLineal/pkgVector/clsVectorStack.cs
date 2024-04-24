@@ -22,9 +22,16 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             {
                 if (prmCapacity < 0)
                 {
-                    prmCapacity = 0;
+                    prmCapacity = 100;
                     attTotalCapacity = 100;
                 }
+                if (prmCapacity == 0)
+                {
+                    prmCapacity = 100;
+                    attTotalCapacity = 100;
+                    attGrowingFactor = 100;
+                }
+                
                 if (attLength < 0) attLength = 0;
                 attItems = new T[prmCapacity];
             }
