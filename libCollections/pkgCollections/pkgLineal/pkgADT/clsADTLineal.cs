@@ -1,39 +1,37 @@
 ﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
-using pkgServices.pkgCollections.pkgLineal.pkgIterators;
+using pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT;
 using System;
+using System.ComponentModel;
 using System.Linq;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
-    public class clsADTLineal<T>: clsIterator<T>, iADTLineal<T> where T : IComparable<T>
+    public class clsADTLineal<T>: iADTLineal<T> where T : IComparable<T>
     {
         #region Attributes
         protected int attLength = 0;
         protected bool attItsOrderedAscending = false;
         protected bool attItsOrderedDescending = false;
-        protected int prmItemsCount = 0;
+        //protected int prmItemsCount = 0;
         protected T[] prmArray = new T[100];
         #endregion
         #region Builders
         public clsADTLineal()
         {
-
         }
         public clsADTLineal(int attLength)
         {
-            
             try
             {
                 if (attLength < 0) attLength = 0;
-                prmArray = new T[attLength];
+                T[] prmArray = new T[attLength];
             }
             catch (Exception e)
             {
-                prmArray = new T[attLength];
-                base.attLength = 0;
+                T[] prmArray = new T[attLength];
+                attLength = 0;
                 attItsOrderedAscending = false;
                 attItsOrderedDescending = false;
-                prmItemsCount = 0;
             }
         }
         #endregion
@@ -53,31 +51,30 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public bool opItsOrderedAscending()
         {
-
-            int prmLenght = prmArray.Length;
-            for (int i = 1; i < prmLenght; i++)
-            {
-                if (prmArray[i].CompareTo(prmArray[i - 1]) <= 0)
-                {
-                    attItsOrderedDescending = false;
-                    return attItsOrderedDescending;
-                }
-            }
-            attItsOrderedDescending = true;
-            return attItsOrderedDescending;
-        }
-        public bool opItsOrderedDescending()
-        {
-            int prmLenght = prmArray.Length;
-            for (int i = 1; i < prmLenght; i++)
+            T[] prmArray = new T[attLength];
+            for (int i = 1; i < attLength; i++)
             {
                 if (prmArray[i].CompareTo(prmArray[i - 1]) >= 0)
                 {
-                    attItsOrderedDescending = false;
+                    attItsOrderedAscending = true;
+                    return attItsOrderedAscending;
+                }
+            }
+            attItsOrderedAscending = false;
+            return attItsOrderedAscending;
+        }
+        public bool opItsOrderedDescending()
+        {
+            T[] prmArray = new T[attLength];
+            for (int i = 1; i < attLength; i++)
+            {
+                if (prmArray[i].CompareTo(prmArray[i - 1]) >= 0)
+                {
+                    attItsOrderedAscending = true;
                     return attItsOrderedDescending;
                 }
             }
-            attItsOrderedDescending = true;
+            attItsOrderedDescending = false;
             return attItsOrderedDescending;
         }
         #endregion
@@ -108,6 +105,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         #region CRUDs
         public bool opModify(int prmIdx, T prmItem)
         {
+            int prmItemsCount = 0;
+            T[] prmArray = new T[attLength];
             if (prmIdx >= 0 && prmIdx < prmItemsCount)
             {
                 prmArray[prmIdx] = prmItem;
@@ -120,6 +119,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public bool opRetrieve(int prmIdx, ref T prmItem)
         {
+            int prmItemsCount = 0;
+            T[] prmArray = new T[attLength];
             if (prmIdx >= 0 && prmIdx < prmItemsCount)
             {
                 prmItem = prmArray[prmIdx];
@@ -133,6 +134,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public bool opReverse()
         {
+            T[] prmArray = new T[attLength];
             prmArray.Reverse();
             return true;
         }

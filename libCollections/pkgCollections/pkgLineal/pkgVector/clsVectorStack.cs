@@ -9,12 +9,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         #region Builders
         public clsVectorStack()
         {
-            attTotalCapacity = 100;
-            attMaxCapacity = int.MaxValue / 16;
-            attItems = new T[100];
-            attItsFlexible = false;
-            attGrowingFactor = 100;
-            base.attLength = 0;
         }
         public clsVectorStack(int prmCapacity) : base(prmCapacity)
         {
@@ -31,7 +25,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                     attTotalCapacity = 100;
                     attGrowingFactor = 100;
                 }
-                
                 if (attLength < 0) attLength = 0;
                 attItems = new T[prmCapacity];
             }
@@ -68,12 +61,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         }
         public bool opPop(ref T prmItem)
         {
-            if (prmItemsCount == 0)
+            if (attLength == 0)
             {
                 return false;
             }
-            prmItem = attItems[prmItemsCount - 1];
-            prmItemsCount--;
+            prmItem = attItems[attLength - 1];
+            attLength--;
 
             return true;
         }
@@ -81,18 +74,17 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         {
             try
             {   
-                if (prmItemsCount == attTotalCapacity)
+                if (attLength == attTotalCapacity)
                 {
                     return false;
                 }
                 else
                 {
-                    for (int i = prmItemsCount; i > 0; i--)
+                    for (int i = attLength  ; i > 0; i--)
                     {
                          attItems[i] = attItems[i + 1];
                     }
                     attItems[0] = prmItem;
-                    prmItemsCount++;
                     attLength++;
                     return true;
                 }

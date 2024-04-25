@@ -2,11 +2,10 @@
 using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
 {
-    public class clsADTVector<T> : clsADTLinked<T>, iADTVector<T> where T : IComparable<T>
+    public class clsADTVector<T> : clsADTLineal<T>, iADTVector<T> where T : IComparable<T>
     {
         #region Attributes
         protected int attTotalCapacity = 100;
@@ -59,8 +58,14 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
                 attTotalCapacity = attMaxCapacity;
                 return attTotalCapacity;
             }
-            
             return attTotalCapacity;
+        }
+        public int opGetAvailableCapacity()
+        {
+            int attLength = attItems.Length;
+            int attItemsCount = 0;
+            if (attItems[0] != null) attItemsCount++;
+            return attLength - attItemsCount;
         }
         public int opGetGrowingFactor()
         {
@@ -89,26 +94,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
                 attGrowingFactor = attTotalCapacity - attLength;
                 return attGrowingFactor;
             }
-            
-        }
-        public int opGetAvailableCapacity()
-        {
-            int attLength = attItems.Length;
-            int attItemsCount = 0;
-
-            for (int i = 0; i < attLength; i++)
-            {
-                if (attItems[i] == null)
-                {
-                    attItemsCount++;
-                }
-            }
-
-            return attLength - attItemsCount;
-            //int attLength = attItems.Length;
-            //int attItemsCount = 0;
-            //if (attItems[0] != null) attItemsCount++;
-            //return attLength - attItemsCount;
         }
         public static int opGetMaxCapacity()
         {
@@ -167,17 +152,20 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public override bool opToItems(T[] prmArray)
         {
-            try
+            if (prmArray.Length <= attMaxCapacity)
             {
                 attItems = prmArray;
-                attTotalCapacity = prmArray.Length;
-                base.attLength = attItems.Length;
+                attLength = attItems.Length;
+                attTotalCapacity = attItems.Length;
+                if (attMaxCapacity - attLength < 100)
+                {
+                    attGrowingFactor = attMaxCapacity - attLength;
+                }
+                attItsOrderedAscending = false;
+                attItsOrderedDescending = false;
                 return true;
             }
-            catch (Exception e)
-            {
-                return false;
-            }
+            return false;
         }
         public override bool opToItems(T[] prmArray, int prmItemsCount)
         {

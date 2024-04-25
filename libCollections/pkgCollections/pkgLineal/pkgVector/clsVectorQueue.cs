@@ -20,10 +20,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             try
             {
                 if (prmCapacity == attMaxCapacity) attGrowingFactor = 0;
-                if (prmCapacity < 0)
-                {
-                    prmCapacity = 0;
-                }
+                if (prmCapacity < 0) prmCapacity = 0;
                 if (prmCapacity == 0)
                 {
                     prmCapacity = 100;
@@ -59,23 +56,23 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         }
         public bool opPop(ref T prmItem)
         {
-            if (prmItemsCount == 0)
+            if (attLength == 0)
             {
                 return false;
             }
             prmItem = attItems[0];
-            Array.Copy(attItems, 1, attItems, 0, prmItemsCount - 1);
-            prmItemsCount--;
+            Array.Copy(attItems, 1, attItems, 0, attLength - 1);
+            attLength--;
             return true;
         }
         public bool opPush(T prmItem)
         {
-            if (prmItemsCount == attTotalCapacity)
+            if (attLength == attTotalCapacity)
             {
                 return false;
             }
-            attItems[prmItemsCount] = prmItem;
-            prmItemsCount++;
+            attItems[attLength] = prmItem;
+            attLength  ++;
             return true;
         }
         #endregion 
