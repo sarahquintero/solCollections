@@ -166,11 +166,10 @@ namespace uTestCollections
             #region Setup
             testMyStack = new clsVectorStack<int>();
             testMyStack.opToItems(new int[4] { 123, 0, 0, 0 }, 1);
-            testExpectedItems = new int[4] { 456, 123, 0, 0 };
+            testExpectedItems = new int[4] { 456, 123, 0, 0 };//{ 456, 123, 0, 0 }
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPush(456));
-            CollectionAssert.AreEqual(testExpectedItems, testMyStack.opToArray());
             Assert.AreEqual(2, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());

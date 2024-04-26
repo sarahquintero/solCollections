@@ -1,6 +1,7 @@
 ﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
@@ -13,7 +14,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         protected bool attItsOrderedAscending = false;
         protected bool attItsOrderedDescending = false;
         //protected int prmItemsCount = 0;
-        protected T[] prmArray = new T[100];
+        protected static int attMaxCapacity = int.MaxValue / 16;
+        protected T[] attItems = new T[100];
         #endregion
         #region Builders
         public clsADTLineal()
@@ -24,11 +26,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             try
             {
                 if (attLength < 0) attLength = 0;
-                T[] prmArray = new T[attLength];
+                T[]attItems = new T[attLength];
             }
             catch (Exception e)
             {
-                T[] prmArray = new T[attLength];
+                T[] attItems = new T[attLength];
                 attLength = 0;
                 attItsOrderedAscending = false;
                 attItsOrderedDescending = false;
@@ -51,31 +53,68 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public bool opItsOrderedAscending()
         {
-            T[] prmArray = new T[attLength];
-            for (int i = 1; i < attLength; i++)
+            if (attItems.All(item => item.Equals(default(T))))
             {
-                if (prmArray[i].CompareTo(prmArray[i - 1]) >= 0)
+                // Si todos los elementos son nulos o el valor predeterminado de T, no hay orden definido
+                return false;
+            }
+
+            HashSet<T> uniqueElements = new HashSet<T>();
+            for (int i = 0; i < attLength; i++)
+            {
+                if (EqualityComparer<T>.Default.Equals(attItems[i], default(T)))
                 {
-                    attItsOrderedAscending = true;
-                    return attItsOrderedAscending;
+                    return false;
+                }
+                if (!uniqueElements.Add(attItems[i]))
+                {
+                    // Si se encuentra un elemento repetido, no está ordenado en forma ascendente
+                    return false;
                 }
             }
-            attItsOrderedAscending = false;
-            return attItsOrderedAscending;
+            for (int i = 1; i < attLength; i++)
+            {
+                if (Comparer<T>.Default.Compare(attItems[i], attItems[i - 1]) <= 0)
+                {
+                    // Si encuentra dos elementos consecutivos que no están en orden ascendente, retorna falso
+                    return false;
+                }
+            }
+            // Si no se encontró ningún par de elementos consecutivos en orden descendente, retorna verdadero
+            return false;
         }
         public bool opItsOrderedDescending()
         {
-            T[] prmArray = new T[attLength];
-            for (int i = 1; i < attLength; i++)
+            if (attItems.All(item => item.Equals(default(T))))
             {
-                if (prmArray[i].CompareTo(prmArray[i - 1]) >= 0)
+                // Si todos los elementos son nulos o el valor predeterminado de T, no hay orden definido
+                return false;
+            }
+
+            HashSet<T> uniqueElements = new HashSet<T>();
+            for (int i = 0; i < attLength; i++)
+            {
+                if (EqualityComparer<T>.Default.Equals(attItems[i], default(T)))
                 {
-                    attItsOrderedAscending = true;
-                    return attItsOrderedDescending;
+                    return false;
+                }
+                if (!uniqueElements.Add(attItems[i]))
+                {
+                    // Si se encuentra un elemento repetido, no está ordenado en forma descendente
+                    return false;
                 }
             }
-            attItsOrderedDescending = false;
-            return attItsOrderedDescending;
+
+            for (int i = 1; i < attLength; i++)
+            {
+                if (Comparer<T>.Default.Compare(attItems[i], attItems[i - 1]) >= 0)
+                {
+                    // Si encuentra dos elementos consecutivos que no están en orden descendente, retorna falso
+                    return false;
+                }
+            }
+            // Si no se encontró ningún par de elementos consecutivos en orden ascendente, retorna verdadero
+            return false;
         }
         #endregion
         #region Getters

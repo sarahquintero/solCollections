@@ -9,6 +9,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         #region Builders
         public clsVectorStack()
         {
+
         }
         public clsVectorStack(int prmCapacity) : base(prmCapacity)
         {
@@ -80,12 +81,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                 }
                 else
                 {
-                    for (int i = attLength  ; i > 0; i--)
+                    for (int i = attLength; i >= 1; i--)
                     {
-                         attItems[i] = attItems[i + 1];
+                         attItems[i] = attItems[i - 1];
                     }
                     attItems[0] = prmItem;
-                    attLength++;
+                    if (attLength < attTotalCapacity) attLength++;
                     return true;
                 }
             }

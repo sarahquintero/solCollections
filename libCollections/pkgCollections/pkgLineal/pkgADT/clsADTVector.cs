@@ -9,8 +9,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
     {
         #region Attributes
         protected int attTotalCapacity = 100;
-        protected static int attMaxCapacity = int.MaxValue / 16;
-        protected T[] attItems = new T[100];
+        //protected static int attMaxCapacity = int.MaxValue / 16;
+        //protected T[] attItems = new T[100];
         protected bool attItsFlexible = false;
         protected int attGrowingFactor = 100;
         #endregion
@@ -62,10 +62,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public int opGetAvailableCapacity()
         {
-            int attLength = attItems.Length;
-            int attItemsCount = 0;
-            if (attItems[0] != null) attItemsCount++;
-            return attLength - attItemsCount;
+            return attTotalCapacity - attLength;
+            //int attLength = attItems.Length;
+            //int attItemsCount = 0;
+            //if (attItems[0] != null) attItemsCount++;
+            //return attLength - attItemsCount;
         }
         public int opGetGrowingFactor()
         {
