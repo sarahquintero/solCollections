@@ -114,6 +114,18 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public bool opSetFlexible()
         {
+            if (attTotalCapacity == attMaxCapacity - 1)
+            {
+                T[] prmArray = new T[attMaxCapacity];
+                Array.Copy(attItems, prmArray, attTotalCapacity);
+                for (int i = attMaxCapacity - 1; i < attMaxCapacity; i++)
+                {
+                    prmArray[i] = default(T);
+                }
+                attTotalCapacity = attMaxCapacity;
+                attItsFlexible = false;
+                return attItsFlexible;
+            }
             T[] newArray = new T[attTotalCapacity+100];
             Array.Copy(attItems, newArray, attTotalCapacity);
             for (int i = attTotalCapacity; i < attTotalCapacity + 100; i++)
@@ -145,13 +157,21 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         #region Serialize/Deserialize
         public override T[] opToArray()
         {
+            if (attTotalCapacity == attMaxCapacity)
+            {
+                T[] prmArray = new T[attTotalCapacity];
+                for (int i = 0; i < attTotalCapacity; i++)
+                {
+                    prmArray[i] = attItems[i];
+                }
+                return prmArray;
+            }
             T[] result = new T[attTotalCapacity];
             for (int i = 0; i < attTotalCapacity; i++)
             {
                 result[i] = attItems[i];
             }
             return result;
-            //return attItems;
         }
         public override bool opToItems(T[] prmArray)
         {
