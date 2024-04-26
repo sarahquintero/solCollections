@@ -9,8 +9,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
     {
         #region Attributes
         protected int attTotalCapacity = 100;
-        protected static int attMaxCapacity = int.MaxValue / 16;
-        protected T[] attItems = new T[100];
+        //protected static int attMaxCapacity = int.MaxValue / 16;
+        //protected T[] attItems = new T[100];
         protected bool attItsFlexible = false;
         protected int attGrowingFactor = 100;
         #endregion
@@ -62,16 +62,17 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public int opGetAvailableCapacity()
         {
-            int attLength = attItems.Length;
-            int attItemsCount = 0;
-            if (attItems[0] != null) attItemsCount++;
-            return attLength - attItemsCount;
+            return attTotalCapacity - attLength;
+            //int attLength = attItems.Length;
+            //int attItemsCount = 0;
+            //if (attItems[0] != null) attItemsCount++;
+            //return attLength - attItemsCount;
         }
         public int opGetGrowingFactor()
         {
             if (attItsFlexible)
             {
-                attGrowingFactor = attMaxCapacity / attTotalCapacity;
+                attGrowingFactor = 100;
                 return attGrowingFactor;
             }
             else
@@ -113,8 +114,16 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public bool opSetFlexible()
         {
+            T[] newArray = new T[attTotalCapacity+100];
+            Array.Copy(attItems, newArray, attTotalCapacity);
+            for (int i = attTotalCapacity; i < attTotalCapacity + 100; i++)
+            {
+                newArray[i] = default(T);
+            }
+            attItems = newArray;
+            attTotalCapacity = attTotalCapacity + 100;
             attItsFlexible = true;
-            return true;
+            return attItsFlexible;
         }
         public bool opSetInflexible()
         {
@@ -129,14 +138,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public bool opItsFlexible()
         {
-            if (typeof(T).GetInterface(nameof(ICollection<T>)) != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            if (attItsFlexible) return true;
+            else return false;
         }
         #endregion
         #region Serialize/Deserialize
