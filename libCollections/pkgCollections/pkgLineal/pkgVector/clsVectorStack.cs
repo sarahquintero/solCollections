@@ -77,6 +77,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             {
                 return false;
             }
+            if (attTotalCapacity == attMaxCapacity) 
+            {
+                attItems[0] = prmItem;
+                attLength = attMaxCapacity;
+                return true;
+            }
 
             if (attItsFlexible)
             {

@@ -114,6 +114,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         }
         public bool opSetFlexible()
         {
+            if (attTotalCapacity == attMaxCapacity - 1)
+            {
+                attTotalCapacity = attTotalCapacity + 1;
+                attItsFlexible = false;
+                return attItsFlexible;
+            }
             T[] newArray = new T[attTotalCapacity+100];
             Array.Copy(attItems, newArray, attTotalCapacity);
             for (int i = attTotalCapacity; i < attTotalCapacity + 100; i++)
