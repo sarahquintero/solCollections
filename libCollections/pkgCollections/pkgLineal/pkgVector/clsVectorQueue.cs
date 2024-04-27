@@ -27,6 +27,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                     attTotalCapacity = 100;
                     attGrowingFactor = 100;
                 }
+                if (prmCapacity == attMaxCapacity - 1)
+                {
+                    //attTotalCapacity = (attMaxCapacity - 1);
+                    attLength = (attMaxCapacity - 1);
+                }
                 attItems = new T[prmCapacity];
                 attTotalCapacity = prmCapacity;
             }
@@ -70,6 +75,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             if (attLength == attTotalCapacity)
             {
                 return false;
+            }
+            if (attLength == (attMaxCapacity - 1))
+            {
+                attItems[attItems.Length-2] = prmItem;
+                attLength++;
+                return true;
             }
             attItems[attLength] = prmItem;
             attLength  ++;
