@@ -66,10 +66,13 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                 return false;
             }
             prmItem = attItems[0];
-            for (int i = attLength; i >= 1; i--)
+            T[] prmArray = new T[attTotalCapacity];
+            prmArray[attLength] = attItems[attLength];
+            for (int i = 0; i < attLength; i++)
             {
-                attItems[i] = attItems[i - 1];
+                prmArray[i] = attItems[i + 1];
             }
+            attItems = prmArray;
             attLength--;
             return true;
             //prmItem = attItems[0];
@@ -97,7 +100,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         }
         public T opFirst()
         {
-            return attItems[0];
+            return attItems[3];
         }
         #endregion 
         #endregion
