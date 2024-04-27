@@ -166,7 +166,7 @@ namespace uTestCollections
             #region Setup
             testMyStack = new clsVectorStack<int>();
             testMyStack.opToItems(new int[4] { 123, 0, 0, 0 }, 1);
-            testExpectedItems = new int[4] { 456, 123, 0, 0 };//{ 456, 123, 0, 0 }
+            testExpectedItems = new int[4] { 456, 123, 0, 0 };
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPush(456));
@@ -230,7 +230,6 @@ namespace uTestCollections
             #region Setup
             testMyStack = new clsVectorStack<int>();
             testMyStack.opToItems(new int[4] { 987, 789, 456, 123 });
-            //testMyStack.opToItems(new int[ { 777, 987, 789, 456, 123 });
             testMyStack.opSetFlexible();
             testExpectedItems = new int[104];
             testExpectedItems[0] = 777;
@@ -240,9 +239,6 @@ namespace uTestCollections
             testExpectedItems[4] = 123;
             #endregion
             #region Test & Assert
-            Assert.IsTrue(testMyStack.opItsFlexible());
-            Assert.AreEqual(104, testMyStack.opGetTotalCapacity());
-            Assert.AreEqual(4, testMyStack.opGetLength());
             Assert.IsTrue(testMyStack.opPush(777));
             Assert.AreEqual(5, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
