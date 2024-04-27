@@ -1,8 +1,6 @@
 ﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
-using pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgADT
@@ -13,7 +11,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         protected int attLength = 0;
         protected bool attItsOrderedAscending = false;
         protected bool attItsOrderedDescending = false;
-        //protected int prmItemsCount = 0;
         protected static int attMaxCapacity = int.MaxValue / 16;
         protected T[] attItems = new T[100];
         #endregion
