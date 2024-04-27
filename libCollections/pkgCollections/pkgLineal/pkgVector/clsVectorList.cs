@@ -61,17 +61,50 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             {
                 return false;
             }
-            attItems[attLength] = prmItem;
-            attLength++;
-            return true;
+            if (attTotalCapacity == attLength)
+            {
+                attItems[attTotalCapacity - 1] = prmItem;
+                attLength++;
+                return true;
+            }
+            else
+            {
+                attItems[attLength] = prmItem;
+                attLength++;
+                return true;
+            }
         }
-        public bool opInsert(int Idx, T prmItem)
+        public bool opInsert(int prmIdx, T prmItem)
         {
             throw new NotImplementedException();
         }
-        public bool opRemove(int Idx, ref T prmItem)
+        public bool opRemove(int prmIdx, ref T prmItem)
         {
-            throw new NotImplementedException();
+            if (attLength == 0) return false;
+            if (prmIdx < 0) return false;
+            if (prmIdx == attLength) return false;
+            prmItem = attItems[prmIdx];
+            if (attLength == attTotalCapacity)
+            {
+                T[] prmArray = new T[attTotalCapacity];
+                prmArray = attItems;
+                for (int i = prmIdx; i < attLength; i++)
+                {
+                    prmArray[i] = attItems[i + 1];
+                }
+                attItems = prmArray;
+                attLength--;
+                return true;
+            }
+            else
+            {
+                attLength--;
+                return true;
+            }
+        }
+        public T opItem() 
+        {
+            return attItems[0];
         }
         #endregion
         #region Query

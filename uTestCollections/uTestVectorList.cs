@@ -345,6 +345,7 @@ namespace uTestCollections
             testExpectedItem = default;
             #endregion
             #region Test & Assert
+            Assert.AreEqual(3, testMyList.opGetLength());
             Assert.IsTrue(testMyList.opRemove(1, ref testExpectedItem));
             Assert.AreEqual(2, testExpectedItem);
             Assert.AreEqual(2, testMyList.opGetLength());
