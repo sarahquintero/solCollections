@@ -158,11 +158,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public bool opRetrieve(int prmIdx, ref T prmItem)
         {
-            int prmItemsCount = 0;
-            T[] prmArray = new T[attLength];
-            if (prmIdx >= 0 && prmIdx < prmItemsCount)
+            if (prmIdx >= 0 && prmIdx < attLength)
             {
-                prmItem = prmArray[prmIdx];
+                prmItem = attItems[prmIdx];
                 return true;
             }
             else
