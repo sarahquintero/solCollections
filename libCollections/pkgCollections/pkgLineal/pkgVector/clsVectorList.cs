@@ -81,8 +81,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         public bool opRemove(int prmIdx, ref T prmItem)
         {
             if (attLength == 0) return false;
-            if (prmIdx < 0) return false;
-            if (prmIdx == attLength) return false;
+            if (prmIdx < 0 || prmIdx == attLength)
+            {
+                attLength--;
+                return false;
+            }
             prmItem = attItems[prmIdx];
             if (attLength == attTotalCapacity)
             {
@@ -98,8 +101,26 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             }
             else
             {
-                attLength--;
-                return true;
+                if (prmIdx == attLength - 1)
+                {
+                    T[] prmArray = new T[attTotalCapacity];
+                    prmArray = attItems;
+                    attItems = prmArray;
+                    attLength--;
+                    return true;
+                }
+                else
+                {
+                    T[] prmArray = new T[attTotalCapacity];
+                    prmArray = attItems;
+                    for (int i = prmIdx; i < attTotalCapacity - 1; i++)
+                    {
+                        prmArray[i] = attItems[i + 1];
+                    }
+                    attItems = prmArray;
+                    attLength--;
+                    return true;
+                }
             }
         }
         #endregion
