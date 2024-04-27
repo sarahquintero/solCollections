@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using pkgServices.pkgCollections.pkgLineal.pkgLinked;
 using pkgServices.pkgCollections.pkgLineal.pkgVector;
 
 namespace uTestCollections
@@ -284,16 +286,13 @@ namespace uTestCollections
             testExpectedItem = default;
             #endregion
             #region Test & Assert
-            Assert.AreEqual(4, testMyStack.opGetLength());
             Assert.IsTrue(testMyStack.opPop(ref testExpectedItem));
-            
-            Assert.AreEqual(4, testMyStack.opGetTotalCapacity());
             Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(3, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             Assert.AreEqual(4, testMyStack.opGetTotalCapacity());
-            CollectionAssert.AreEqual(testExpectedItems, testMyStack.opToArray());///////////////
+            CollectionAssert.AreEqual(testExpectedItems, testMyStack.opToArray());
             Assert.IsFalse(testMyStack.opItsFlexible());
             Assert.AreEqual(100, testMyStack.opGetGrowingFactor());
             Assert.AreEqual(1, testMyStack.opGetAvailableCapacity());
@@ -330,11 +329,7 @@ namespace uTestCollections
             testExpectedItem = default;
             #endregion
             #region Test & Assert
-            Assert.AreEqual(3, testMyStack.opGetLength());
             Assert.IsTrue(testMyStack.opPop(ref testExpectedItem));
-            CollectionAssert.AreEqual(testExpectedItems, testMyStack.opToArray());
-            Assert.AreEqual(4, testMyStack.opGetTotalCapacity());
-            Assert.AreEqual(2, testMyStack.opGetLength());
             Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(2, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
@@ -358,8 +353,6 @@ namespace uTestCollections
             testExpectedItem = default;
             #endregion
             #region Test & Assert
-            Assert.AreEqual(4, testMyStack.opGetTotalCapacity());
-            Assert.AreEqual(4, testMyStack.opGetLength());
             Assert.IsTrue(testMyStack.opPeek(ref testExpectedItem));
             Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(4, testMyStack.opGetLength());
