@@ -257,8 +257,10 @@ namespace uTestCollections
             testExpectedItems[clsVectorQueue<int>.opGetMaxCapacity() - 1] = 777;
             #endregion
             #region Test & Assert
+            Assert.AreEqual(clsVectorQueue<int>.opGetMaxCapacity(), testMyQueue.opGetTotalCapacity());
             Assert.AreEqual(clsVectorQueue<int>.opGetMaxCapacity()-1, testMyQueue.opGetLength());
             Assert.IsTrue(testMyQueue.opPush(777));
+            CollectionAssert.AreEqual(testExpectedItems, testMyQueue.opToArray());
             Assert.AreEqual(clsVectorQueue<int>.opGetMaxCapacity(), testMyQueue.opGetLength());
             Assert.IsFalse(testMyQueue.opItsOrderedAscending());
             Assert.IsFalse(testMyQueue.opItsOrderedDescending());

@@ -122,6 +122,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
                 {
                     prmArray[i] = default(T);
                 }
+                //attLength = attTotalCapacity-1;
+                attItems = prmArray;
                 attTotalCapacity = attMaxCapacity;
                 attItsFlexible = false;
                 return attItsFlexible;
