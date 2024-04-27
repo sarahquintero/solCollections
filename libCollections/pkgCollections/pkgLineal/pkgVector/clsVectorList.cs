@@ -7,7 +7,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
     public class clsVectorList<T> : clsADTVector<T>, iList<T> where T : IComparable<T>
     {
         #region Attributes
-        //protected T[] attItems = new T[100]; 
         #endregion
         #region Builders
         public clsVectorList()
@@ -60,7 +59,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         {
             throw new NotImplementedException();
         }
-
         public bool opInsert(int Idx, T prmItem)
         {
             throw new NotImplementedException();
@@ -80,7 +78,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         {
             throw new NotImplementedException();
         }
-
         #endregion
     }
 }

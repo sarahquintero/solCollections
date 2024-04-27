@@ -30,7 +30,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                 if (prmCapacity == attMaxCapacity - 1)
                 {
                     attTotalCapacity = prmCapacity;
-                    //attLength = (attMaxCapacity - 1);
                 }
                 attItems = new T[prmCapacity];
                 attTotalCapacity = prmCapacity;
@@ -38,7 +37,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             catch
             {
                 attTotalCapacity = 100;
-                attMaxCapacity = int.MaxValue / 16;//134217727
+                attMaxCapacity = int.MaxValue / 16;
                 attItems = new T[100];
                 attItsFlexible = false;
                 attGrowingFactor = 100;
@@ -74,7 +73,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                 {
                     attItems[i] = attItems[i + 1];
                 }
-                //attItems = prmArray;
                 attLength--;
                 return true;
             }
@@ -90,11 +88,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                 attLength--;
                 return true;
             }
-            
-            //prmItem = attItems[0];
-            //Array.Copy(attItems, 1, attItems, 0, attLength - 1);
-            //attLength--;
-            //return true;
         }
         public bool opPush(T prmItem)
         {

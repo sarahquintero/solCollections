@@ -52,13 +52,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                 prmItem = attItems[0];
                 return true;
             }
-
-            //if (prmItemsCount == 0)
-            //{
-            //return false;
-            //}
-            //prmItem = attItems[prmItemsCount - 1];
-            //return true;
         }
         public bool opPop(ref T prmItem)
         {
@@ -120,9 +113,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                 if (attLength < attTotalCapacity) attLength++;
                 return true;
             }
-            //attItems[0] = prmItem;
-            //attLength++;
-            //return true;
         }
         #endregion
     }
