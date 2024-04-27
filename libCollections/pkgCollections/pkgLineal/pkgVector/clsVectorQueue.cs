@@ -66,9 +66,16 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                 return false;
             }
             prmItem = attItems[0];
-            Array.Copy(attItems, 1, attItems, 0, attLength - 1);
+            for (int i = attLength; i >= 1; i--)
+            {
+                attItems[i] = attItems[i - 1];
+            }
             attLength--;
             return true;
+            //prmItem = attItems[0];
+            //Array.Copy(attItems, 1, attItems, 0, attLength - 1);
+            //attLength--;
+            //return true;
         }
         public bool opPush(T prmItem)
         {

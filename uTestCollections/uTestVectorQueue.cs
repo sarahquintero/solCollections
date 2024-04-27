@@ -326,6 +326,7 @@ namespace uTestCollections
             testExpectedItem = default;
             #endregion
             #region Test & Assert
+            Assert.AreEqual(3, testMyQueue.opGetLength());
             Assert.IsTrue(testMyQueue.opPop(ref testExpectedItem));
             Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(2, testMyQueue.opGetLength());
