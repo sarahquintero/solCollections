@@ -66,9 +66,26 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             {
                 return false;
             }
-            prmItem = attItems[attLength - 1];
-            attLength--;
-
+            if (attLength != attTotalCapacity)
+            {
+                prmItem = attItems[attTotalCapacity - (attLength + 1)];
+                for (int i = 0; i < attLength; i++)
+                {
+                    attItems[i] = attItems[i + 1];
+                }
+                attLength--;
+                return true;
+            }
+            if (attLength == attTotalCapacity)
+            {
+                prmItem = attItems[attTotalCapacity - attLength];
+                for (int i = 0; i < attLength - 1; i++)
+                {
+                    attItems[i] = attItems[i + 1];
+                }
+                attLength--;
+                return true;
+            }
             return true;
         }
         public bool opPush(T prmItem)

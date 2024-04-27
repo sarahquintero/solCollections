@@ -160,7 +160,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
             if (attTotalCapacity == attMaxCapacity)
             {
                 T[] prmArray = new T[attTotalCapacity];
-                for (int i = 0; i < attTotalCapacity; i++)
+                for (int i = 0; i < attTotalCapacity-1; i++)
                 {
                     prmArray[i] = attItems[i];
                 }
