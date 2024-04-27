@@ -49,7 +49,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             }
             else
             {
-                prmItem = attItems[attLength - 1];
+                prmItem = attItems[0];
                 return true;
             }
 
