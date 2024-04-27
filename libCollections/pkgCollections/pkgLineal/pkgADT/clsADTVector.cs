@@ -159,6 +159,15 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         #region Serialize/Deserialize
         public override T[] opToArray()
         {
+            if (attLength == attMaxCapacity)
+            {
+                T[] prmArray = new T[attTotalCapacity];
+                for (int i = 0; i < attTotalCapacity; i++)//-1
+                {
+                    prmArray[i] = attItems[i];
+                }
+                return prmArray;
+            }
             if (attTotalCapacity == attMaxCapacity)
             {
                 T[] prmArray = new T[attTotalCapacity];
@@ -168,6 +177,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
                 }
                 return prmArray;
             }
+            
             T[] result = new T[attTotalCapacity];
             for (int i = 0; i < attTotalCapacity; i++)
             {

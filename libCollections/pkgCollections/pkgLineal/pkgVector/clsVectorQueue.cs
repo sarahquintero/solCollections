@@ -80,7 +80,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             {
                 //if (attItsFlexible == false) attLength = attMaxCapacity - 1;
                 //attLength = attTotalCapacity;
-                attItems[134217726] = prmItem;
+                attItems[attTotalCapacity-1] = prmItem;
                 attLength++;
                 return true;
             }
