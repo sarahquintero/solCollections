@@ -95,6 +95,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             attLength  ++;
             return true;
         }
+        public T opFirst()
+        {
+            return attItems[0];
+        }
         #endregion 
         #endregion
     }

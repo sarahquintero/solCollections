@@ -328,6 +328,7 @@ namespace uTestCollections
             #region Test & Assert
             Assert.AreEqual(3, testMyQueue.opGetLength());
             Assert.IsTrue(testMyQueue.opPop(ref testExpectedItem));
+            Assert.AreEqual(2, testMyQueue.opFirst());
             Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(2, testMyQueue.opGetLength());
             Assert.IsFalse(testMyQueue.opItsOrderedAscending());
