@@ -283,7 +283,10 @@ namespace uTestCollections
             testExpectedItem = default;
             #endregion
             #region Test & Assert
+            Assert.AreEqual(4, testMyQueue.opGetTotalCapacity());
+            Assert.AreEqual(4, testMyQueue.opGetLength());
             Assert.IsTrue(testMyQueue.opPop(ref testExpectedItem));
+            Assert.AreEqual(2, testMyQueue.opFirst());
             Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(3, testMyQueue.opGetLength());
             Assert.IsFalse(testMyQueue.opItsOrderedAscending());
@@ -326,9 +329,10 @@ namespace uTestCollections
             testExpectedItem = default;
             #endregion
             #region Test & Assert
+            Assert.AreEqual(4, testMyQueue.opGetTotalCapacity());
             Assert.AreEqual(3, testMyQueue.opGetLength());
             Assert.IsTrue(testMyQueue.opPop(ref testExpectedItem));
-            Assert.AreEqual(4, testMyQueue.opFirst());
+            Assert.AreEqual(2, testMyQueue.opFirst());
             Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(2, testMyQueue.opGetLength());
             Assert.IsFalse(testMyQueue.opItsOrderedAscending());

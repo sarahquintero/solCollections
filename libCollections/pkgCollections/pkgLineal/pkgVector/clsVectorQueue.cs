@@ -55,7 +55,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             }
             else
             {
-                prmItem = attItems[attLength - 1];
+                prmItem = attItems[0];
                 return true;
             }
         }
@@ -65,16 +65,32 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             {
                 return false;
             }
-            prmItem = attItems[0];
             T[] prmArray = new T[attTotalCapacity];
-            prmArray[attLength] = attItems[attLength];
-            for (int i = 0; i < attLength; i++)
+            if (attTotalCapacity == attLength)
             {
-                prmArray[i] = attItems[i + 1];
+                prmItem = attItems[0];
+                prmArray[attLength - 1] = attItems[attLength - 1];
+                for (int i = 0; i < attLength - 1; i++)
+                {
+                    attItems[i] = attItems[i + 1];
+                }
+                //attItems = prmArray;
+                attLength--;
+                return true;
             }
-            attItems = prmArray;
-            attLength--;
-            return true;
+            else
+            {
+                prmItem = attItems[0];
+                prmArray[attLength] = attItems[attLength];
+                for (int i = 0; i < attLength; i++)
+                {
+                    prmArray[i] = attItems[i + 1];
+                }
+                attItems = prmArray;
+                attLength--;
+                return true;
+            }
+            
             //prmItem = attItems[0];
             //Array.Copy(attItems, 1, attItems, 0, attLength - 1);
             //attLength--;
@@ -88,8 +104,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             }
             if (attMaxCapacity == attTotalCapacity)
             {
-                //if (attItsFlexible == false) attLength = attMaxCapacity - 1;
-                //attLength = attTotalCapacity;
                 attItems[attTotalCapacity-1] = prmItem;
                 attLength++;
                 return true;
@@ -100,7 +114,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
         }
         public T opFirst()
         {
-            return attItems[3];
+            return attItems[0];
         }
         #endregion 
         #endregion
