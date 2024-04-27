@@ -30,7 +30,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
                 if (prmCapacity == attMaxCapacity - 1)
                 {
                     //attTotalCapacity = (attMaxCapacity - 1);
-                    attLength = (attMaxCapacity - 1);
+                    //attLength = (attMaxCapacity - 1);
                 }
                 attItems = new T[prmCapacity];
                 attTotalCapacity = prmCapacity;
@@ -38,7 +38,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             catch
             {
                 attTotalCapacity = 100;
-                attMaxCapacity = int.MaxValue / 16;//134,217,727.9375
+                attMaxCapacity = int.MaxValue / 16;//134217727
                 attItems = new T[100];
                 attItsFlexible = false;
                 attGrowingFactor = 100;
