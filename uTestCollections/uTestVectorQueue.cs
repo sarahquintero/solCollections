@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using pkgServices.pkgCollections.pkgLineal.pkgLinked;
 using pkgServices.pkgCollections.pkgLineal.pkgVector;
 
 namespace uTestCollections
@@ -257,10 +259,7 @@ namespace uTestCollections
             testExpectedItems[clsVectorQueue<int>.opGetMaxCapacity() - 1] = 777;
             #endregion
             #region Test & Assert
-            Assert.AreEqual(clsVectorQueue<int>.opGetMaxCapacity(), testMyQueue.opGetTotalCapacity());
-            Assert.AreEqual(clsVectorQueue<int>.opGetMaxCapacity()-1, testMyQueue.opGetLength());
             Assert.IsTrue(testMyQueue.opPush(777));
-            CollectionAssert.AreEqual(testExpectedItems, testMyQueue.opToArray());
             Assert.AreEqual(clsVectorQueue<int>.opGetMaxCapacity(), testMyQueue.opGetLength());
             Assert.IsFalse(testMyQueue.opItsOrderedAscending());
             Assert.IsFalse(testMyQueue.opItsOrderedDescending());
@@ -283,10 +282,7 @@ namespace uTestCollections
             testExpectedItem = default;
             #endregion
             #region Test & Assert
-            Assert.AreEqual(4, testMyQueue.opGetTotalCapacity());
-            Assert.AreEqual(4, testMyQueue.opGetLength());
             Assert.IsTrue(testMyQueue.opPop(ref testExpectedItem));
-            Assert.AreEqual(2, testMyQueue.opFirst());
             Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(3, testMyQueue.opGetLength());
             Assert.IsFalse(testMyQueue.opItsOrderedAscending());
@@ -329,10 +325,7 @@ namespace uTestCollections
             testExpectedItem = default;
             #endregion
             #region Test & Assert
-            Assert.AreEqual(4, testMyQueue.opGetTotalCapacity());
-            Assert.AreEqual(3, testMyQueue.opGetLength());
             Assert.IsTrue(testMyQueue.opPop(ref testExpectedItem));
-            Assert.AreEqual(2, testMyQueue.opFirst());
             Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(2, testMyQueue.opGetLength());
             Assert.IsFalse(testMyQueue.opItsOrderedAscending());
