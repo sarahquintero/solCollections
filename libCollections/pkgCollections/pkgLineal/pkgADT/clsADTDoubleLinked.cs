@@ -8,7 +8,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
     {
         #region Attributes
         protected clsDoubleLinkedNode<T> attFirst;
+        protected clsDoubleLinkedNode<T> attFirstQuarter;
         protected clsDoubleLinkedNode<T> attMiddle;
+        protected clsDoubleLinkedNode<T> attLastQuarter;
         protected clsDoubleLinkedNode<T> attLast;
         #endregion
         #region Operations
@@ -45,6 +47,40 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             throw new NotImplementedException();
         }
         #endregion 
+        #region Iterator
+        public override bool opGo(int prmIdx)
+        {
+            if (!opIsValid(prmIdx)) return false;
+            if (prmIdx < attLength / 2)
+                opGoFirst();
+            else opGoMiddle();
+            while (attCurrentIdx < prmIdx)
+                opGoNext();
+            return true;
+        }
+        #endregion
+        #region Serialize/Deserialize
+        public override bool opToItems(T[] prmArray)
+        {
+            if (prmArray == null) return false;
+            if (prmArray.Length == 0) return false;
+            if (prmArray.Length > attMaxCapacity) return false;
+            attFirst = new clsDoubleLinkedNode<T>(prmArray[0]);
+            attMiddle = attFirst;
+            clsDoubleLinkedNode<T> varPreviousNode = attFirst;
+            clsDoubleLinkedNode<T> varCurrentNode = attFirst;
+            for (int varIdx = 1; varIdx < prmArray.Length; varIdx++)
+            {
+                varCurrentNode = new clsDoubleLinkedNode<T>(prmArray[varIdx]);
+                varPreviousNode.opSetNext(varCurrentNode);
+                if (varIdx == (prmArray.Length / 2))
+                    attMiddle = varCurrentNode;
+                varPreviousNode = varCurrentNode;
+            }
+            attLast = varCurrentNode;
+            return true;
+        }
+        #endregion
         #endregion
     }
 }

@@ -20,13 +20,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgInterfaces
         T opGetCurrentItem();
         #endregion
         #region Setters
-        bool SetCurrentItem(T prmContent);
+        bool opSetCurrentItem(T prmContent);
         #endregion
         #region Query
         bool opIsValid(int prmIdx);
         bool opIsThereNext();
-        bool IsTherePrevious(); 
+        bool opIsTherePrevious(); 
         #endregion
-
     }
 }
