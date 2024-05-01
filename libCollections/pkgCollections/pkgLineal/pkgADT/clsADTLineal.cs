@@ -1,14 +1,14 @@
 ﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServices.pkgCollections.pkgLineal.pkgIterators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
-    public class clsADTLineal<T>: iADTLineal<T> where T : IComparable<T>
+    public class clsADTLineal<T>: clsIterator<T>, iADTLineal<T> where T : IComparable<T>
     {
         #region Attributes
-        protected int attLength = 0;
         protected bool attItsOrderedAscending = false;
         protected bool attItsOrderedDescending = false;
         protected static int attMaxCapacity = int.MaxValue / 16;
@@ -139,19 +139,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         #endregion
         #region CRUDs
-        public bool opModify(int prmIdx, T prmItem)
+        public virtual bool opModify(int prmIdx, T prmItem)
         {
-            int prmItemsCount = 0;
-            T[] prmArray = new T[attLength];
-            if (prmIdx >= 0 && prmIdx < prmItemsCount)
-            {
-                prmArray[prmIdx] = prmItem;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            if (!opGo(prmIdx)) return false;
+            return opSetCurrentItem(prmItem);
         }
         public bool opRetrieve(int prmIdx, ref T prmItem)
         {

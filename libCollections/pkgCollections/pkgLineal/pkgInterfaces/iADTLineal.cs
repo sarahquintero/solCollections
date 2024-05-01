@@ -12,7 +12,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgInterfaces
         int opFind(T prmItem);
         bool opExists(T prmItem);
         bool opItsEmpty();
-        bool opItsValid(int prmIdx);
+        bool opIsValid(int prmIdx);
         bool opItsOrderedAscending();
         bool opItsOrderedDescending();
         #endregion

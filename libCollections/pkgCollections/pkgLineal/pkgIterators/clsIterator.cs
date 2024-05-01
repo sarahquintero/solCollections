@@ -7,84 +7,93 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgIterators
     {
         #region Attributes
         protected int attLength = 0;
-        protected int attCurrentIdx;
-        protected T attCurrentItem; 
+        protected int attCurrentIdx = -1;
+        protected T attCurrentItem;
         #endregion
         #region Operations
-        public bool opGoFirst()
+        #region Movement
+        public virtual bool opGoFirst()
         {
             throw new NotImplementedException();
         }
-
+        public virtual bool opGoFirstQuarter()
+        { throw new NotImplementedException(); }
         public bool opGoPrevious()
         {
-            throw new NotImplementedException();
+            if(!opIsTherePrevious()) 
+            {
+                return false;
+            }
+            opGoBack();
+            return true;
         }
-
         public bool opGoMiddle()
         {
             throw new NotImplementedException();
         }
-
+        public virtual bool opGoLastQuarter()
+        { throw new NotImplementedException(); }
         public bool opGoNext()
         {
             throw new NotImplementedException();
         }
-
         public bool opGoLast()
         {
             throw new NotImplementedException();
         }
-
+        public virtual bool opGo(int prmIdx)
+        {
+            if (!opIsValid(prmIdx)) return false;
+            opGoFirst();
+            while (attCurrentIdx < prmIdx)
+                opGoNext();
+            return true;
+        }
+        public virtual void opGoBack()
+        {
+            attCurrentIdx--;
+        }
+        public void opGoForward()
+        {
+            attCurrentIdx++;
+        } 
+        #endregion
+        #region Getters
         public int opGetCurrentIdx()
         {
             throw new NotImplementedException();
         }
-
         public T opGetCurrentItem()
         {
             throw new NotImplementedException();
         }
-
-        public bool opGo(int prmIdx)
+        public int opGetLenght()
         {
             throw new NotImplementedException();
-        }
-
+        } 
+        #endregion
+        #region Setters
+        public bool opSetCurrentItem(T prmContent)
+        {
+            throw new NotImplementedException();
+        } 
+        #endregion
+        #region Querys
         public bool opIsValid(int prmIdx)
         {
             throw new NotImplementedException();
         }
-
-        public bool SetCurrentItem(T prmContent)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool opIsThereNext()
         {
-            throw new NotImplementedException();
+            if (attCurrentIdx >= attLength - 1) return false;
+            return true;
         }
-
-        public bool IsTherePrevious()
+        public bool opIsTherePrevious()
         {
-            throw new NotImplementedException();
-        }
-
-        public int opGetLenght()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void opGoBack()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void opGoForward()
-        {
-            throw new NotImplementedException();
-        }
+            if(attCurrentIdx <= 0) return false;
+            return true;
+        } 
+        #endregion
         #endregion
     }
 }
