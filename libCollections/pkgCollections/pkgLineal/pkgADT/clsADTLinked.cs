@@ -73,7 +73,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         {
             return base.opGoLastQuarter();
         }
-        public override void opGoFoward()
+        public override void opGoForward()
         {
             base.opGoForward();
             attCurrentNode = attCurrentNode.opGetNext();

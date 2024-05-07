@@ -80,7 +80,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             attCurrentNode = attCurrentNode.opGetNext();
             attCurrentItem = attCurrentNode.opGetItem();
         }
-        public override void opGoFoward()
+        public override void opGoForward()
         {
             base.opGoFoward();
             attCurrentNode = attCurrentNode.opGetNext();

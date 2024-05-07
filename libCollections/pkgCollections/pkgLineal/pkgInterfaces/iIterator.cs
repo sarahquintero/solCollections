@@ -4,6 +4,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgInterfaces
 {
     public interface iIterator<T> where T : IComparable<T>
     {
+        #region Operations
         #region Movement
         bool opGoFirst();
         bool opGoPrevious();
@@ -25,7 +26,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgInterfaces
         #region Query
         bool opIsValid(int prmIdx);
         bool opIsThereNext();
-        bool opIsTherePrevious(); 
+        bool opIsTherePrevious();
+        #endregion 
         #endregion
     }
 }
