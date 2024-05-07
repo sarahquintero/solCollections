@@ -82,7 +82,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public override void opGoForward()
         {
-            base.opGoFoward();
+            base.opGoForward();
             attCurrentNode = attCurrentNode.opGetNext();
             attCurrentItem = attCurrentNode.opGetItem();
         }

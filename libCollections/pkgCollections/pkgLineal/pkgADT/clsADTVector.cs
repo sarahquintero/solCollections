@@ -89,10 +89,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
                 return attGrowingFactor;
             }
         }
-        public static int opGetMaxCapacity()
+        /*public static int opGetMaxCapacity()
         {
             return attMaxCapacity;
-        }
+        }*/
         #endregion
         #region Setters
         public bool opSetGrowingFactor(int prmValue)

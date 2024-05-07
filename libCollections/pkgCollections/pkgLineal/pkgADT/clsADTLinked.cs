@@ -23,7 +23,15 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
+        public clsDoubleLinkedNode<T> opGetFirstQuarter()
+        {
+            throw new NotImplementedException();
+        }
         public clsLinkedNode<T> opGetLast()
+        {
+            throw new NotImplementedException();
+        }
+        public clsLinkedNode<T> opGetLastQuarter()
         {
             throw new NotImplementedException();
         }

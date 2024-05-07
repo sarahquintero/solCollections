@@ -119,6 +119,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         {
             return attLength;
         }
+        public static int opGetMaxCapacity()
+        {
+            return attMaxCapacity;
+        }
         #endregion
         #region Serialize/Deserialize
         public virtual T[] opToArray()
