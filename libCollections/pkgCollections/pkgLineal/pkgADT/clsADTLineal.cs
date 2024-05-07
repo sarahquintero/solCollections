@@ -137,6 +137,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
+        //bool oToItems(T[] prmArray, bool prmItsOrderedAscending);
         #endregion
         #region CRUDs
         public virtual bool opModify(int prmIdx, T prmItem)

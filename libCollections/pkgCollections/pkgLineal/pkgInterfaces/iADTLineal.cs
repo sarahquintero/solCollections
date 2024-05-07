@@ -20,7 +20,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgInterfaces
         T[] opToArray();
         string opToString();
         bool opToItems(T[] prmArray);
-        bool opToItems(T[] prmArray, bool prmItsOrderedAscending);
+        //bool opToItems(T[] prmArray, bool prmItsOrderedAscending);
         #endregion
         #region CRUDs
         bool opModify(int prmIdx, T prmItem);
