@@ -40,8 +40,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         #region Getters
         public int opGetTotalCapacity()
         {
-            if(attTotalCapacity > int.MaxValue / 16) 
-            { 
+            if (attTotalCapacity > int.MaxValue / 16)
+            {
                 attTotalCapacity = 100;
                 return attTotalCapacity;
             }
@@ -121,7 +121,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
                 attItsFlexible = false;
                 return attItsFlexible;
             }
-            T[] newArray = new T[attTotalCapacity+100];
+            T[] newArray = new T[attTotalCapacity + 100];
             Array.Copy(attItems, newArray, attTotalCapacity);
             for (int i = attTotalCapacity; i < attTotalCapacity + 100; i++)
             {
@@ -164,13 +164,13 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
             if (attTotalCapacity == attMaxCapacity)
             {
                 T[] prmArray = new T[attTotalCapacity];
-                for (int i = 0; i < attTotalCapacity-1; i++)
+                for (int i = 0; i < attTotalCapacity - 1; i++)
                 {
                     prmArray[i] = attItems[i];
                 }
                 return prmArray;
             }
-            
+
             T[] result = new T[attTotalCapacity];
             for (int i = 0; i < attTotalCapacity; i++)
             {
@@ -182,7 +182,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
         {
             if (prmArray == null) return false;
             if (prmArray.Length == 0) return false;
-            if (attItems.Length > attMaxCapacity ) return false;
+            if (attItems.Length > attMaxCapacity) return false;
             attItems = prmArray;
             attLength = attItems.Length;
             attTotalCapacity = attItems.Length;
@@ -201,8 +201,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
             attItems = prmArray;
             attLength = prmItemsCount;
             attTotalCapacity = prmArray.Length;
-            if(attMaxCapacity - attLength < 100)
-                attGrowingFactor = attMaxCapacity-attLength;
+            if (attMaxCapacity - attLength < 100)
+                attGrowingFactor = attMaxCapacity - attLength;
             return true;
         }
         #endregion
@@ -213,7 +213,23 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
             attCurrentIdx = prmIdx;
             attCurrentItem = attItems[attCurrentIdx];
             return true;
-        } 
+        }
+        public override bool opGoFirst()
+        {
+            if (!opIsValid(0)) return false;
+            attCurrentIdx = 0;
+            attCurrentItem = attItems[attCurrentIdx];
+            return true;
+        }
+        public override void opGoBack()
+        {
+            base.opGoBack();
+            attCurrentItem = attItems[attCurrentIdx];
+        }
+        public override void opGoForward()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
         #endregion
     }

@@ -12,6 +12,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         protected clsLinkedNode<T> attMiddle;
         protected clsLinkedNode<T> attLastQuarter;
         protected clsLinkedNode<T> attLast;
+        protected clsLinkedNode<T> attCurrentNode;
         #endregion
         #region Operations
         #region Builders
@@ -46,6 +47,13 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         #endregion
         #region Iterator
+        public override bool opGoFirst(int prmIdx)
+        {
+            if (attFirst == null) return false;
+            attCurrentItem = attFirst.opGetItem();
+            attCurrentIdx = 0;
+            return true;
+        }
         public override bool opGo(int prmIdx)
         {
             if (!opIsValid(prmIdx)) return false;
@@ -56,6 +64,20 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             while (attCurrentIdx < prmIdx)
                 opGoNext();
             return true;
+        }
+        public override bool opGoFirstQuarter()
+        {
+            return base.opGoFirstQuarter();
+        }
+        public override bool opGoLastQuarter()
+        {
+            return base.opGoLastQuarter();
+        }
+        public override void opGoFoward()
+        {
+            base.opGoForward();
+            attCurrentNode = attCurrentNode.opGetNext();
+            attCurrentItem = attCurrentNode.opGetItem();
         }
         #endregion
         #region Serialize/Deserialize

@@ -19,7 +19,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgInterfaces
         #region Serialize/Deserialize
         T[] opToArray();
         string opToString();
-        bool opToItems(T[] prmArray, int prmItemsCount);
+        bool opToItems(T[] prmArray);
+        bool opToItems(T[] prmArray, bool prmItsOrderedAscending);
         #endregion
         #region CRUDs
         bool opModify(int prmIdx, T prmItem);

@@ -1,6 +1,7 @@
 ﻿using pkgServices .pkgCollections.pkgNodes;
 using System;
 using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
+using System.Security.Policy;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
@@ -12,6 +13,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         protected clsDoubleLinkedNode<T> attMiddle;
         protected clsDoubleLinkedNode<T> attLastQuarter;
         protected clsDoubleLinkedNode<T> attLast;
+        protected clsDoubleLinkedNode<T> attCurrentNode;
         #endregion
         #region Operations
         #region Builders
@@ -57,6 +59,32 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             while (attCurrentIdx < prmIdx)
                 opGoNext();
             return true;
+        }
+        public override bool opGoFirstQuarter()
+        {
+            if (attFirstQuarter == null) return false;
+            attCurrentItem = attFirstQuarter.opGetItem();
+            attCurrentIdx = attLength / 4;
+            return true;
+        }
+        public override bool opGoLastQuarter()
+        {
+            if (attLastQuarter == null) return false;
+            attCurrentItem = attLastQuarter.opGetItem();
+            attCurrentIdx = (attLength / 2) + (attLength / 4);
+            return true;
+        }
+        public override void opGoBack()
+        {
+            base.opGoBack();
+            attCurrentNode = attCurrentNode.opGetNext();
+            attCurrentItem = attCurrentNode.opGetItem();
+        }
+        public override void opGoFoward()
+        {
+            base.opGoFoward();
+            attCurrentNode = attCurrentNode.opGetNext();
+            attCurrentItem = attCurrentNode.opGetItem();
         }
         #endregion
         #region Serialize/Deserialize

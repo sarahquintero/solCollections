@@ -35,7 +35,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgIterators
         { throw new NotImplementedException(); }
         public bool opGoNext()
         {
-            throw new NotImplementedException();
+            if (!opIsThereNext())
+                return false;
+            opGoForward();
+            return true;
         }
         public bool opGoLast()
         {
@@ -53,7 +56,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgIterators
         {
             attCurrentIdx--;
         }
-        public void opGoForward()
+        public virtual void opGoForward()
         {
             attCurrentIdx++;
         } 
