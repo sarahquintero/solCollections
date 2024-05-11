@@ -36,14 +36,34 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 attItems = new T[100];
             }
         }
-
         public bool opPeek(ref T prmItem)
         {
-            throw new NotImplementedException();
+            /*if (attLength == 0)
+            {
+                prmItem = default;
+                return false;
+            }*/
+            if (attItems == null)
+            {
+                T[] prmArray = new T[100];
+                attItems = prmArray;
+                return false;
+            }
+            prmItem = attItems[0];
+            return true;
         }
         public bool opPop(ref T prmItem)
         {
-            throw new NotImplementedException();
+            if (attItems == null) return false;
+            prmItem = attItems[0];
+            attLength--;
+            T[] prmArray = new T[attLength];
+            for (int i = 0; i < attLength; i++)
+            {
+                prmArray[i] = attItems[i + 1];
+            }
+            attItems = prmArray;
+            return true;
         }
         public bool opPush(T prmItem)
         {

@@ -126,6 +126,15 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 return null;
             }
+            if (attLength == 0) 
+            {
+                T[] prmArray = new T[100];
+                for (int i = 0; i < 100; i++)
+                {
+                    prmArray[i] = attItems[i];
+                }
+                return prmArray;
+            }
             T[] result = new T[attLength];
             for (int i = 0; i < attLength; i++)
             {

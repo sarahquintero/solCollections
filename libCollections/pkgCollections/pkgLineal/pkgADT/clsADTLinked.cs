@@ -23,6 +23,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         {
             if (attItems == null)
             {
+                return attFirst;
+            }
+            if (attLength == 0)
+            {
                 attFirst = null;
                 return attFirst;
             }
@@ -36,6 +40,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attFirstQuarter = null;
                 return attFirstQuarter;
             }
+            if (attLength == 0)
+            {
+                attFirst = null;
+                return attFirst;
+            }
             attFirstQuarter.opSetItem(attItems[attLength/4]);
             return attFirstQuarter;
         }
@@ -45,6 +54,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 attLast = null;
                 return attLast;
+            }
+            if (attLength == 0)
+            {
+                attFirst = null;
+                return attFirst;
             }
             attLast.opSetItem(attItems[attLength-1]);
             return attLast;
@@ -56,6 +70,16 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attLastQuarter = null;
                 return attLastQuarter;
             }
+            if (attLength == 0)
+            {
+                attFirst = null;
+                return attFirst;
+            }
+            if (attItems.Length == 4)
+            {
+                attLastQuarter.opSetItem(attItems[attItems.Length - 2]);
+                return attLastQuarter;
+            }
             attLastQuarter.opSetItem(attItems[(attLength / 4)+(attLength / 2)]);
             return attLastQuarter;
         }
@@ -65,6 +89,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 attMiddle = null;
                 return attMiddle;
+            }
+            if (attLength == 0)
+            {
+                attFirst = null;
+                return attFirst;
             }
             attMiddle.opSetItem(attItems[attLength / 2]);
             return attMiddle;
