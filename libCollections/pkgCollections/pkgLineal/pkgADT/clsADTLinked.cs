@@ -60,6 +60,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attFirst = null;
                 return attFirst;
             }
+            if (attLength != attItems.Length)
+            {
+                attLast.opSetItem(attItems[attLength]);
+                return attLast;
+            }
             attLast.opSetItem(attItems[attLength-1]);
             return attLast;
         }

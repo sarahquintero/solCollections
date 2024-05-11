@@ -135,9 +135,17 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 }
                 return prmArray;
             }
-
+            if (attLength != attItems.Length)
+            {
+                T[] array = new T[attLength+1];
+                for (int i = 0; i < attLength+1; i++)
+                {
+                    array[i] = attItems[i];
+                }
+                return array;
+            }
             T[] result = new T[attLength];
-            for (int i = 0; i < attLength; i++)
+            for (int i = 0; i < attLength; i++)//for (int i = 0; i < attLength; i++)
             {
                 result[i] = attItems[i];
             }

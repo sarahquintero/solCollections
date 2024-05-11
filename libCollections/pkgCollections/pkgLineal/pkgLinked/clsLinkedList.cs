@@ -72,7 +72,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                     prmArray[i-1] = attItems[i];
                 }
             }
-            attLength--;
+            attLength = prmIdx;
             attItems = prmArray;
             return true;
         }
