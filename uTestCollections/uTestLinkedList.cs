@@ -156,7 +156,9 @@ namespace uTestCollections
             testExpectedItem = default;
             #endregion
             #region Test & Assert
+            //Assert.AreEqual(2, testMyList.opGetLength());
             Assert.IsTrue(testMyList.opRemove(2, ref testExpectedItem));
+            Assert.AreEqual(4, testMyList.opGetItemAtIndex());
             Assert.AreEqual(3, testExpectedItem);
             Assert.AreEqual(2, testMyList.opGetLength());
             Assert.IsFalse(testMyList.opItsOrderedAscending());
