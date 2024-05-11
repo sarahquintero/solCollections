@@ -42,8 +42,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             }
             if (attLength == 0)
             {
-                attFirst = null;
-                return attFirst;
+                attFirstQuarter = null;
+                return attFirstQuarter;
             }
             attFirstQuarter.opSetItem(attItems[attLength/4]);
             return attFirstQuarter;
@@ -57,8 +57,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             }
             if (attLength == 0)
             {
-                attFirst = null;
-                return attFirst;
+                attLast = null;
+                return attLast;
             }
             if (attLength != attItems.Length)
             {
@@ -77,8 +77,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             }
             if (attLength == 0)
             {
-                attFirst = null;
-                return attFirst;
+                attLastQuarter = null;
+                return attLastQuarter;
             }
             if (attItems.Length == 4)
             {
@@ -97,8 +97,13 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             }
             if (attLength == 0)
             {
-                attFirst = null;
-                return attFirst;
+                attMiddle = null;
+                return attMiddle;
+            }
+            if (attLength == 4)
+            {
+                attMiddle.opSetItem(attItems[(attLength / 2) - 1]);
+                return attMiddle;
             }
             attMiddle.opSetItem(attItems[attLength / 2]);
             return attMiddle;

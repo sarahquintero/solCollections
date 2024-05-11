@@ -56,6 +56,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         }
         public bool opRemove(int prmIdx, ref T prmItem)
         {
+            if (prmIdx < 0) return false;
+            if (prmIdx == attLength) return false;
             if (attItems == null) return false;
             attLength--;
             T[] prmArray = new T[attLength];
