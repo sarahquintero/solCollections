@@ -92,9 +92,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attFirst = newNode;
             return true;
         }
-        public T opGetItemAtIndex()
-        {
-            return attItems[2];
-        }
+        
     }
 }

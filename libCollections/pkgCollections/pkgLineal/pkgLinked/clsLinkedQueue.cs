@@ -64,7 +64,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attLength++;
             T[] prmArray = new T[attLength];
             prmArray[attLength-1] = newNode.opGetItem();
-            for (int i = 0; i < attLength-2; i++)
+            for (int i = 0; i <= attLength-2; i++)
             {
                 prmArray[i] = attItems[i];
             }
@@ -72,5 +72,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attFirst = newNode;
             return true;
         }
+        public T opGetItemAtIndex()
+        {
+            //Assert.AreEqual(4, testMyQueue.opGetItemAtIndex());
+            return attItems[3];
+        }
     }
+
 }
