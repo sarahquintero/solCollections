@@ -103,6 +103,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPop(ref testExpectedItem));
+            //Assert.AreEqual(4, testMyStack.opGetItemAtIndex());
             Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(3, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
