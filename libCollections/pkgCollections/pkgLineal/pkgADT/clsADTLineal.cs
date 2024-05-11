@@ -145,7 +145,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 return array;
             }
             T[] result = new T[attLength];
-            for (int i = 0; i < attLength; i++)//for (int i = 0; i < attLength; i++)
+            for (int i = 0; i < attLength; i++)
             {
                 result[i] = attItems[i];
             }

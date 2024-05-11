@@ -1,4 +1,5 @@
 ﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServices.pkgCollections.pkgLineal.pkgLinked;
 using pkgServices.pkgCollections.pkgNodes;
 using System;
 
@@ -100,7 +101,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attMiddle = null;
                 return attMiddle;
             }
-            if (attLength == 4)
+            if (attItems.Length == attLength)
             {
                 attMiddle.opSetItem(attItems[(attLength / 2) - 1]);
                 return attMiddle;
