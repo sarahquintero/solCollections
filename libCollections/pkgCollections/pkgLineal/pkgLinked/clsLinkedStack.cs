@@ -54,9 +54,13 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             {
                 attLength ++;
                 T[] array = new T[attLength];
+                array[0] = newNode.opGetItem();
                 attItems = array;
-                attItems[0] = newNode.opGetItem();
                 attFirst = newNode;
+                attFirstQuarter = newNode;
+                attMiddle = newNode;
+                attLastQuarter = newNode;
+                attLast = newNode;
                 return true;
             }
             attLength++;
