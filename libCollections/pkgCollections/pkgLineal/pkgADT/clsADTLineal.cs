@@ -135,6 +135,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 }
                 return prmArray;
             }
+
             T[] result = new T[attLength];
             for (int i = 0; i < attLength; i++)
             {

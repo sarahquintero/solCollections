@@ -12,6 +12,30 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attLength = 0;
             attItems = null;
         }
+        public clsLinkedList(int prmCapacity)
+        {
+            try
+            {
+                if (prmCapacity < 0)
+                {
+                    prmCapacity = 100;
+                    attTotalCapacity = 100;
+                }
+                if (prmCapacity == 0)
+                {
+                    prmCapacity = 100;
+                    attTotalCapacity = 100;
+                }
+                if (attLength < 0) attLength = 0;
+                attItems = new T[prmCapacity];
+            }
+            catch
+            {
+                attTotalCapacity = 100;
+                attMaxCapacity = int.MaxValue / 16;
+                attItems = new T[100];
+            }
+        }
         public bool opAdd(T prmItem)
         {
             clsLinkedNode<T> newNode = new clsLinkedNode<T>(prmItem);
@@ -30,21 +54,25 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         {
             throw new NotImplementedException();
         }
-        public bool opRemove(int Idx, ref T prmItem)
+        public bool opRemove(int prmIdx, ref T prmItem)
         {
             if (attItems == null) return false;
             attLength--;
             T[] prmArray = new T[attLength];
-            for (int i = 0; i <= attLength-1; i++)
+            prmItem = attItems[prmIdx];
+            for (int i = 0; i < attLength; i++)
             {
-                if (i != Idx)
+                if (i != prmIdx)
                 {
                     prmArray[i] = attItems[i];
+                }
+                else
+                {
                     i++;
+                    prmArray[i-1] = attItems[i];
                 }
             }
             attLength--;
-            prmItem = attItems[Idx];
             attItems = prmArray;
             return true;
         }
