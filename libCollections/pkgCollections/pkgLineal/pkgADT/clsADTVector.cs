@@ -7,7 +7,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
     public class clsADTVector<T> : clsADTLineal<T>, iADTVector<T> where T : IComparable<T>
     {
         #region Attributes
-        protected int attTotalCapacity = 100;
+        //protected int attTotalCapacity = 100;
         protected bool attItsFlexible = false;
         protected int attGrowingFactor = 100;
         #endregion
@@ -170,7 +170,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
                 }
                 return prmArray;
             }
-
             T[] result = new T[attTotalCapacity];
             for (int i = 0; i < attTotalCapacity; i++)
             {

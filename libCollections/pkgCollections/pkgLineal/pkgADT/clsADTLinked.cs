@@ -21,23 +21,48 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         #region Getters
         public clsLinkedNode<T> opGetFirst()
         {
-            throw new NotImplementedException();
+            if (attItems == null)
+            {
+                attFirst = null;
+                return attFirst;
+            }
+            return attFirst;
         }
-        public clsDoubleLinkedNode<T> opGetFirstQuarter()
+        public clsLinkedNode<T> opGetFirstQuarter()
         {
-            throw new NotImplementedException();
+            if (attItems == null)
+            {
+                attFirst = null;
+                return attFirst;
+            }
+            return attFirst;
         }
         public clsLinkedNode<T> opGetLast()
         {
-            throw new NotImplementedException();
+            if (attItems == null)
+            {
+                attFirst = null;
+                return attFirst;
+            }
+            return attFirst;
         }
         public clsLinkedNode<T> opGetLastQuarter()
         {
-            throw new NotImplementedException();
+            if (attItems == null)
+            {
+                attFirst = null;
+                return attFirst;
+            }
+            return attFirst;
         }
         public clsLinkedNode<T> opGetMiddle()
         {
-            throw new NotImplementedException();
+            if (attItems == null)
+            {
+                attFirst = null;
+                return attFirst;
+            }
+            return attFirst;
         }
         #endregion
         #region Setters

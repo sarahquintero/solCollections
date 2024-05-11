@@ -9,6 +9,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
     public class clsADTLineal<T>: clsIterator<T>, iADTLineal<T> where T : IComparable<T>
     {
         #region Attributes
+        protected int attTotalCapacity = 100;
         protected bool attItsOrderedAscending = false;
         protected bool attItsOrderedDescending = false;
         protected static int attMaxCapacity = int.MaxValue / 16;
@@ -50,9 +51,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public bool opItsOrderedAscending()
         {
+            if (attItems == null) return false;
             if (attItems.All(item => item.Equals(default(T))))
             {
-                // Si todos los elementos son nulos o el valor predeterminado de T, no hay orden definido
                 return false;
             }
 
@@ -65,7 +66,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 }
                 if (!uniqueElements.Add(attItems[i]))
                 {
-                    // Si se encuentra un elemento repetido, no está ordenado en forma ascendente
                     return false;
                 }
             }
@@ -73,18 +73,16 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 if (Comparer<T>.Default.Compare(attItems[i], attItems[i - 1]) <= 0)
                 {
-                    // Si encuentra dos elementos consecutivos que no están en orden ascendente, retorna falso
                     return false;
                 }
             }
-            // Si no se encontró ningún par de elementos consecutivos en orden descendente, retorna verdadero
             return false;
         }
         public bool opItsOrderedDescending()
         {
+            if (attItems == null) return false;
             if (attItems.All(item => item.Equals(default(T))))
             {
-                // Si todos los elementos son nulos o el valor predeterminado de T, no hay orden definido
                 return false;
             }
 
@@ -97,7 +95,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 }
                 if (!uniqueElements.Add(attItems[i]))
                 {
-                    // Si se encuentra un elemento repetido, no está ordenado en forma descendente
                     return false;
                 }
             }
@@ -106,11 +103,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 if (Comparer<T>.Default.Compare(attItems[i], attItems[i - 1]) >= 0)
                 {
-                    // Si encuentra dos elementos consecutivos que no están en orden descendente, retorna falso
                     return false;
                 }
             }
-            // Si no se encontró ningún par de elementos consecutivos en orden ascendente, retorna verdadero
             return false;
         }
         #endregion
@@ -127,7 +122,16 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         #region Serialize/Deserialize
         public virtual T[] opToArray()
         {
-            throw new NotImplementedException();
+            if (attItems == null)
+            {
+                return null;
+            }
+            T[] result = new T[attTotalCapacity];
+            for (int i = 0; i < attTotalCapacity; i++)
+            {
+                result[i] = attItems[i];
+            }
+            return result;
         }
         public String opToString()
         {
@@ -141,7 +145,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
-        //bool oToItems(T[] prmArray, bool prmItsOrderedAscending);
+        //bool opToItems(T[] prmArray, bool prmItsOrderedAscending);
         #endregion
         #region CRUDs
         public virtual bool opModify(int prmIdx, T prmItem)

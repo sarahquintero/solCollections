@@ -97,12 +97,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             }
             if (attMaxCapacity == attTotalCapacity)
             {
-                attItems[attTotalCapacity-1] = prmItem;
+                attItems[attTotalCapacity - 1] = prmItem;
                 attLength++;
                 return true;
             }
             attItems[attLength] = prmItem;
-            attLength  ++;
+            attLength++;
             return true;
         }
         #endregion 
