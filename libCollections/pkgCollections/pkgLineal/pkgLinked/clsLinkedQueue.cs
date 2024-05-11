@@ -92,11 +92,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attFirst = newNode;
             return true;
         }
-        public T opGetItemAtIndex()
-        {
-            //Assert.AreEqual(4, testMyQueue.opGetItemAtIndex());
-            return attItems[3];
-        }
     }
 
 }
