@@ -26,6 +26,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attFirst = null;
                 return attFirst;
             }
+            attFirst.opSetItem(attItems[0]);
             return attFirst;
         }
         public clsLinkedNode<T> opGetFirstQuarter()
