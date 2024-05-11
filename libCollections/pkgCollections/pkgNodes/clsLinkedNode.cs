@@ -15,6 +15,7 @@ namespace pkgServices.pkgCollections.pkgNodes
         }
         public clsLinkedNode(T prmItem)
         {
+            attItem = prmItem;
         }
         #endregion
         #region Getters

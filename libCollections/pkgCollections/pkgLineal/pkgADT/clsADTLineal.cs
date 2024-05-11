@@ -126,8 +126,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 return null;
             }
-            T[] result = new T[attTotalCapacity];
-            for (int i = 0; i < attTotalCapacity; i++)
+            T[] result = new T[attLength];
+            for (int i = 0; i < attLength; i++)
             {
                 result[i] = attItems[i];
             }

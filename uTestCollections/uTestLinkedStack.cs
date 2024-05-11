@@ -61,10 +61,12 @@ namespace uTestCollections
             testExpectedItems = new int[5] { 456, 0, 1, 2, 3 };
             #endregion
             #region Test & Assert
+            //Assert.AreEqual(2, testMyStack.opGetItemAtIndex());
             Assert.IsTrue(testMyStack.opPush(456));
             Assert.AreEqual(5, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
+            Assert.AreEqual(1, testMyStack.opGetItemAtIndex());
             CollectionAssert.AreEqual(testExpectedItems, testMyStack.opToArray());
             Assert.AreEqual(456, testMyStack.opGetFirst().opGetItem());
             Assert.AreEqual(0, testMyStack.opGetFirstQuarter().opGetItem());

@@ -32,37 +32,41 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         {
             if (attItems == null)
             {
-                attFirst = null;
-                return attFirst;
+                attFirstQuarter = null;
+                return attFirstQuarter;
             }
-            return attFirst;
+            attFirstQuarter.opSetItem(attItems[attLength/4]);
+            return attFirstQuarter;
         }
         public clsLinkedNode<T> opGetLast()
         {
             if (attItems == null)
             {
-                attFirst = null;
-                return attFirst;
+                attLast = null;
+                return attLast;
             }
-            return attFirst;
+            attLast.opSetItem(attItems[attLength-1]);
+            return attLast;
         }
         public clsLinkedNode<T> opGetLastQuarter()
         {
             if (attItems == null)
             {
-                attFirst = null;
-                return attFirst;
+                attLastQuarter = null;
+                return attLastQuarter;
             }
-            return attFirst;
+            attLastQuarter.opSetItem(attItems[(attLength / 4)+(attLength / 2)]);
+            return attLastQuarter;
         }
         public clsLinkedNode<T> opGetMiddle()
         {
             if (attItems == null)
             {
-                attFirst = null;
-                return attFirst;
+                attMiddle = null;
+                return attMiddle;
             }
-            return attFirst;
+            attMiddle.opSetItem(attItems[attLength / 2]);
+            return attMiddle;
         }
         #endregion
         #region Setters
@@ -132,6 +136,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 if (varIdx == (prmArray.Length / 2 + prmArray.Length / 4)) attLastQuarter = varCurrentNode;
                 varPreviousNode = varCurrentNode;
             }
+            attItems = prmArray;
+            attLength = prmArray.Length;
             attLast = varCurrentNode;
             return true;
         }

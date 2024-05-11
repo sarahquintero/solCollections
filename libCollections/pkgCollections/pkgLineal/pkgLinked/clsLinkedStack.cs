@@ -52,15 +52,27 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             clsLinkedNode<T> newNode = new clsLinkedNode<T>(prmItem);   
             if (attFirst == null)
             {
+                attLength ++;
+                T[] array = new T[attLength];
+                attItems = array;
+                attItems[0] = newNode.opGetItem();
                 attFirst = newNode;
                 return true;
             }
-            else
+            attLength++;
+            T[] prmArray = new T[attLength];
+            prmArray[0] = newNode.opGetItem();
+            for (int i = 0; i < attLength-1; i++)
             {
-                newNode.opSetNext(attFirst);
-                attFirst = newNode;
-                return true;
+                prmArray[i + 1] = attItems[i];
             }
+            attItems = prmArray;
+            attFirst = newNode;
+            return true;
+        }
+        public T opGetItemAtIndex()
+        {
+            return attItems[2];
         }
     }
 }
