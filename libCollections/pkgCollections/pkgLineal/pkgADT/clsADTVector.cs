@@ -25,7 +25,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector.pkgADT
                 attTotalCapacity = prmCapacity;
                 attItems = new T[prmCapacity];
             }
-            catch (Exception e)
+            catch
             {
                 base.attLength = 0;
                 attItsOrderedAscending = false;

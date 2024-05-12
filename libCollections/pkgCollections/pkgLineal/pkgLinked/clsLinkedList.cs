@@ -70,7 +70,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 attLastQuarter.opSetItem(attItems[(attLength / 2)]);
                 return false;
             }
-
             attLength--;
             T[] prmArray = new T[attLength];
             prmItem = attItems[prmIdx];

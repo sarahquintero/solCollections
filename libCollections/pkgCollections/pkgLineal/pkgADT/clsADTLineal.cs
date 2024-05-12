@@ -27,7 +27,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 if (attLength < 0) attLength = 0;
                 T[]attItems = new T[attLength];
             }
-            catch (Exception e)
+            catch
             {
                 T[] attItems = new T[attLength];
                 attLength = 0;

@@ -162,6 +162,7 @@ namespace uTestCollections
             Assert.IsFalse(testMyList.opItsOrderedAscending());
             Assert.IsFalse(testMyList.opItsOrderedDescending());
             CollectionAssert.AreEqual(testExpectedItems, testMyList.opToArray());
+            //Assert.AreEqual(3, testMyList.opGetItemAtIndex());
             Assert.AreEqual(1, testMyList.opGetFirst().opGetItem());
             Assert.AreEqual(1, testMyList.opGetFirstQuarter().opGetItem());
             Assert.AreEqual(2, testMyList.opGetMiddle().opGetItem());

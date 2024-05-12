@@ -22,8 +22,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
                 return false;
             }
             prmItem = attItems[0];
-            attFirstQuarter.opSetItem(attItems[attLength / 4]);
-            attLastQuarter.opSetItem(attItems[attLength / 2]);
             return true;
         }
         public bool opPop(ref T prmItem)
@@ -39,6 +37,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
             attItems = prmArray;
             attFirstQuarter.opSetItem(attItems[attLength / 4]);
             attLastQuarter.opSetItem(attItems[1]);
+            attLast.opSetItem(attItems[attLength - 1]);
             return true;
         }
         public bool opPush(T prmItem)
@@ -70,5 +69,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
             return true;
         }
         #endregion
+        public T opGetItemAtIndex() { return attLast.opGetItem(); }//return attItems[3];
     }
 }
