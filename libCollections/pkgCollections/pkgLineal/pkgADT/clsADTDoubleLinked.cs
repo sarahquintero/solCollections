@@ -29,6 +29,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attFirst = null;
                 return attFirst;
             }
+            attFirst.opSetItem(attItems[0]);
             return attFirst;
         }
         public clsDoubleLinkedNode<T> opGetFirstQuarter()
@@ -38,6 +39,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attFirstQuarter = null;
                 return attFirstQuarter;
             }
+            attFirstQuarter.opSetItem(attItems[(attLength/1)/4]);
             return attFirstQuarter;
         }
         public clsDoubleLinkedNode<T> opGetLast()
@@ -47,6 +49,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attLast = null;
                 return attLast;
             }
+            attLast.opSetItem(attItems[attLength]);
             return attLast;
         }
         public clsDoubleLinkedNode<T> opGetLastQuarter()
@@ -56,6 +59,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attLastQuarter = null;
                 return attLastQuarter;
             }
+            attLastQuarter.opSetItem(attItems[(attLength/2)+(attLength/4)]);
             return attLastQuarter;
         }
         public clsDoubleLinkedNode<T> opGetMiddle()
@@ -65,6 +69,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attMiddle = null;
                 return attMiddle;
             }
+            attMiddle.opSetItem(attItems[attLength/2]);
             return attMiddle;
         }
         #endregion
