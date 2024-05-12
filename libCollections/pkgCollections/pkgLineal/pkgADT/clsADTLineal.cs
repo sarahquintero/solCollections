@@ -180,7 +180,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             else
             {
                 prmItem = default(T);
-                attLength = attItems.Length;
                 return false;
             }
         }

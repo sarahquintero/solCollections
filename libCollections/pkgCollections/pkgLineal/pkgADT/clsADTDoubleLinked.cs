@@ -39,6 +39,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attFirstQuarter = null;
                 return attFirstQuarter;
             }
+            if (attFirstQuarter != null) return attFirstQuarter;
             attFirstQuarter.opSetItem(attItems[(attLength/1)/4]);
             return attFirstQuarter;
         }
