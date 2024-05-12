@@ -7,7 +7,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
 {
     public class clsLinkedList<T> : clsADTLinked<T>, iList<T> where T : IComparable<T>
     {
-        public clsLinkedList() 
+        public clsLinkedList()
         {
             attLength = 0;
             attItems = null;
@@ -42,7 +42,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             clsLinkedNode<T> newNode = new clsLinkedNode<T>(prmItem);
             attLength++;
             T[] prmArray = new T[attLength];
-            prmArray[attLength-1] = newNode.opGetItem();
+            prmArray[attLength - 1] = newNode.opGetItem();
             for (int i = 0; i < attLength - 1; i++)
             {
                 prmArray[i] = attItems[i];
@@ -60,8 +60,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             if (attItems == null) return false;
             if (prmIdx < 0)
             {
-                attMiddle.opSetItem(attItems[(attLength/2) - 1]);
-                attLastQuarter.opSetItem(attItems[(attLength/2)]);
+                attMiddle.opSetItem(attItems[(attLength / 2) - 1]);
+                attLastQuarter.opSetItem(attItems[(attLength / 2)]);
                 return false;
             }
             if (prmIdx == attLength)
@@ -70,7 +70,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 attLastQuarter.opSetItem(attItems[(attLength / 2)]);
                 return false;
             }
-            
+
             attLength--;
             T[] prmArray = new T[attLength];
             prmItem = attItems[prmIdx];
@@ -83,16 +83,16 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 else
                 {
                     i++;
-                    prmArray[i-1] = attItems[i];
+                    prmArray[i - 1] = attItems[i];
                 }
             }
             attLength = prmIdx;
             attItems = prmArray;
             attMiddle.opSetItem(attItems[attLength / 2]);
-            attLastQuarter.opSetItem(attItems[attLength-1]);
+            attLastQuarter.opSetItem(attItems[attLength - 1]);
             return true;
         }
-        public override bool opRetrieve(int prmIdx, ref T prmItem) 
+        public override bool opRetrieve(int prmIdx, ref T prmItem)
         {
             if (attItems == null) return false;
             if (prmIdx < 0 || prmIdx == attLength)
@@ -106,11 +106,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attLastQuarter.opSetItem(attItems[attItems.Length - 2]);
             if (attItems == null) return false;
             return true;
-        }
-        public T opGetItemAtIndex()
-        {
-            //Assert.AreEqual(4, testMyList.opGetItemAtIndex());
-            return attItems[2];
         }
     }
 }

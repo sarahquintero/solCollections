@@ -2,7 +2,6 @@
 using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using pkgServices.pkgCollections.pkgNodes;
 using System;
-using System.Xml.Linq;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
 {
@@ -49,8 +48,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             else
             {
                 prmItem = attItems[0];
-                attMiddle.opSetItem(attItems[attLength/2]);
-                attLastQuarter.opSetItem(attItems[attLength-1]);
+                attMiddle.opSetItem(attItems[attLength / 2]);
+                attLastQuarter.opSetItem(attItems[attLength - 1]);
                 return true;
             }
         }
@@ -62,7 +61,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             T[] prmArray = new T[attLength];
             for (int i = 0; i < attLength; i++)
             {
-                prmArray[i] = attItems[i+1];
+                prmArray[i] = attItems[i + 1];
             }
             attItems = prmArray;
             attLastQuarter.opSetItem(attMiddle.opGetItem());
@@ -70,10 +69,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         }
         public bool opPush(T prmItem)
         {
-            clsLinkedNode<T> newNode = new clsLinkedNode<T>(prmItem);   
+            clsLinkedNode<T> newNode = new clsLinkedNode<T>(prmItem);
             if (attFirst == null)
             {
-                attLength ++;
+                attLength++;
                 T[] array = new T[attLength];
                 array[0] = newNode.opGetItem();
                 attItems = array;
@@ -87,16 +86,16 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attLength++;
             T[] prmArray = new T[attLength];
             prmArray[0] = newNode.opGetItem();
-            for (int i = 0; i < attLength-1; i++)
+            for (int i = 0; i < attLength - 1; i++)
             {
                 prmArray[i + 1] = attItems[i];
             }
             attItems = prmArray;
-            attMiddle.opSetItem(attItems[attLength/2]);
-            attLastQuarter.opSetItem(attItems[(attLength/2)+(attLength/4)]);
+            attMiddle.opSetItem(attItems[attLength / 2]);
+            attLastQuarter.opSetItem(attItems[(attLength / 2) + (attLength / 4)]);
             attFirst = newNode;
             return true;
         }
-        
+
     }
 }

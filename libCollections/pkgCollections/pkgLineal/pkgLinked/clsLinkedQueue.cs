@@ -86,8 +86,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             }
             attLength++;
             T[] prmArray = new T[attLength];
-            prmArray[attLength-1] = newNode.opGetItem();
-            for (int i = 0; i <= attLength-2; i++)
+            prmArray[attLength - 1] = newNode.opGetItem();
+            for (int i = 0; i <= attLength - 2; i++)
             {
                 prmArray[i] = attItems[i];
             }
