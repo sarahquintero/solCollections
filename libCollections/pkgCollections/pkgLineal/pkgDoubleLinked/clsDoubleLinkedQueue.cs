@@ -16,6 +16,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
         {
             if (attItems == null) return false;
             prmItem = attItems[0];
+            attFirstQuarter.opSetItem(attItems[attLength/4]);
+            attLastQuarter.opSetItem(attItems[attLength / 2]);
             return true;
         }
         public bool opPop(ref T prmItem)

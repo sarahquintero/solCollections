@@ -49,7 +49,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attLast = null;
                 return attLast;
             }
-            attLast.opSetItem(attItems[attLength]);
+            attLast.opSetItem(attItems[attLength - 1]);
             return attLast;
         }
         public clsDoubleLinkedNode<T> opGetLastQuarter()
@@ -59,6 +59,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attLastQuarter = null;
                 return attLastQuarter;
             }
+            if (attLastQuarter != null) return attLastQuarter;
             attLastQuarter.opSetItem(attItems[(attLength / 2) + (attLength / 4)]);
             return attLastQuarter;
         }
