@@ -24,23 +24,48 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         #region Getters
         public clsDoubleLinkedNode<T> opGetFirst()
         {
-            throw new NotImplementedException();
+            if (attItems == null) 
+            {
+                attFirst = null;
+                return attFirst;
+            }
+            return attFirst;
         }
         public clsDoubleLinkedNode<T> opGetFirstQuarter()
         {
-            throw new NotImplementedException();
+            if (attItems == null)
+            {
+                attFirstQuarter = null;
+                return attFirstQuarter;
+            }
+            return attFirstQuarter;
         }
         public clsDoubleLinkedNode<T> opGetLast()
         {
-            throw new NotImplementedException();
+            if (attItems == null)
+            {
+                attLast = null;
+                return attLast;
+            }
+            return attLast;
         }
         public clsDoubleLinkedNode<T> opGetLastQuarter()
         {
-            throw new NotImplementedException();
+            if (attItems == null)
+            {
+                attLastQuarter = null;
+                return attLastQuarter;
+            }
+            return attLastQuarter;
         }
         public clsDoubleLinkedNode<T> opGetMiddle()
         {
-            throw new NotImplementedException();
+            if (attItems == null)
+            {
+                attMiddle = null;
+                return attMiddle;
+            }
+            return attMiddle;
         }
         #endregion
         #region Setters
@@ -113,6 +138,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                     attMiddle = varCurrentNode;
                 varPreviousNode = varCurrentNode;
             }
+            attItems = prmArray;
+            attLength = attItems.Length;
             attLast = varCurrentNode;
             return true;
         }

@@ -17,21 +17,23 @@ namespace pkgServices.pkgCollections.pkgNodes
         #region Getters
         public clsDoubleLinkedNode<T> opGetNext()
         {
-            throw new NotImplementedException();
+            return attNext;
         }
         public clsDoubleLinkedNode<T> opGetPrevious()
         {
-            throw new NotImplementedException();
+            return attPrevious;
         }
         #endregion
         #region Setters
         public bool opSetNext(clsDoubleLinkedNode<T> prmNode)
         {
-            throw new NotImplementedException();
+            attNext = prmNode;
+            return true;
         }
         public bool opSetPrevious(clsDoubleLinkedNode<T> prmNode)
         {
-            throw new NotImplementedException();
+            attPrevious = prmNode;
+            return true;
         }
         #endregion
         #endregion
