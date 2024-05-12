@@ -12,7 +12,10 @@ namespace pkgServices.pkgCollections.pkgNodes
         #region Operations
         #region Builders
         public clsDoubleLinkedNode() { }
-        public clsDoubleLinkedNode(T prmItem) { }
+        public clsDoubleLinkedNode(T prmItem)
+        {
+            attItem = prmItem;
+        }
         #endregion
         #region Getters
         public clsDoubleLinkedNode<T> opGetNext()

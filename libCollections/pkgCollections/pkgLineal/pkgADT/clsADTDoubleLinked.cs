@@ -33,6 +33,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attFirst = null;
                 return attFirst;
             }
+            if (attLength == 1)
+            {
+                attFirst.opSetItem(attItems[0]);
+                return attFirst;
+            }
             attFirst.opSetItem(attItems[0]);
             return attFirst;
         }
@@ -46,6 +51,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             if (attLength == 0)
             {
                 attFirstQuarter = null;
+                return attFirstQuarter;
+            }
+            if (attLength == 1)
+            {
+                attFirstQuarter.opSetItem(attItems[0]);
                 return attFirstQuarter;
             }
             if (attFirstQuarter != null) return attFirstQuarter;
@@ -64,6 +74,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attLast = null;
                 return attLast;
             }
+            if (attLength == 1)
+            {
+                attLast.opSetItem(attItems[0]);
+                return attLast;
+            }
             attLast.opSetItem(attItems[attLength - 1]);
             return attLast;
         }
@@ -77,6 +92,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             if (attLength == 0)
             {
                 attLastQuarter = null;
+                return attLastQuarter;
+            }
+            if (attLength == 1)
+            {
+                attLastQuarter.opSetItem(attItems[0]);
                 return attLastQuarter;
             }
             if (attLastQuarter != null) return attLastQuarter;
@@ -93,6 +113,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             if (attLength == 0)
             {
                 attMiddle = null;
+                return attMiddle;
+            }
+            if (attLength == 1)
+            {
+                attMiddle.opSetItem(attItems[0]);
                 return attMiddle;
             }
             attMiddle.opSetItem(attItems[attLength / 2]);
