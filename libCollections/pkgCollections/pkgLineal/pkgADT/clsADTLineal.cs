@@ -1,5 +1,6 @@
 ﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using pkgServices.pkgCollections.pkgLineal.pkgIterators;
+using pkgServices.pkgCollections.pkgLineal.pkgLinked;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,7 +57,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 return false;
             }
-
             HashSet<T> uniqueElements = new HashSet<T>();
             for (int i = 0; i < attLength; i++)
             {
@@ -85,7 +85,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 return false;
             }
-
             HashSet<T> uniqueElements = new HashSet<T>();
             for (int i = 0; i < attLength; i++)
             {
@@ -98,7 +97,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                     return false;
                 }
             }
-
             for (int i = 1; i < attLength; i++)
             {
                 if (Comparer<T>.Default.Compare(attItems[i], attItems[i - 1]) >= 0)
@@ -173,6 +171,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public bool opRetrieve(int prmIdx, ref T prmItem)
         {
+            if (attItems == null) return false;
             if (prmIdx >= 0 && prmIdx < attLength)
             {
                 prmItem = attItems[prmIdx];
@@ -181,6 +180,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             else
             {
                 prmItem = default(T);
+                attLength = attItems.Length;
                 return false;
             }
         }

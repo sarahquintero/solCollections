@@ -50,6 +50,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 return false;
             }
             prmItem = attItems[0];
+            attMiddle.opSetItem(attItems[attLength / 2]);
+            attLastQuarter.opSetItem(attMiddle.opGetItem());
             return true;
         }
         public bool opPop(ref T prmItem)
@@ -63,6 +65,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 prmArray[i] = attItems[i + 1];
             }
             attItems = prmArray;
+            attLastQuarter.opSetItem(attMiddle.opGetItem());
             return true;
         }
         public bool opPush(T prmItem)

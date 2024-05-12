@@ -81,12 +81,13 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attLastQuarter = null;
                 return attLastQuarter;
             }
+            if (attLastQuarter != null) return attLastQuarter;
             if (attItems.Length == 4)
             {
                 attLastQuarter.opSetItem(attItems[attItems.Length - 2]);
                 return attLastQuarter;
             }
-            attLastQuarter.opSetItem(attItems[(attLength / 4)+(attLength / 2)]);
+            attLastQuarter.opSetItem(attItems[(attLength / 4) + (attLength / 2)]);
             return attLastQuarter;
         }
         public clsLinkedNode<T> opGetMiddle()
@@ -101,9 +102,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attMiddle = null;
                 return attMiddle;
             }
+            if (attMiddle != null) return attMiddle;
             if (attItems.Length == attLength)
             {
-                attMiddle.opSetItem(attItems[(attLength / 2) - 1]);
+                attMiddle.opSetItem(attItems[(attItems.Length / 2) - 1]);
                 return attMiddle;
             }
             attMiddle.opSetItem(attItems[attLength / 2]);
@@ -121,7 +123,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public bool opSetMiddle(clsLinkedNode<T> prmNode)
         {
-            throw new NotImplementedException();
+            attMiddle = prmNode;
+            return true;
         }
         #endregion
         #region Iterator
@@ -178,7 +181,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 varPreviousNode = varCurrentNode;
             }
             attItems = prmArray;
-            attLength = prmArray.Length;
+            attLength = attItems.Length;
             attLast = varCurrentNode;
             return true;
         }

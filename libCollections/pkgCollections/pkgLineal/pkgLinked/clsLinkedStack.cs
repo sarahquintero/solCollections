@@ -49,6 +49,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             else
             {
                 prmItem = attItems[0];
+                attMiddle.opSetItem(attItems[attLength/2]);
+                attLastQuarter.opSetItem(attItems[attLength-1]);
                 return true;
             }
         }
@@ -63,6 +65,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 prmArray[i] = attItems[i+1];
             }
             attItems = prmArray;
+            attLastQuarter.opSetItem(attMiddle.opGetItem());
             return true;
         }
         public bool opPush(T prmItem)
@@ -89,6 +92,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 prmArray[i + 1] = attItems[i];
             }
             attItems = prmArray;
+            attMiddle.opSetItem(attItems[attLength/2]);
+            attLastQuarter.opSetItem(attItems[(attLength/2)+(attLength/4)]);
             attFirst = newNode;
             return true;
         }

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="uTestDoubleLinkedQueue.cs" />
     <Compile Include="uTestLinkedList.cs" />
     <Compile Include="uTestLinkedQueue.cs" />
     <Compile Include="uTestLinkedStack.cs" />

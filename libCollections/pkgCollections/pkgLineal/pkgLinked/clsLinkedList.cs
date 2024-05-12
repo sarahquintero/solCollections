@@ -56,8 +56,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         }
         public bool opRemove(int prmIdx, ref T prmItem)
         {
-            if (prmIdx < 0) return false;
-            if (prmIdx == attLength) return false;
+            if (prmIdx < 0 && prmIdx == attLength)
+            {
+                attMiddle.opSetItem(attItems[(attLength/2) - 1]);
+                attLastQuarter.opSetItem(attItems[(attLength/2)]);
+                return false;
+            }
             if (attItems == null) return false;
             attLength--;
             T[] prmArray = new T[attLength];
@@ -76,6 +80,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             }
             attLength = prmIdx;
             attItems = prmArray;
+            attMiddle.opSetItem(attItems[attLength / 2]);
+            attLastQuarter.opSetItem(attItems[attLength-1]);
             return true;
         }
         public T opGetItemAtIndex()
