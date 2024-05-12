@@ -139,8 +139,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 varCurrentNode = new clsDoubleLinkedNode<T>(prmArray[varIdx]);
                 varPreviousNode.opSetNext(varCurrentNode);
-                if (varIdx == (prmArray.Length / 2))
-                    attMiddle = varCurrentNode;
+                if (varIdx == (prmArray.Length / 4)) attFirstQuarter = varCurrentNode;
+                if (varIdx == (prmArray.Length / 2)) attMiddle = varCurrentNode;
+                if (varIdx == (prmArray.Length / 4)) attFirstQuarter = varCurrentNode;
+                if (varIdx == (prmArray.Length / 2) + (prmArray.Length / 4)) attLastQuarter = varCurrentNode;
                 varPreviousNode = varCurrentNode;
             }
             attItems = prmArray;
