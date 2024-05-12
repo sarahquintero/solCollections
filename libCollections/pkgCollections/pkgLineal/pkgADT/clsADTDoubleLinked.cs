@@ -1,7 +1,6 @@
-﻿using pkgServices .pkgCollections.pkgNodes;
+﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
+using pkgServices.pkgCollections.pkgNodes;
 using System;
-using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
-using System.Security.Policy;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
@@ -24,7 +23,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         #region Getters
         public clsDoubleLinkedNode<T> opGetFirst()
         {
-            if (attItems == null) 
+            if (attItems == null)
             {
                 attFirst = null;
                 return attFirst;
@@ -40,7 +39,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 return attFirstQuarter;
             }
             if (attFirstQuarter != null) return attFirstQuarter;
-            attFirstQuarter.opSetItem(attItems[(attLength/1)/4]);
+            attFirstQuarter.opSetItem(attItems[(attLength / 1) / 4]);
             return attFirstQuarter;
         }
         public clsDoubleLinkedNode<T> opGetLast()
@@ -60,7 +59,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attLastQuarter = null;
                 return attLastQuarter;
             }
-            attLastQuarter.opSetItem(attItems[(attLength/2)+(attLength/4)]);
+            attLastQuarter.opSetItem(attItems[(attLength / 2) + (attLength / 4)]);
             return attLastQuarter;
         }
         public clsDoubleLinkedNode<T> opGetMiddle()
@@ -70,7 +69,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attMiddle = null;
                 return attMiddle;
             }
-            attMiddle.opSetItem(attItems[attLength/2]);
+            attMiddle.opSetItem(attItems[attLength / 2]);
             return attMiddle;
         }
         #endregion
