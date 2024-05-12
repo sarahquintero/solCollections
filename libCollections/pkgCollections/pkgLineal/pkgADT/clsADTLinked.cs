@@ -103,7 +103,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 return attMiddle;
             }
             if (attMiddle != null) return attMiddle;
-            if (attItems.Length == attLength)
+            if (attItems.Length == attLength && attMiddle != null)
             {
                 attMiddle.opSetItem(attItems[(attItems.Length / 2) - 1]);
                 return attMiddle;

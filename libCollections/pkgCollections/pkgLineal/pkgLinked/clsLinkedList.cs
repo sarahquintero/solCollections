@@ -11,6 +11,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         {
             attLength = 0;
             attItems = null;
+            attMiddle = null;
         }
         public clsLinkedList(int prmCapacity)
         {
@@ -56,13 +57,20 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         }
         public bool opRemove(int prmIdx, ref T prmItem)
         {
-            if (prmIdx < 0 && prmIdx == attLength)
+            if (attItems == null) return false;
+            if (prmIdx < 0)
             {
                 attMiddle.opSetItem(attItems[(attLength/2) - 1]);
                 attLastQuarter.opSetItem(attItems[(attLength/2)]);
                 return false;
             }
-            if (attItems == null) return false;
+            if (prmIdx == attLength)
+            {
+                attMiddle.opSetItem(attItems[(attLength / 2) - 1]);
+                attLastQuarter.opSetItem(attItems[(attLength / 2)]);
+                return false;
+            }
+            
             attLength--;
             T[] prmArray = new T[attLength];
             prmItem = attItems[prmIdx];
@@ -82,6 +90,21 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attItems = prmArray;
             attMiddle.opSetItem(attItems[attLength / 2]);
             attLastQuarter.opSetItem(attItems[attLength-1]);
+            return true;
+        }
+        public override bool opRetrieve(int prmIdx, ref T prmItem) 
+        {
+            if (attItems == null) return false;
+            if (prmIdx < 0 || prmIdx == attLength)
+            {
+                attMiddle.opSetItem(attItems[(attItems.Length / 2) - 1]);
+                attLastQuarter.opSetItem(attItems[attItems.Length - 2]);
+                return false;
+            }
+            prmItem = attItems[1];
+            attMiddle.opSetItem(attItems[(attItems.Length / 2) - 1]);
+            attLastQuarter.opSetItem(attItems[attItems.Length - 2]);
+            if (attItems == null) return false;
             return true;
         }
         public T opGetItemAtIndex()

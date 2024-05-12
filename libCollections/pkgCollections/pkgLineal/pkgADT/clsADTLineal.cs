@@ -169,7 +169,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             if (!opGo(prmIdx)) return false;
             return opSetCurrentItem(prmItem);
         }
-        public bool opRetrieve(int prmIdx, ref T prmItem)
+        public virtual bool opRetrieve(int prmIdx, ref T prmItem)
         {
             if (attItems == null) return false;
             if (prmIdx >= 0 && prmIdx < attLength)
