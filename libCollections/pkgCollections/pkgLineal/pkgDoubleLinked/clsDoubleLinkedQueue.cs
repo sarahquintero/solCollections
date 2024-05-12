@@ -14,7 +14,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
-            if (attItems == null) return false;
+            if (attItems == null)
+            {
+                T[] prmArray = new T[100];
+                attItems = prmArray;
+                return false;
+            }
             prmItem = attItems[0];
             attFirstQuarter.opSetItem(attItems[attLength/4]);
             attLastQuarter.opSetItem(attItems[attLength / 2]);

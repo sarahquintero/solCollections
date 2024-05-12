@@ -28,12 +28,22 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attFirst = null;
                 return attFirst;
             }
+            if (attLength == 0)
+            {
+                attFirst = null;
+                return attFirst;
+            }
             attFirst.opSetItem(attItems[0]);
             return attFirst;
         }
         public clsDoubleLinkedNode<T> opGetFirstQuarter()
         {
             if (attItems == null)
+            {
+                attFirstQuarter = null;
+                return attFirstQuarter;
+            }
+            if (attLength == 0)
             {
                 attFirstQuarter = null;
                 return attFirstQuarter;
@@ -49,12 +59,22 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attLast = null;
                 return attLast;
             }
+            if (attLength == 0)
+            {
+                attLast = null;
+                return attLast;
+            }
             attLast.opSetItem(attItems[attLength - 1]);
             return attLast;
         }
         public clsDoubleLinkedNode<T> opGetLastQuarter()
         {
             if (attItems == null)
+            {
+                attLastQuarter = null;
+                return attLastQuarter;
+            }
+            if (attLength == 0)
             {
                 attLastQuarter = null;
                 return attLastQuarter;
@@ -66,6 +86,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         public clsDoubleLinkedNode<T> opGetMiddle()
         {
             if (attItems == null)
+            {
+                attMiddle = null;
+                return attMiddle;
+            }
+            if (attLength == 0)
             {
                 attMiddle = null;
                 return attMiddle;
