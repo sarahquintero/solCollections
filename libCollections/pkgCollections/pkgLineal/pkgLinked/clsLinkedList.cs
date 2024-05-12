@@ -56,10 +56,16 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         }
         public bool opRemove(int prmIdx, ref T prmItem)
         {
-            if (prmIdx < 0 && prmIdx == attLength)
+            if (prmIdx < 0)
             {
                 attMiddle.opSetItem(attItems[(attLength/2) - 1]);
                 attLastQuarter.opSetItem(attItems[(attLength/2)]);
+                return false;
+            }
+            if (prmIdx == attLength)
+            {
+                attMiddle.opSetItem(attItems[(attLength / 2) - 1]);
+                attLastQuarter.opSetItem(attItems[(attLength / 2)]);
                 return false;
             }
             if (attItems == null) return false;
