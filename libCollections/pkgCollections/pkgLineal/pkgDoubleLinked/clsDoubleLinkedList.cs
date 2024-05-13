@@ -7,11 +7,14 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
 {
     public class clsDoubleLinkedList<T> : clsADTDoubleLinked<T>, iList<T> where T : IComparable<T>
     {
+        #region Builders
         public clsDoubleLinkedList()
         {
             attLength = 0;
             attItems = null;
-        }
+        } 
+        #endregion
+        #region CRUDs
         public bool opAdd(T prmItem)
         {
             clsDoubleLinkedNode<T> newNode = new clsDoubleLinkedNode<T>(prmItem);
@@ -64,14 +67,14 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
             attItems = prmArray;
             attMiddle.opSetItem(attItems[attLength / 2]);
             attLastQuarter = attMiddle;
-            attFirstQuarter.opSetItem(attItems[attLength/4]);
+            attFirstQuarter.opSetItem(attItems[attLength / 4]);
             attLast.opSetItem(attItems[2]);
             return true;
         }
         public override bool opRetrieve(int prmIdx, ref T prmItem)
         {
             if (attItems == null) return false;
-            if (prmIdx < 0 || prmIdx == attLength) 
+            if (prmIdx < 0 || prmIdx == attLength)
             {
                 attMiddle.opSetItem(attItems[(attItems.Length / 2) - 1]);
                 attLastQuarter.opSetItem(attItems[attItems.Length - 2]);
@@ -81,7 +84,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
             attMiddle.opSetItem(attItems[(attItems.Length / 2) - 1]);
             attLastQuarter.opSetItem(attItems[attItems.Length - 2]);
             return true;
-        }
-        public T opGetItemAtIndex() { return attItems[2]; }
+        } 
+        #endregion
     }
 }

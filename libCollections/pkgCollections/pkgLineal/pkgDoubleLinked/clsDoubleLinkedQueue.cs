@@ -7,11 +7,13 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
 {
     public class clsDoubleLinkedQueue<T> : clsADTDoubleLinked<T>, iQueue<T> where T : IComparable<T>
     {
+        #region Builders
         public clsDoubleLinkedQueue()
         {
             attLength = 0;
             attItems = null;
-        }
+        } 
+        #endregion
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
