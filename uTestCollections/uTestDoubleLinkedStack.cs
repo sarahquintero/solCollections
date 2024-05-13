@@ -57,7 +57,7 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyStack.opPush(456));
-            Assert.AreEqual(2, testMyStack.opGetLength());
+            Assert.AreEqual(5, testMyStack.opGetLength());
             Assert.IsFalse(testMyStack.opItsOrderedAscending());
             Assert.IsFalse(testMyStack.opItsOrderedDescending());
             CollectionAssert.AreEqual(testExpectedItems, testMyStack.opToArray());

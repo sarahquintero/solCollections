@@ -155,7 +155,6 @@ namespace uTestCollections
             #endregion
             #region Test & Assert
             Assert.IsTrue(testMyQueue.opPeek(ref testExpectedItem));
-            //Assert.AreEqual(4, testMyQueue.opGetItemAtIndex());
             Assert.AreEqual(1, testExpectedItem);
             Assert.AreEqual(4, testMyQueue.opGetLength());
             Assert.IsFalse(testMyQueue.opItsOrderedAscending());
@@ -164,7 +163,7 @@ namespace uTestCollections
             Assert.AreEqual(1, testMyQueue.opGetFirst().opGetItem());
             Assert.AreEqual(2, testMyQueue.opGetFirstQuarter().opGetItem());
             Assert.AreEqual(3, testMyQueue.opGetMiddle().opGetItem());
-            Assert.AreEqual(3, testMyQueue.opGetLastQuarter().opGetItem());
+            Assert.AreEqual(4, testMyQueue.opGetLastQuarter().opGetItem());
             Assert.AreEqual(4, testMyQueue.opGetLast().opGetItem());
             #endregion
         }
@@ -173,7 +172,7 @@ namespace uTestCollections
         {
             #region Setup
             testMyQueue = new clsDoubleLinkedQueue<int>();
-            testExpectedItems = new int[100];
+            testExpectedItems = null;
             testExpectedItem = default;
             #endregion
             #region Test & Assert

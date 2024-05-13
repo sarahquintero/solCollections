@@ -32,7 +32,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             catch
             {
                 attTotalCapacity = 100;
-                attMaxCapacity = int.MaxValue / 16;
+                attMaxCapacity = int.MaxValue / 32;
                 attItems = new T[100];
                 attItsFlexible = false;
                 attGrowingFactor = 100;

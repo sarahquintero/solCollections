@@ -19,8 +19,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
         {
             if (attItems == null)
             {
-                T[] prmArray = new T[100];
-                attItems = prmArray;
                 return false;
             }
             prmItem = attItems[0];
@@ -39,7 +37,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
             attItems = prmArray;
             attFirstQuarter.opSetItem(attItems[attLength / 4]);
             attLastQuarter.opSetItem(attItems[1]);
-            attLast.opSetItem(attItems[attLength - 1]);
+            //attLast.opSetItem(attItems[attLength - 1]);
             return true;
         }
         public bool opPush(T prmItem)
