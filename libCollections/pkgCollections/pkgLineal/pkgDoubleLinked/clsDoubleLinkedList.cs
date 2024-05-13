@@ -12,7 +12,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
         {
             attLength = 0;
             attItems = null;
-        } 
+        }
         #endregion
         #region CRUDs
         public bool opAdd(T prmItem)
@@ -38,14 +38,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
             if (attItems == null) return false;
             if (prmIdx < 0)
             {
-                attMiddle.opSetItem(attItems[(attLength / 2) - 1]);
-                attLastQuarter.opSetItem(attItems[(attLength / 2)]);
                 return false;
             }
             if (prmIdx == attLength)
             {
-                attMiddle.opSetItem(attItems[(attLength / 2) - 1]);
-                attLastQuarter.opSetItem(attItems[(attLength / 2)]);
                 return false;
             }
             attLength--;
@@ -63,7 +59,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
                     prmArray[i - 1] = attItems[i];
                 }
             }
-            attLength = prmIdx;
             attItems = prmArray;
             attMiddle.opSetItem(attItems[attLength / 2]);
             attLastQuarter = attMiddle;
@@ -76,15 +71,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
             if (attItems == null) return false;
             if (prmIdx < 0 || prmIdx == attLength)
             {
-                attMiddle.opSetItem(attItems[(attItems.Length / 2) - 1]);
-                attLastQuarter.opSetItem(attItems[attItems.Length - 2]);
                 return false;
             }
             prmItem = attItems[prmIdx];
-            attMiddle.opSetItem(attItems[(attItems.Length / 2) - 1]);
-            attLastQuarter.opSetItem(attItems[attItems.Length - 2]);
             return true;
-        } 
+        }
         #endregion
     }
 }

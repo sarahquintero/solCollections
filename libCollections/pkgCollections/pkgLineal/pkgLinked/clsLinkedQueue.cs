@@ -41,20 +41,12 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
         #region CRUDs
         public bool opPeek(ref T prmItem)
         {
-            /*if (attLength == 0)
-            {
-                prmItem = default;
-                return false;
-            }*/
             if (attItems == null)
             {
-                T[] prmArray = new T[100];
-                attItems = prmArray;
                 return false;
             }
             prmItem = attItems[0];
             attMiddle.opSetItem(attItems[attLength / 2]);
-            attLastQuarter.opSetItem(attMiddle.opGetItem());
             return true;
         }
         public bool opPop(ref T prmItem)

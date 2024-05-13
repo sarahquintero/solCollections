@@ -95,8 +95,8 @@ namespace uTestCollections
             CollectionAssert.AreEqual(testExpectedItems, testMyList.opToArray());
             Assert.AreEqual(1, testMyList.opGetFirst().opGetItem());
             Assert.AreEqual(2, testMyList.opGetFirstQuarter().opGetItem());
-            Assert.AreEqual(2, testMyList.opGetMiddle().opGetItem());
-            Assert.AreEqual(3, testMyList.opGetLastQuarter().opGetItem());
+            Assert.AreEqual(3, testMyList.opGetMiddle().opGetItem());
+            Assert.AreEqual(4, testMyList.opGetLastQuarter().opGetItem());
             Assert.AreEqual(4, testMyList.opGetLast().opGetItem());
             #endregion
         }
@@ -119,8 +119,8 @@ namespace uTestCollections
             CollectionAssert.AreEqual(testExpectedItems, testMyList.opToArray());
             Assert.AreEqual(1, testMyList.opGetFirst().opGetItem());
             Assert.AreEqual(2, testMyList.opGetFirstQuarter().opGetItem());
-            Assert.AreEqual(2, testMyList.opGetMiddle().opGetItem());
-            Assert.AreEqual(3, testMyList.opGetLastQuarter().opGetItem());
+            Assert.AreEqual(3, testMyList.opGetMiddle().opGetItem());
+            Assert.AreEqual(4, testMyList.opGetLastQuarter().opGetItem());
             Assert.AreEqual(4, testMyList.opGetLast().opGetItem());
             #endregion
         }
@@ -158,7 +158,7 @@ namespace uTestCollections
             #region Test & Assert
             Assert.IsTrue(testMyList.opRemove(2, ref testExpectedItem));
             Assert.AreEqual(3, testExpectedItem);
-            Assert.AreEqual(2, testMyList.opGetLength());
+            Assert.AreEqual(3, testMyList.opGetLength());
             Assert.IsFalse(testMyList.opItsOrderedAscending());
             Assert.IsFalse(testMyList.opItsOrderedDescending());
             CollectionAssert.AreEqual(testExpectedItems, testMyList.opToArray());
@@ -211,8 +211,8 @@ namespace uTestCollections
             CollectionAssert.AreEqual(testExpectedItems, testMyList.opToArray());
             Assert.AreEqual(1, testMyList.opGetFirst().opGetItem());
             Assert.AreEqual(2, testMyList.opGetFirstQuarter().opGetItem());
-            Assert.AreEqual(2, testMyList.opGetMiddle().opGetItem());
-            Assert.AreEqual(3, testMyList.opGetLastQuarter().opGetItem());
+            Assert.AreEqual(3, testMyList.opGetMiddle().opGetItem());
+            Assert.AreEqual(4, testMyList.opGetLastQuarter().opGetItem());
             Assert.AreEqual(4, testMyList.opGetLast().opGetItem());
             #endregion
         }
@@ -234,8 +234,8 @@ namespace uTestCollections
             CollectionAssert.AreEqual(testExpectedItems, testMyList.opToArray());
             Assert.AreEqual(1, testMyList.opGetFirst().opGetItem());
             Assert.AreEqual(2, testMyList.opGetFirstQuarter().opGetItem());
-            Assert.AreEqual(2, testMyList.opGetMiddle().opGetItem());
-            Assert.AreEqual(3, testMyList.opGetLastQuarter().opGetItem());
+            Assert.AreEqual(3, testMyList.opGetMiddle().opGetItem());
+            Assert.AreEqual(4, testMyList.opGetLastQuarter().opGetItem());
             Assert.AreEqual(4, testMyList.opGetLast().opGetItem());
             #endregion
         }
@@ -257,8 +257,8 @@ namespace uTestCollections
             CollectionAssert.AreEqual(testExpectedItems, testMyList.opToArray());
             Assert.AreEqual(1, testMyList.opGetFirst().opGetItem());
             Assert.AreEqual(2, testMyList.opGetFirstQuarter().opGetItem());
-            Assert.AreEqual(2, testMyList.opGetMiddle().opGetItem());
-            Assert.AreEqual(3, testMyList.opGetLastQuarter().opGetItem());
+            Assert.AreEqual(3, testMyList.opGetMiddle().opGetItem());
+            Assert.AreEqual(4, testMyList.opGetLastQuarter().opGetItem());
             Assert.AreEqual(4, testMyList.opGetLast().opGetItem());
             #endregion
         }
