@@ -38,6 +38,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             }
         }
         #endregion
+        #region CRUDs
         public bool opPeek(ref T prmItem)
         {
             if (attLength == 0)
@@ -86,16 +87,16 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attLength++;
             T[] prmArray = new T[attLength];
             prmArray[0] = newNode.opGetItem();
-            for (int i = 0; i < attLength - 1; i++)
+            for (int i = 1; i <= attLength; i++)
             {
-                prmArray[i + 1] = attItems[i];
+                prmArray[i] = attItems[i - 1];
             }
             attItems = prmArray;
             attMiddle.opSetItem(attItems[attLength / 2]);
             attLastQuarter.opSetItem(attItems[(attLength / 2) + (attLength / 4)]);
             attFirst = newNode;
             return true;
-        }
-
+        } 
+        #endregion
     }
 }

@@ -104,6 +104,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attLastQuarter.opSetItem(attItems[0]);
                 return attLastQuarter;
             }
+            if (attLastQuarter != null) return attLastQuarter;
             if (attLength == attItems.Length)
             {
                 attLast.opSetItem(attItems[attLength/2]);

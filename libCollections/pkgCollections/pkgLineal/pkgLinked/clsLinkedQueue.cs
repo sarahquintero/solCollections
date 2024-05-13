@@ -7,6 +7,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
 {
     public class clsLinkedQueue<T> : clsADTLinked<T>, iQueue<T> where T : IComparable<T>
     {
+        #region Builders
         public clsLinkedQueue()
         {
             attLength = 0;
@@ -35,7 +36,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 attMaxCapacity = int.MaxValue / 16;
                 attItems = new T[100];
             }
-        }
+        } 
+        #endregion
+        #region CRUDs
         public bool opPeek(ref T prmItem)
         {
             /*if (attLength == 0)
@@ -94,7 +97,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attItems = prmArray;
             attFirst = newNode;
             return true;
-        }
+        } 
+        #endregion
     }
 
 }
