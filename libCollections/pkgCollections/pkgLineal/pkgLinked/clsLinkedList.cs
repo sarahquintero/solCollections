@@ -7,6 +7,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
 {
     public class clsLinkedList<T> : clsADTLinked<T>, iList<T> where T : IComparable<T>
     {
+        #region Builders
         public clsLinkedList()
         {
             attLength = 0;
@@ -37,6 +38,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                 attItems = new T[100];
             }
         }
+        #endregion
+        #region CRUDs
         public bool opAdd(T prmItem)
         {
             clsLinkedNode<T> newNode = new clsLinkedNode<T>(prmItem);
@@ -105,6 +108,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attLastQuarter.opSetItem(attItems[attItems.Length - 2]);
             if (attItems == null) return false;
             return true;
-        }
+        } 
+        #endregion
     }
 }
