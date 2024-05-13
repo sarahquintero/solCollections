@@ -77,9 +77,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
             }
             attItems = array;
             attLength++;
-            attFirstQuarter.opSetItem(attItems[attLength/2]);
+            attFirstQuarter.opSetItem(attItems[(attLength/2)-1]);
             attMiddle.opSetItem(attItems[attLength / 2]);
-            attLastQuarter.opSetItem(attItems[(attLength / 2) + (attLength / 4)]);
+            //attLast.opSetItem(attItems[attLength - 1]);
+            attLastQuarter.opSetItem(attItems[attLength - 2]);
             attFirst = newNode;
             attLength = attLength / 2;
             return true;

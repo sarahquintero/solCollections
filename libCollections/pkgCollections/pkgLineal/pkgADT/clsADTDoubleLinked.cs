@@ -83,6 +83,11 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 attLast.opSetItem(attItems[attLength - 1]);
             }
+            if (attLength == attItems.Length / 2)
+            {
+                attLast.opSetItem(attItems[attItems.Length - 1]);
+                return attLast;
+            }
             if (attLast != null) return attLast;
             attLast.opSetItem(attItems[attLength - 1]);
             return attLast;

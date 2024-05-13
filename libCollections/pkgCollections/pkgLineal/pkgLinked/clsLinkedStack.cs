@@ -87,7 +87,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attLength++;
             T[] prmArray = new T[attLength];
             prmArray[0] = newNode.opGetItem();
-            for (int i = 1; i <= attLength; i++)
+            for (int i = 1; i <= attLength - 1; i++)
             {
                 prmArray[i] = attItems[i - 1];
             }
@@ -96,7 +96,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             attLastQuarter.opSetItem(attItems[(attLength / 2) + (attLength / 4)]);
             attFirst = newNode;
             return true;
-        } 
+        }
         #endregion
     }
 }
