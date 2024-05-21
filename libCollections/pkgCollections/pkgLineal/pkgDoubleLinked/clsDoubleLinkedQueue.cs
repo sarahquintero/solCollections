@@ -19,8 +19,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
         {
             if (attItems == null)
             {
-                T[] prmArray = new T[100];
-                attItems = prmArray;
                 return false;
             }
             attLastQuarter.opSetItem(attItems[attLength-2]);

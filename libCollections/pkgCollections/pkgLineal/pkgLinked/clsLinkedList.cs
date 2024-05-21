@@ -63,14 +63,10 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             if (attItems == null) return false;
             if (prmIdx < 0)
             {
-                attMiddle.opSetItem(attItems[(attLength / 2) - 1]);
-                attLastQuarter.opSetItem(attItems[(attLength / 2)]);
                 return false;
             }
             if (prmIdx == attLength)
             {
-                attMiddle.opSetItem(attItems[(attLength / 2) - 1]);
-                attLastQuarter.opSetItem(attItems[(attLength / 2)]);
                 return false;
             }
             attLength--;
@@ -88,10 +84,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
                     prmArray[i - 1] = attItems[i];
                 }
             }
-            attLength = prmIdx;
             attItems = prmArray;
             attMiddle.opSetItem(attItems[attLength / 2]);
-            attLastQuarter.opSetItem(attItems[attLength - 1]);
+            attLastQuarter.opSetItem(attItems[attLength / 2]);
             return true;
         }
         public override bool opRetrieve(int prmIdx, ref T prmItem)
@@ -99,14 +94,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgLinked
             if (attItems == null) return false;
             if (prmIdx < 0 || prmIdx == attLength)
             {
-                attMiddle.opSetItem(attItems[(attItems.Length / 2) - 1]);
-                attLastQuarter.opSetItem(attItems[attItems.Length - 2]);
                 return false;
             }
             prmItem = attItems[1];
-            attMiddle.opSetItem(attItems[(attItems.Length / 2) - 1]);
-            attLastQuarter.opSetItem(attItems[attItems.Length - 2]);
-            if (attItems == null) return false;
             return true;
         } 
         #endregion

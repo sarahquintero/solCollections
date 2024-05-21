@@ -83,7 +83,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgVector
             if (attLength == 0) return false;
             if (prmIdx < 0 || prmIdx == attLength)
             {
-                attLength--;
                 return false;
             }
             prmItem = attItems[prmIdx];
