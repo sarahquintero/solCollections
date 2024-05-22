@@ -1,7 +1,6 @@
 ﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using pkgServices.pkgCollections.pkgLineal.pkgIterators;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgADT
@@ -230,17 +229,82 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                     attItems = null;
                     return false;
                 }
-                int lenght = attLength;
+                attItems = this.opToArray();
+                int length = attLength;
+                for (int i = 0; i < length - 1; i++)
+                {
+                    bool swapped = false;
+                    for (int j = i; j < length - i - 1; j++)
+                    {
+                        if (attItems[j].CompareTo(attItems[j + 1]) > 0)
+                        {
+                            T temp = attItems[j];
+                            attItems[j] = attItems[j + 1];
+                            attItems[j + 1] = temp;
+                            swapped = true;
+                        }
+                    }
+                    if (!swapped) break;
+
+                    swapped = false;
+                    for (int j = length - i - 2; j > i; j--)
+                    {
+                        if (attItems[j].CompareTo(attItems[j - 1]) < 0)
+                        {
+                            T temp = attItems[j];
+                            attItems[j] = attItems[j - 1];
+                            attItems[j - 1] = temp;
+                            swapped = true;
+                        }
+                    }
+                    if (!swapped) break;
+                }
+                this.opToItems(attItems, attLength);
+                attItsOrderedAscending = true;
+                return true;
             }
-            else 
+            else
             {
-                if (attLength == 0) 
-                { 
+                if (attLength == 0)
+                {
                     attItems = null;
                     return false;
                 }
+                attItems = this.opToArray();
+                int lenght = attLength;
+                int length = attLength;
+                for (int i = 0; i < length - 1; i++)
+                {
+                    bool swapped = false;
+                    for (int j = i; j < length - i - 1; j++)
+                    {
+                        if (attItems[j].CompareTo(attItems[j + 1]) < 0)
+                        {
+                            T temp = attItems[j];
+                            attItems[j] = attItems[j + 1];
+                            attItems[j + 1] = temp;
+                            swapped = true;
+                        }
+                    }
+                    if (!swapped) break;
+
+                    swapped = false;
+                    for (int j = length - i - 2; j > i; j--)
+                    {
+                        if (attItems[j].CompareTo(attItems[j - 1]) > 0)
+                        {
+                            T temp = attItems[j];
+                            attItems[j] = attItems[j - 1];
+                            attItems[j - 1] = temp;
+                            swapped = true;
+                        }
+                    }
+                    if (!swapped) break;
+                }
+                this.opToItems(attItems, attLength);
+                attItsOrderedDescending = true;
+                return true;
             }
-            return false;
         }
         public bool opInsertSort(bool prmByAscending)
         {
