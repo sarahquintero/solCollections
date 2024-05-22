@@ -1,13 +1,12 @@
 ﻿using pkgServices.pkgCollections.pkgLineal.pkgInterfaces;
 using pkgServices.pkgCollections.pkgLineal.pkgIterators;
-using pkgServices.pkgCollections.pkgLineal.pkgLinked;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace pkgServices.pkgCollections.pkgLineal.pkgADT
 {
-    public class clsADTLineal<T>: clsIterator<T>, iADTLineal<T> where T : IComparable<T>
+    public class clsADTLineal<T> : clsIterator<T>, iADTLineal<T> where T : IComparable<T>
     {
         #region Attributes
         protected int attTotalCapacity = 100;
@@ -25,7 +24,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             try
             {
                 if (attLength < 0) attLength = 0;
-                T[]attItems = new T[attLength];
+                T[] attItems = new T[attLength];
             }
             catch
             {
@@ -53,6 +52,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         public bool opItsOrderedAscending()
         {
             if (attItems == null) return false;
+            if (opBubbleSort(true)) return true;
             if (attItems.All(item => item.Equals(default(T))))
             {
                 return false;
@@ -124,7 +124,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 return null;
             }
-            if (attLength == 0) 
+            if (attLength == 0)
             {
                 T[] prmArray = new T[100];
                 for (int i = 0; i < 100; i++)
@@ -133,7 +133,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 }
                 return prmArray;
             }
-            if(attLength ==  attItems.Length/2)
+            if (attLength == attItems.Length / 2)
             {
                 T[] prmarray = new T[attItems.Length];
                 for (int i = 0; i < attItems.Length; i++)
@@ -144,8 +144,8 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             }
             if (attLength != attItems.Length)
             {
-                T[] array = new T[attLength+1];
-                for (int i = 0; i < attLength+1; i++)
+                T[] array = new T[attLength + 1];
+                for (int i = 0; i < attLength + 1; i++)
                 {
                     array[i] = attItems[i];
                 }
@@ -164,13 +164,15 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public virtual bool opToItems(T[] prmArray)
         {
-            throw new NotImplementedException();
+            attItems = prmArray;
+            return true;
         }
         public virtual bool opToItems(T[] prmArray, int prmItemsCount)
         {
-            throw new NotImplementedException();
+            attLength = prmItemsCount;
+            attItems = prmArray;
+            return true;
         }
-        //bool opToItems(T[] prmArray, bool prmItsOrderedAscending);
         #endregion
         #region CRUDs
         public virtual bool opModify(int prmIdx, T prmItem)
@@ -211,11 +213,38 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             throw new NotImplementedException();
         }
         #endregion
-
         #region Sorting
         public bool opBubbleSort(bool prmByAscending)
         {
-            throw new NotImplementedException();
+            if (prmByAscending)
+            {
+                if (attLength == 0)
+                {
+                    attItems = null;
+                    return false;
+                }
+                int lenght = attLength;
+                attItems = this.opToArray();
+                for (int i = 0; i < attLength - 1; i++)
+                {
+                    for (int j = 0; j < lenght - i - 1; j++)
+                    {
+                        if (attItems[j].CompareTo(attItems[j + 1]) > 0)
+                        {
+                            T temp = attItems[j];
+                            attItems[j] = attItems[j + 1];
+                            attItems[j + 1] = temp;
+                        }
+                    }
+                }
+                this.opToItems(attItems, attLength);
+            }
+            else
+            {
+                attItems = null;
+                return false;
+            }
+            return true;
         }
         public bool opCocktailSort(bool prmByAscending)
         {
@@ -232,7 +261,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         public bool opQuickSort(bool prmByAscending)
         {
             throw new NotImplementedException();
-        } 
+        }
         #endregion
         #endregion
     }

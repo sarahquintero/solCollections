@@ -21,7 +21,7 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
             {
                 return false;
             }
-            attLastQuarter.opSetItem(attItems[attLength-2]);
+            //attLastQuarter.opSetItem(attItems[attLength-1]);
             prmItem = attItems[0];
             return true;
         }
