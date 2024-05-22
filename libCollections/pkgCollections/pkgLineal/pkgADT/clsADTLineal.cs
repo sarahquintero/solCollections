@@ -52,58 +52,20 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         public bool opItsOrderedAscending()
         {
             if (attItems == null) return false;
-            if (opBubbleSort(true)) return true;
-            if (attItems.All(item => item.Equals(default(T))))
+            if (opBubbleSort(true) == true) return true;
+            if (opBubbleSort(false) == true)
             {
                 return false;
             }
-            HashSet<T> uniqueElements = new HashSet<T>();
-            for (int i = 0; i < attLength; i++)
+            else 
             {
-                if (EqualityComparer<T>.Default.Equals(attItems[i], default(T)))
-                {
-                    return false;
-                }
-                if (!uniqueElements.Add(attItems[i]))
-                {
-                    return false;
-                }
+                return true;
             }
-            for (int i = 1; i < attLength; i++)
-            {
-                if (Comparer<T>.Default.Compare(attItems[i], attItems[i - 1]) <= 0)
-                {
-                    return false;
-                }
-            }
-            return false;
+            
         }
         public bool opItsOrderedDescending()
         {
             if (attItems == null) return false;
-            if (attItems.All(item => item.Equals(default(T))))
-            {
-                return false;
-            }
-            HashSet<T> uniqueElements = new HashSet<T>();
-            for (int i = 0; i < attLength; i++)
-            {
-                if (EqualityComparer<T>.Default.Equals(attItems[i], default(T)))
-                {
-                    return false;
-                }
-                if (!uniqueElements.Add(attItems[i]))
-                {
-                    return false;
-                }
-            }
-            for (int i = 1; i < attLength; i++)
-            {
-                if (Comparer<T>.Default.Compare(attItems[i], attItems[i - 1]) >= 0)
-                {
-                    return false;
-                }
-            }
             return false;
         }
         #endregion
@@ -238,13 +200,15 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                     }
                 }
                 this.opToItems(attItems, attLength);
+                return true;
             }
             else
             {
+                if (attLength != 0) return true;
                 attItems = null;
                 return false;
             }
-            return true;
+            return false;
         }
         public bool opCocktailSort(bool prmByAscending)
         {
