@@ -193,7 +193,6 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 }
                 this.opToItems(attItems, attLength);
                 attItsOrderedAscending = true;
-                attItsOrderedDescending = false;
                 return true;
             }
             else
@@ -218,14 +217,30 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                     }
                 }
                 this.opToItems(attItems, attLength);
-                attItsOrderedAscending = false;
                 attItsOrderedDescending = true;
                 return true;
             }
         }
         public bool opCocktailSort(bool prmByAscending)
         {
-            throw new NotImplementedException();
+            if (prmByAscending)
+            {
+                if (attLength == 0)
+                {
+                    attItems = null;
+                    return false;
+                }
+                int lenght = attLength;
+            }
+            else 
+            {
+                if (attLength == 0) 
+                { 
+                    attItems = null;
+                    return false;
+                }
+            }
+            return false;
         }
         public bool opInsertSort(bool prmByAscending)
         {
