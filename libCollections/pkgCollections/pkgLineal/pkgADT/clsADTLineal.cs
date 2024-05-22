@@ -52,59 +52,13 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         public bool opItsOrderedAscending()
         {
             if (attItems == null) return false;
-            if (opBubbleSort(true)) return true;
-            if (attItems.All(item => item.Equals(default(T))))
-            {
-                return false;
-            }
-            HashSet<T> uniqueElements = new HashSet<T>();
-            for (int i = 0; i < attLength; i++)
-            {
-                if (EqualityComparer<T>.Default.Equals(attItems[i], default(T)))
-                {
-                    return false;
-                }
-                if (!uniqueElements.Add(attItems[i]))
-                {
-                    return false;
-                }
-            }
-            for (int i = 1; i < attLength; i++)
-            {
-                if (Comparer<T>.Default.Compare(attItems[i], attItems[i - 1]) <= 0)
-                {
-                    return false;
-                }
-            }
-            return false;
+            return attItsOrderedAscending;
+
         }
         public bool opItsOrderedDescending()
         {
             if (attItems == null) return false;
-            if (attItems.All(item => item.Equals(default(T))))
-            {
-                return false;
-            }
-            HashSet<T> uniqueElements = new HashSet<T>();
-            for (int i = 0; i < attLength; i++)
-            {
-                if (EqualityComparer<T>.Default.Equals(attItems[i], default(T)))
-                {
-                    return false;
-                }
-                if (!uniqueElements.Add(attItems[i]))
-                {
-                    return false;
-                }
-            }
-            for (int i = 1; i < attLength; i++)
-            {
-                if (Comparer<T>.Default.Compare(attItems[i], attItems[i - 1]) >= 0)
-                {
-                    return false;
-                }
-            }
-            return false;
+            return attItsOrderedDescending;
         }
         #endregion
         #region Getters
@@ -238,13 +192,36 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                     }
                 }
                 this.opToItems(attItems, attLength);
+                attItsOrderedAscending = true;
+                attItsOrderedDescending = false;
+                return true;
             }
             else
             {
-                attItems = null;
-                return false;
+                if (attLength == 0)
+                {
+                    attItems = null;
+                    return false;
+                }
+                int lenght = attLength;
+                attItems = this.opToArray();
+                for (int i = 0; i < lenght - 1; i++)
+                {
+                    for (int j = 0; j < lenght - i - 1; j++)
+                    {
+                        if (attItems[j].CompareTo(attItems[j + 1]) < 0)
+                        {
+                            T temp = attItems[j];
+                            attItems[j] = attItems[j + 1];
+                            attItems[j + 1] = temp;
+                        }
+                    }
+                }
+                this.opToItems(attItems, attLength);
+                attItsOrderedAscending = false;
+                attItsOrderedDescending = true;
+                return true;
             }
-            return true;
         }
         public bool opCocktailSort(bool prmByAscending)
         {
