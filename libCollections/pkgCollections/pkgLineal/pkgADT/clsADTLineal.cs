@@ -210,7 +210,30 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         {
             throw new NotImplementedException();
         }
-        #endregion 
+        #endregion
+
+        #region Sorting
+        public bool opBubbleSort(bool prmByAscending)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opCocktailSort(bool prmByAscending)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opInsertSort(bool prmByAscending)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opMergeSort(bool prmByAscending)
+        {
+            throw new NotImplementedException();
+        }
+        public bool opQuickSort(bool prmByAscending)
+        {
+            throw new NotImplementedException();
+        } 
+        #endregion
         #endregion
     }
 }

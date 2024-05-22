@@ -70,6 +70,5 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgDoubleLinked
             return true;
         }
         #endregion
-        public T opGetItemAtIndex() { return attLast.opGetItem(); }//return attItems[3];
     }
 }
