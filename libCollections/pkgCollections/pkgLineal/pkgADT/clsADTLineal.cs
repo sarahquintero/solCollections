@@ -308,7 +308,34 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
         }
         public bool opInsertSort(bool prmByAscending)
         {
-            throw new NotImplementedException();
+            {
+                if (attItems == null || attLength <= 1)
+                {
+
+                    attItems = null;
+                    return false;
+                }
+
+                for (int i = 1; i < attLength; i++)
+                {
+                    T key = attItems[i];
+                    int j = i - 1;
+
+                    while (j >= 0 && ((prmByAscending && attItems[j].CompareTo(key) > 0) ||
+                                      (!prmByAscending && attItems[j].CompareTo(key) < 0)))
+                    {
+                        attItems[j + 1] = attItems[j];
+                        j--;
+                    }
+
+                    attItems[j + 1] = key;
+                }
+
+                this.opToItems(attItems, attLength);
+                attItsOrderedAscending = prmByAscending;
+                attItsOrderedDescending = !prmByAscending;
+                return true;
+            }
         }
         public bool opMergeSort(bool prmByAscending)
         {
