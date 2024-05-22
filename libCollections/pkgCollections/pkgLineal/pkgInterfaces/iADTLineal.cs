@@ -25,8 +25,14 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgInterfaces
         #region CRUDs
         bool opModify(int prmIdx, T prmItem);
         bool opRetrieve(int prmIdx, ref T prmItem);
-        //bool opSetCapacity(int prmValue);
-        #endregion 
+        #endregion
+        #region Sorting
+        bool opBubbleSort(bool prmByAscending);
+        bool opCocktailSort(bool prmByAscending);
+        bool opInsertSort(bool prmByAscending);
+        bool opMergeSort(bool prmByAscending);
+        bool opQuickSort(bool prmByAscending); 
+        #endregion
         #endregion
     }
 }
