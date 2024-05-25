@@ -309,14 +309,14 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             {
                 T key = attItems[i];
                 int j = i - 1;
-                while (j >= 0 && ((prmByAscending && attItems[j].CompareTo(key) > 0) ||
-                                  (!prmByAscending && attItems[j].CompareTo(key) < 0)))
-
+                while (j >= 0 && ((prmByAscending && attItems[j].CompareTo(key) > 0) || (!prmByAscending && attItems[j].CompareTo(key) < 0)))
+                {
                     while (j >= 0 && ((prmByAscending && attItems[j].CompareTo(key) > 0) || (!prmByAscending && attItems[j].CompareTo(key) < 0)))
                     {
                         attItems[j + 1] = attItems[j];
                         j--;
                     }
+                }
                 attItems[j + 1] = key;
             }
             this.opToItems(attItems, attLength);
