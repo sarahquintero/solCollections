@@ -324,38 +324,9 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
             attItsOrderedDescending = !prmByAscending;
             return true;
         }
-
-        private void Swap(T[] attItems, int i, int j)
+        public bool opMergeSort(bool prmByAscending)
         {
-            T temp = attItems[i];
-            attItems[i] = attItems[j];
-            attItems[j] = temp;
-        }
-
-        private int Partition(T[] attItems, int low, int high, bool ascending)
-        {
-            T pivot = attItems[high];
-            int i = (low - 1);
-
-            for (int j = low; j < high; j++)
-            {
-                if ((ascending && attItems[j].CompareTo(pivot) < 0) || (!ascending && attItems[j].CompareTo(pivot) > 0))
-                {
-                    i++;
-                    Swap(attItems, i, j);
-                }
-            }
-            Swap(attItems, i + 1, high);
-            return i + 1;
-        }
-        private void QuickSort(T[] attItems, int low, int high, bool ascending)
-        {
-            if (low < high)
-            {
-                int partition = Partition(attItems, low, high, ascending);
-                QuickSort(attItems, low, partition - 1, ascending);
-                QuickSort(attItems, partition + 1, high, ascending);
-            }
+            throw new NotImplementedException();
         }
         public bool opQuickSort(bool prmByAscending)
         {
@@ -364,11 +335,41 @@ namespace pkgServices.pkgCollections.pkgLineal.pkgADT
                 attItems = null;
                 return false;
             }
-            QuickSort(attItems, 0, attLength - 1, prmByAscending);
-            this.opToItems(attItems, attLength);
-            attItsOrderedAscending = prmByAscending;
-            attItsOrderedDescending = !prmByAscending;
+            opQuickSortHelper(prmByAscending, 0, attLength - 1);
+            if (prmByAscending) attItsOrderedAscending = true;
+            else attItsOrderedDescending = true;
             return true;
+        }
+        private void opQuickSortHelper(bool prmByAscending, int low, int high)
+        {
+            int i = low;
+            int j = high;
+            T pivot = attItems[(low + high) / 2];
+            do
+            {
+                if (prmByAscending)
+                {
+                    while (attItems[i].CompareTo(pivot) < 0) i++;
+                    while (attItems[j].CompareTo(pivot) > 0) j--;
+                }
+                else
+                {
+                    while (attItems[i].CompareTo(pivot) > 0) i++;
+                    while (attItems[j].CompareTo(pivot) < 0) j--;
+                }
+
+                if (i <= j)
+                {
+                    T temp = attItems[i];
+                    attItems[i] = attItems[j];
+                    attItems[j] = temp;
+                    i++;
+                    j--;
+                }
+            } while (i <= j);
+
+            if (low < j) opQuickSortHelper(prmByAscending, low, j);
+            if (i < high) opQuickSortHelper(prmByAscending, i, high);
         }
         #endregion
         #endregion
